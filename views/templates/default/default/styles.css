@@ -1,0 +1,61 @@
+body {
+	font-size: 12px;
+}
+.footer {
+	padding: 10px 10px 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+label {
+	display: block;
+}
+input[type='text'] {
+	width: 100%;
+}
+.formfield {
+	margin-top: 5px;
+}
+.flex-control-thumbs li {
+	width: 20%!important;
+}
+.flex-control-thumbs img {
+}
+.input_wrapper img {
+	display: none;
+}
+.input_wrapper.error_container img {
+	display: inline;
+}
+.error_container {
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	border: 1px solid red !important;
+	display: inline-block;
+	zoom: 1;
+ *display:inline;
+	white-space: nowrap;
+}
+.error_container input {
+	margin: 0px;
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+}
+.error_container input, .error_container select {
+	border: 0px;
+}
+.error_container textarea {
+	background: #EDAABD !important;
+}
+.input_wrapper {
+	display: inline-block;
+	zoom: 1;
+*display:inline;
+	white-space: nowrap;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span, .fb-comments div, .fb-post, .fb-post *, .fb-follow, .fb-follow * , .fb-like-box, .fb-like-box *, .fb-like, .fb-like * {
+	width: 100% !important;
+	max-width: 100% !important;
+}

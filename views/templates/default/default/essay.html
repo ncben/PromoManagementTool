@@ -1,0 +1,6 @@
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <% if(typeof description != 'undefined' && description != ''){ %>
+  <span data-role="description"></span>
+  <% } %>
+  <textarea style="height: <%= (typeof height != 'undefined') ? height+'px' : '150px' %>" placeholder="<%= (typeof placeholder != 'undefined') ? placeholder : '' %>" data-required="<%= (typeof required != 'undefined') ? required : 'false' %>" data-min="<%= (typeof min != 'undefined') ? min : '0' %>" data-max="<%= (typeof max != 'undefined') ? max : '' %>" data-limitby="<%= (typeof limitby != 'undefined') ? limitby : ''%>" data-trim="<%= (typeof trim != 'undefined') ? trim : '' %>" data-role="essay"></textarea>
+  <span data-role="counter"><%= (typeof counter != 'undefined') ? ((counter == 'descending') ? max : 0) : ''%></span> </div>

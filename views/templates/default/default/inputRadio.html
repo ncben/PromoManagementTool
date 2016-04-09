@@ -1,0 +1,16 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12' %>">
+  <div class="formfield">
+    <label for="<%- (typeof id != 'undefined') ? id+'0' : '' %>">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <% if (typeof radioData == 'object') {
+	radioData.forEach(function(radio, index) { %>
+    <label>
+    <input id="<%- id+index %>" type="radio" name="<%- name %>" value="<%- radio.value %>">
+    <%- radio.label %>
+    </label>
+    <% }); %>
+    <% }; %>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<script type="text/javascript">
+	var RecaptchaOptions = {
+		theme : 'custom',
+		custom_theme_widget: '<%= (typeof id != 'undefined') ? id : '' %>'
+	};
+	
+	 var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = "https://promocms.dja.com/css/recaptcha_<%= (typeof style!= 'undefined') ? style : 'red' %>.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+
+</script>
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <div class="formfield">
+    <div id="<%= (typeof id != 'undefined') ? id : '' %>" style="display:none" class="recaptcha_widget">
+      <div id="recaptcha_image"></div>
+      <div class="recaptcha_field_wrapper">
+        <div class="recaptcha_input">
+          <label class="recaptcha_only_if_image" for="recaptcha_response_field">Enter the words above:</label>
+          <label class="recaptcha_only_if_audio" for="recaptcha_response_field">Enter the numbers you hear:</label>
+          <input type="text" id="recaptcha_response_field" data-required="true" name="recaptcha_response_field">
+        </div>
+        <ul class="recaptcha_options">
+          <li> <a href="javascript:Recaptcha.reload()"> <span class="glyphicon glyphicon-refresh" style="font-size: .7em;"></span> <span class="captcha_hide">Get another CAPTCHA</span> </a> </li>
+          <li class="recaptcha_only_if_image"> <a href="javascript:Recaptcha.switch_type('audio')"> <span class="glyphicon glyphicon-volume-up" style="font-size: .7em;"></span> <span class="captcha_hide"> Get an audio CAPTCHA</span> </a> </li>
+          <li class="recaptcha_only_if_audio"> <a href="javascript:Recaptcha.switch_type('image')"> <span class="glyphicon glyphicon-font" style="font-size: .7em;"></span> <span class="captcha_hide"> Get an image CAPTCHA</span> </a> </li>
+          <li> <a href="javascript:Recaptcha.showhelp()"> <span class="glyphicon glyphicon-question-sign" style="font-size: .7em;"></span> <span class="captcha_hide"> Help</span> </a> </li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript" src="//www.google.com/recaptcha/api/challenge?k=6LeguQgAAAAAANmZQOilQ8bEAHD4xWG9zvhINLHb"></script>
+    <noscript>
+    <iframe src="//www.google.com/recaptcha/api/noscript?k=6LeguQgAAAAAANmZQOilQ8bEAHD4xWG9zvhINLHb" height="300" width="500" style="border:0; padding:0; margin:0; height:300px; width: 500px;"></iframe>
+    <br>
+    <textarea name="recaptcha_challenge_field"></textarea>
+    <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+    </noscript>
+  </div>
+</div>

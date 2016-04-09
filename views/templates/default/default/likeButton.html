@@ -1,0 +1,55 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12' %>" style="padding:0">
+  <div class="fb-like" data-href="<%- (typeof href != 'undefined' && href != '' && href.trim() != '') ? href : "http://facebook.com/<$$=(typeof like_url_to_trace != 'undefined' && like_url_to_trace != 'null' ? like_url_to_trace : '' ) $$>" %>" data-layout="<%=(typeof layout != 'undefined') ? layout : 'button'  %>" data-action="like" data-show-faces="false" data-share="<%=(typeof style != 'undefined' && style == 'include-share-button') ? 'true' : 'false' %>"></div>
+</div>
+
+<$$ if(typeof is_prelike_page != 'undefined' && is_prelike_page == true){ $$>
+<script>
+
+var like_url_to_trace = "<$$=(typeof like_url_to_trace != 'undefined' && like_url_to_trace != 'null' ? like_url_to_trace : '' ) $$>";
+var app_data = "<$$=(typeof app_data != 'undefined' && app_data != 'null' ? app_data : '' ) $$>";
+var in_tab = "<$$=(typeof in_tab != 'undefined' && in_tab === true ? 'true' : 'false' ) $$>";
+var in_canvas = "<$$=(typeof in_canvas != 'undefined' && in_canvas === true ? 'true' : 'false' ) $$>";
+
+if(typeof window.fbAsyncInitCallback != 'object')window.fbAsyncInitCallback = {};
+window.fbAsyncInitCallback['fbLike'] = function(){
+	
+	FB.Event.subscribe('edge.create', function(url, html_element) {
+	
+		var fbPageNamespaceObj = url.replace(/^http(s)?:\/\//, '').split('/');
+		var fbPageNamespace = fbPageNamespaceObj[1];
+		
+		if(fbPageNamespace == 'pages'){
+			
+			fbPageNamespace = fbPageNamespaceObj[3].split('?')[0];
+		}
+							
+		
+		FB.api(fbPageNamespace, function(response){
+		
+			if(response && response.id == like_url_to_trace){
+				
+				if(in_tab == 'true'){
+				
+					window.top.location = response.link+'?sk=app_<$$=(typeof app_id != "undefined") ? app_id : "" $$>&app_data='+app_data;
+						
+				}else if(in_canvas == 'true'){
+				
+					window.top.location = "<$$=(typeof app_url != 'undefined') ? app_url : '' $$>"+window.location.pathname+window.location.search;
+						
+				}else{
+				
+					window.location.reload();	
+					
+				}
+				
+			}
+			
+		})
+		
+	});
+}
+	
+
+</script>
+<$$ } $$>

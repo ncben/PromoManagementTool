@@ -1,0 +1,17 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <div class="formfield">
+    <label for="<%= (typeof id != 'undefined') ? id : '' %>">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <% if(typeof style != 'undefined' && style == '3-fields-with-autotab'){ %>
+    <input type='text' data-validation="/^\d{3}$/" data-required="<%= (typeof required != 'undefined') ? required : '' %>" placeholder='<%= (typeof placeholderAreaCode != 'undefined') ? placeholderAreaCode : '' %>' id="<%= (typeof AreaCodeID != 'undefined') ? AreaCodeID : '' %>" name="<%= (typeof AreaCodeName != 'undefined') ? AreaCodeName : '' %>"  maxlength="<%= (typeof AreaCodeMaxlength != 'undefined') ? AreaCodeMaxlength : '3' %>" style="width: 100px; max-width:25%">
+    -
+    <input type='text' data-validation="/^\d{3}$/" data-required="<%= (typeof required != 'undefined') ? required : '' %>" placeholder='<%= (typeof placeholderPrefix != 'undefined') ? placeholderPrefix : '' %>' id="<%= (typeof PrefixID != 'undefined') ? PrefixID : '' %>" name="<%= (typeof PrefixName != 'undefined') ? PrefixName : '' %>" maxlength="<%= (typeof PrefixMaxlength != 'undefined') ? PrefixMaxlength : '3' %>" style="width: 100px; max-width:25%">
+    -
+    <input type='text' data-validation="/^\d{4}$/" data-required="<%= (typeof required != 'undefined') ? required : '' %>" placeholder='<%= (typeof placeholderLinenumber != 'undefined') ? placeholderLinenumber : '' %>' id="<%= (typeof LinenumberID != 'undefined') ? LinenumberID : '' %>" name="<%= (typeof LinenumberName != 'undefined') ? LinenumberName : '' %>" maxlength="<%= (typeof LinenumberMaxlength != 'undefined') ? LinenumberMaxlength : '4' %>" style="width: 120px; max-width:30%">
+    <% }else if(typeof style != 'undefined' && style == 'single-field-auto-format'){ %>
+    <input type='text' data-validation="phone" data-required="<%= (typeof required != 'undefined') ? required : '' %>" placeholder='<%= (typeof placeholder != 'undefined') ? placeholder : '' %>' id="<%= (typeof id != 'undefined') ? id : '' %>" name="<%= (typeof name != 'undefined') ? name : '' %>"  maxlength="<%= (typeof maxlength != 'undefined') ? maxlength : '15' %>">
+    <% } %>
+  </div>
+</div>

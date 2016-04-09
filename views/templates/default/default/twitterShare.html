@@ -1,0 +1,132 @@
+<% if(typeof text != 'undefined'){ 
+	  
+  	  var urls = text.match(/(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim);
+      for(var u in urls){
+                    
+     	text = text.replace(urls[u], urls[u]+(urls[u].indexOf('?') === -1 ? '?' : '&')+"ref=<$$$=(typeof vars != 'undefined' ? (typeof vars['uid'] != 'undefined' ? vars['uid'] : '') : '') $$$>");
+      
+      }
+
+    }
+    
+%>
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <% 
+  
+    if(typeof style != 'undefined'){
+    	
+        if(style.indexOf('class:twitter-share-button') !== -1){
+        
+            var endpoint = 'share';
+            var datatext = text;
+            style += ',url:&nbsp;'
+        
+        }
+        
+        if(style.indexOf('class:twitter-follow-button') !== -1){
+
+            var endpoint = custom || '';
+        
+        }
+        
+        if(style.indexOf('class:twitter-hashtag-button') !== -1){
+        
+            var endpoint = 'intent/tweet?button_hashtag='+encodeURIComponent((action || ''));
+            var datatext = text;
+        }
+        
+        if(style.indexOf('class:twitter-mention-button') !== -1){
+        
+            var endpoint = 'intent/tweet?screen_name='+encodeURIComponent((custom || ''));
+            
+            var textToEncode = text.split(/<\$|\$>/g);
+            
+            
+            for(var t in textToEncode){
+            
+            	if(textToEncode[t].substring(0,1) === '$' && textToEncode[t].slice(-1) === '$'){
+                	
+                    textToEncode[t] = '<$'+textToEncode[t]+'$>';
+                
+                }else textToEncode[t] = encodeURIComponent(textToEncode[t]);
+                            
+            }
+            
+            textToEncode = textToEncode.join('');
+            
+            endpoint += text ? '&amp;text='+textToEncode : '';
+        
+        }
+       
+        if(!endpoint){
+            var endpoint='';
+            var is_custom = true;
+        }
+
+
+		
+     } 
+
+%>
+  <a href="https://twitter.com/<%-endpoint%>" id="<%= (typeof id != 'undefined') ? id : '' %>" <% 
+
+	 if(typeof style != 'undefined'){
+     
+     	var styleTags = style.split(',');
+                
+        for(var tag in styleTags){
+        	
+            var tagName = styleTags[tag].split(':')[0];
+            var tagContent = styleTags[tag].split(':')[1];
+ 
+            if(tagName){
+            
+            	tagName = (tagName == 'class') ? tagName : 'data-'+tagName;
+            
+            %>  <%= tagName %>="<%=tagContent%>"  <%
+            
+            }
+            
+        }
+        
+        if(datatext){  %>	data-text="<%-datatext.replace(/"/g, '&quot;').replace(/&/g, '&amp;')%>"   <%  }
+     
+     }
+
+ %>>
+  <% if(is_custom){ %>
+  <img src="<%= (typeof src != 'undefined') ? src : '' %>" alt="<%= (typeof alt != 'undefined') ? alt : '' %>" style="max-width:<%= (typeof maxWidth != 'undefined') ? maxWidth : '100%'%>;">
+  <% } %>
+  </a> </div>
+  
+  <% if(is_custom){  %>
+  
+  <script>
+  
+  	document.getElementById("<%= (typeof id != 'undefined') ? id : '' %>").onclick = function(){
+  	
+  		var share_text = encodeURIComponent("<%- (typeof text != 'undefined') ? text.replace(/"/g,'\\"') : '' %>");
+        var winTop = (screen.height / 2) - (550 / 2);
+        var winLeft = (screen.width / 2) - (520 / 2);
+		window.open('https://twitter.com/share?url=&text='+share_text, 'twtr_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+550+',height='+520);
+        return false;
+        
+        }
+        
+    </script>
+                
+  <% } %>
+  
+<script>
+
+ require.config({
+        paths: {
+            'twitter_widget': 'https://platform.twitter.com/widgets'
+        }
+    });
+	
+require(["twitter_widget"],
+	function () {
+    
+});
+</script>

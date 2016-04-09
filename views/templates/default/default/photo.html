@@ -1,0 +1,19 @@
+
+<div class="col-md-12"> /* 
+  description
+  fileSizeMin
+  fileSizeMax
+  photoHeightMin
+  photoHeightMax
+  photoWidthMin
+  photoWidthMax
+  allowFileType
+  allowFileSource
+  previewImage
+  required
+  */
+  <% if(typeof description != 'undefined' && description != ''){ %>
+  <span data-role="description"></span>
+  <% } %
+<input data-require='<%= (typeof require != 'undefined') ? require : '' %>
+  ' data-photoHeightMin='<%= (typeof photoHeightMin != 'undefined') ? photoHeightMin : '' %>' data-photoHeightMax='<%= (typeof photoHeightMax != 'undefined') ? photoHeightMax : '' %>' data-photoWidthMax='<%= (typeof photoWidthMax != 'undefined') ? photoWidthMax : '' %>' data-photoWidthMin='<%= (typeof photoWidthMin != 'undefined') ? photoWidthMin : '' %>' data-fileSizeMax='<%= (typeof fileSizeMax != 'undefined') ? fileSizeMax : '' %>' data-fileSizeMin='<%= (typeof fileSizeMin != 'undefined') ? fileSizeMin : '' %>' data-allowFileType='<%= (typeof allowFileType != 'undefined') ? allowFileType : '' %>' data-allowFileSource type='file'> </div>

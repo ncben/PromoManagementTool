@@ -1,0 +1,4 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>"> <a href="<%= (typeof href != 'undefined') ? href : '' %>" onclick="<%= (typeof target != 'undefined' && target == 'popup') ? 'window.open(\''+((typeof href != 'undefined') ? href : '')+'\', \'\', \'height='+((typeof style != 'undefined' && style && style != 'x') ? style.split('x')[1] ? style.split('x')[1] : '800' : '800')+',width='+((typeof style != 'undefined' && style && style != 'x') ? style.split('x')[0] ? style.split('x')[0] : '800' : '800')+'\');return false;' : '' %>" target="<%= (typeof target != 'undefined') ? target != 'popup' ? target : '_self' : '_self' %>" id="<%= (typeof id != 'undefined') ? id : '' %>">
+  <%- (typeof text != 'undefined') ? text : '' %>
+  </a> </div>
