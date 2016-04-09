@@ -1,0 +1,9 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <div class="formfield">
+    <label for="<%= (typeof id != 'undefined') ? id : '' %>">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <textarea name="<%= (typeof name != 'undefined') ? name : '' %>" id="<%= (typeof id != 'undefined') ? id : '' %>" style="width: <%= (typeof width != 'undefined') ? width : '100%' %>; height: <%= (typeof height != 'undefined') ? height : '150px' %>" placeholder="<%= (typeof placeholder != 'undefined') ? placeholder : '' %>" data-required="<%= (typeof required != 'undefined') ? required : 'false' %>"></textarea>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <div class="addthis_toolbox"> <a class="addthis_button_email" id="<%= (typeof id != 'undefined' ? id : '') %>"><img src="<%=(typeof src != 'undefined' ? src : '') %>" alt="" style="max-width:100%;" /></a> </div>
+  <script type="text/javascript">
+var addthis_share = { email_vars: { 
+	subject: "<%-(typeof subject != 'undefined' ? subject.replace(/"/g,'\\"') : '') %>",
+	description: "<%-(typeof description != 'undefined' ? description.replace(/"/g,'\\"') : '') %>"
+	},
+	email_template: "PromoCMS_Template"
+}
+var addthis_config = addthis_config||{};
+
+var addthis_pub="ra-4e8f1b562667bb31";
+
+addthis_config.data_track_addressbar = true;
+addthis_config.pubid = "ra-4e8f1b562667bb31";
+addthis_config.ui_email_subject = "<%-(typeof subject != 'undefined' ? subject.replace(/"/g,'\\"') : '') %>";
+addthis_config.ui_email_note = "<%-(typeof description != 'undefined' ? description.replace(/"/g,'\\"') : '') %>";
+
+</script> 
+</div>
+<script>
+
+ require.config({
+        paths: {
+            'addthis_widget': 'https:///s7.addthis.com/js/300/addthis_widget'
+        }
+    });
+	
+require(["addthis_widget"],
+	function () {
+    
+});
+</script>

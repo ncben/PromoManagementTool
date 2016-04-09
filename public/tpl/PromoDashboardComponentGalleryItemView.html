@@ -1,0 +1,158 @@
+
+<div class="col-md-12 galleryOptionsContainer" style="margin:15px 0 20px">
+  <div class="dataCache" data-id="<%=(typeof key != 'undefined') ? key : '' %>" style="box-shadow:0px 4px 10px 0px #DDD;">
+    <div class="box-header" style="padding: 0 24px 0 0;margin: 0;position: relative;">
+      <div style="padding: 0;">
+        <div class="fanPageTitle" style="text-overflow: ellipsis; max-width: 100%; white-space: nowrap;overflow: hidden;text-align: center;">Gallery Options</div>
+        <div class="btn-group" style="position: absolute; right:0; top:0; ">
+          <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" style="border-top: 0;border-bottom: 0; font-size: 10px;"><i class="icon-cog"></i></button>
+          <ul class="dropdown-menu open-left" style="text-align: left;">
+            <li><a href="#" class="removeGalleryItem"><i class="icon-remove-sign"></i> Remove</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="box-toolbar">
+      </ul>
+    </div>
+    <div class="box-content" style="background: #FFF;">
+      <div class="well relative gallerySizeItem"  data-id="0" style="margin:0; border-radius: 0; background-color: transparent; padding:0;">
+        <div class="box-content">
+          <div class="row box-section relative slider-container" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin: -1px 0 0 0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about import options" data-container="body" data-content="Choose the type of entries to display in the gallery."><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Include entries from:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click galleryImportFrom" title="" data-original-title="" href="#" data-type="checklist" data-value="<%=(typeof el['import-from'] != 'undefined' && el['import-from'] != '') ? el['import-from'] : '0' %>" data-title="Select API"></a> </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about display order" data-container="body" data-content="TBD"><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Display Order:</strong> </div>
+            <div class="col-md-3">
+              <div class="grid" style="overflow:scroll;">
+                <div class="well tile" style="margin:0;">Video #1</div>
+                <div class="well tile" style="margin:0;">Image #1</div>
+                <div class="well tile" style="margin:0;">Twitter API Image</div>
+                <div class="well tile" style="margin:0;">Instagram Image</div>
+                <div class="well tile" style="margin:0;">Essay #1</div>
+              </div>
+              + Add More Fields
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Preview gallery style" data-container="body" data-content="<div><a href='http://vnjs.net/www/project/freewall/example/pinterest-layout.html' target='new'>Pinterest Style</a></div><div><a href='http://templates.rev2.dja.com/sweepsTemplate/gallery.php' target='new'>Fixed-Grid</a></div><div><a href='http://vnjs.net/www/project/freewall/example/image-layout.html' target='new'>Image Layout</a></div><div><a href='http://vnjs.net/www/project/freewall/example/flex-grid.html' target='new'>Flex-Grid</a></div><div><a href='http://dribbble.com/' target='new'>Dribbble</a></div>"><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Gallery Style:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click galleryStyle" href="#" data-type="select" data-pk="1" data-value="<%=(typeof el['gallery-style'] != 'undefined' && el['gallery-style'] != '') ? el['gallery-style'] : '' %>" data-title="Select Gallery Style"></a> </div>
+          </div>
+          
+           <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about" data-container="body" data-content="Whether or not to include sorting options for the user."><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Display Title and Description Below Thumbnail?</strong> </div>
+            <div class="col-md-3">
+              <input class="iButton-icons-tab galleryDisplayBelowThumbSwitch" type="checkbox"/>
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about title" data-container="body" data-content="TBD"><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Thumbnail Title:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click galleryThumbnailTitle" href="#" data-type="checklist" data-pk="1" data-value="<%=(typeof el['thumbnail-title'] != 'undefined' && el['thumbnail-title'] != '') ? el['thumbnail-title'] : '' %>" data-title="Select Title Type"></a> </div>
+          </div>
+           <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about short description" data-container="body" data-content="TBD"><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Thumbnail Description:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click galleryThumbnailDescription" href="#" data-type="checklist" data-pk="1" data-value="<%=(typeof el['thumbnail-description'] != 'undefined' && el['thumbnail-description'] != '') ? el['thumbnail-description'] : '' %>" data-title="Select Description Type"></a> </div>
+          </div>
+          
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Preview comment box style" data-container="body" data-content="<div><a href='https://disqus.com/websites/?utm_source=gothamist&utm_medium=Disqus-Footer' target='new'>Disqus</a></div><div><a href='https://developers.facebook.com/docs/plugins/comments/' target='new'>Facebook Comments Box</a></div>"><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Comment Plugin:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click galleryCommentPlugin" href="#" data-type="select" data-pk="1" data-value="<%=(typeof el['comment-plugin'] != 'undefined' && el['comment-plugin'] != '') ? el['comment-plugin'] : '' %>" data-title="Select Comment Plugin"></a> </div>
+          </div>
+          <div class="row box-section relative slider-container" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about items per page" data-container="body" data-content="The number of thumbnails per page. This will affect the depth of the page and the load time, so having the optimal number is important. Pagination will be automatically included when there is more than one page of entries."><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong># Per Page</strong> </div>
+            <div class="col-md-3">
+              <div class="slider-value"><%=(typeof el['item-per-page'] != 'undefined' && el['item-per-page'] != '') ? el['item-per-page'] : '18' %></div>
+            </div>
+            <div class="col-md-5">
+              <div class="itemPerPageSlider ranged-slider-ui normal"></div>
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about default sort type" data-container="body" data-content="Choose the way the entries are sorted by default."><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Default Sort Type:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click gallerySortTypeDefault" href="#" data-type="select" data-pk="1" data-value="<%=(typeof el['sort-default'] != 'undefined' && el['sort-default'] != '') ? el['sort-default'] : '' %>" data-title="Select Sort Type"></a> </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about sorting" data-container="body" data-content="Whether or not to include sorting options for the user."><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Allow User Sort?</strong> </div>
+            <div class="col-md-3">
+              <input class="iButton-icons-tab galleryAllowUserSortSwitch" type="checkbox"/>
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about sort types" data-container="body" data-content="The selected options will be available for the user to sort."><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Allowed Sort Types:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click gallerySortTypeAllowed" href="#" data-type="checklist" data-pk="1" data-value="<%=(typeof el['user-sort-type'] != 'undefined' && el['user-sort-type'] != '') ? el['user-sort-type'] : '' %>" data-title="Select Sort Type"></a> </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about search" data-container="body" data-content='Allows users to search for an entry that match the defined criteria.'><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Allow User Search?</strong> </div>
+            <div class="col-md-3">
+              <input class="iButton-icons-tab galleryAllowUserSearchSwitch" type="checkbox"/>
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about search paramters" data-container="body" data-content='Choose which criteria to match the search keyword to. The search result will display entries that match one or more defined criteria.'><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Search Parameters:</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click gallerySearchCriteria" href="#" id="" data-type="checklist" data-pk="1" data-value="<%=(typeof el['user-search-criteria'] != 'undefined' && el['user-search-criteria'] != '') ? el['user-search-criteria'] : '' %>" data-title="Select Search Parameters"></a> </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about screening requirement" data-container="body" data-content='If enabled, entries received from any sources will go through a screening process before being displayed in the gallery. Entries must be manually approved in the screening tool before they are displayed.'><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Is screening required?</strong> </div>
+            <div class="col-md-3">
+              <input class="iButton-icons-tab galleryScreeningRequiredSwitch" type="checkbox" />
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about gallery periods" data-container="body" data-content='TBD'><i class="icon-question-sign"></i></span>
+            <div class="col-md-6">
+              <div class="box">
+                <div class="box-content">
+                  <table class="table table-normal">
+                    <thead class="box-header">
+                      <tr>
+                        <td>#</td>
+                        <td colspan="2"><div style="padding: 2px 0;">Gallery Live Period(s)</div></td>
+                        <td style="width:39px; padding:0;"><a href="#" class="toolbar-bttn addEntryPeriod" style="height: 37px;line-height: 37px;display: block;padding: 0 10px;"><i class="icon-plus-sign" style="font-size: 16px"></i></a></td>
+                      </tr>
+                    </thead>
+                    <tbody class="submissionPeriods">
+                      <tr>
+                        <td class="icon dataCache" data-id="83f3cebb-e268-4178-9820-d461d8acbe76">1</td>
+                        <td><i class="icon-calendar"></i> <a href="#" class="start-date editable editable-click" data-type="datetime" data-pk="1" data-value="2013-10-30 22:00:00" title="Select date &amp; time">October 30, 2013 10:00PM ET</a> (Start)</td>
+                        <td><i class="icon-calendar"></i> <a href="#" class="end-date editable editable-click" data-type="datetime" data-pk="1" data-value="2013-12-21 10:00:00" title="Select date &amp; time">December 21, 2013 10:00AM ET</a> (End)</td>
+                        <td><div class="btn-group">
+                            <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#" class="removeEntryPeriod"><i class="icon-remove-sign"></i> Remove</a></li>
+                            </ul>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td class="icon dataCache" data-id="a69798e6-c21b-4c80-ac22-8dd8a179b94f">2</td>
+                        <td><i class="icon-calendar"></i> <a href="#" class="start-date editable editable-click" data-type="datetime" data-pk="1" data-value="2013-12-21 19:00:00" title="Select date &amp; time">December 21, 2013 7:00PM ET</a> (Start)</td>
+                        <td><i class="icon-calendar"></i> <a href="#" class="end-date editable editable-click" data-type="datetime" data-pk="1" data-value="2013-12-27 00:00:00" title="Select date &amp; time">December 27, 2013 12:00AM ET</a> (End)</td>
+                        <td><div class="btn-group">
+                            <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#" class="removeEntryPeriod"><i class="icon-remove-sign"></i> Remove</a></li>
+                            </ul>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td class="icon dataCache" data-id="5738410e-d5f2-487e-9a6b-43affc347f2a">3</td>
+                        <td><i class="icon-calendar"></i> <a href="#" class="start-date editable editable-click" data-type="datetime" data-pk="1" data-value="2013-12-27 18:00:00" title="Select date &amp; time">December 27, 2013 6:00PM ET</a> (Start)</td>
+                        <td><i class="icon-calendar"></i> <a href="#" class="end-date editable editable-click" data-type="datetime" data-pk="1" data-value="2013-12-31 00:00:00" title="Select date &amp; time">December 31, 2013 12:00AM ET</a> (End)</td>
+                        <td><div class="btn-group">
+                            <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="#" class="removeEntryPeriod"><i class="icon-remove-sign"></i> Remove</a></li>
+                            </ul>
+                          </div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

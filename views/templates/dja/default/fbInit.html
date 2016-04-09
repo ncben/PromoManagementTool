@@ -1,0 +1,47 @@
+<div id="fb-root"></div>
+
+<script>
+if(window.self != window.top){
+	document.body.style.overflow = 'hidden'; document.body.scroll = 'no';
+};
+
+ window.fbAsyncInit = function() {
+	
+    FB.init({
+      appId      : '<$$=(vars&& typeof vars["app_id"] != "undefined") ? vars["app_id"] : "" $$>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	if(typeof window.fbAsyncInitCallback == 'object'){
+	
+		for(var f in fbAsyncInitCallback){
+		
+			if(fbAsyncInitCallback.hasOwnProperty(f) && typeof fbAsyncInitCallback[f] == 'function'){
+			
+				fbAsyncInitCallback[f]();
+				
+			}
+			
+		}
+		
+	}
+	
+  };
+  
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>

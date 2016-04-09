@@ -1,0 +1,7 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+    <label for="<%= (typeof id != 'undefined') ? id : '' %>" style="display:none;">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <input type="hidden" id="<%= (typeof id != 'undefined') ? id : '' %>" name="<%= (typeof inputName != 'undefined') ? inputName : '' %>" data-validation=""  data-required="">
+</div>

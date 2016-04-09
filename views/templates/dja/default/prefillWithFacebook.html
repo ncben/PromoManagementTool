@@ -1,0 +1,497 @@
+
+<% 
+
+var reqArrs = new Object();
+
+reqArrs['countryStateArr'] = {"US+": ["AS", "GU", "MP", "PR", "VI"]};
+                          
+                                        
+%>
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>"> <a href="#" onclick="FBAutofill_<%= (typeof id != 'undefined') ? id.split('-')[0] : '' %>();return false;" id="<%= (typeof id != 'undefined') ? id : '' %>"> <img src="<%= (typeof src != 'undefined') ? src : '' %>" alt="<%= (typeof alt != 'undefined') ? alt : 'autofill with facebook' %>" style="max-width:<%= (typeof maxWidth != 'undefined') ? maxWidth : '100%'%>;"> </a> 
+  <script type="text/javascript">
+  
+	var FBAutofill_<%= (typeof id != 'undefined') ? id.split('-')[0] : '' %> = function(){
+
+		<% if(typeof map == 'object'){ 
+		
+				var permissions=[];
+				var fields=[];
+				var obj={};
+				var arrsReq = [];
+				var derivedObj = {};
+		
+				map.forEach(function(val, index, array){
+					
+					var fieldId = val.split('|')[1];
+					var fieldType = val.split('|')[0];
+					var permission = '';
+					var field='', arrReq='';
+				
+					switch(fieldType){
+						case 'name':
+							permission='';
+							field='name';
+							obj[fieldId]='name';
+						break;	
+						case 'first_name':
+							permission='';
+							field='first_name';
+							obj[fieldId]='first_name';
+						break;	
+						case 'last_name':
+							permission='';
+							field='last_name';
+							obj[fieldId]='last_name';
+						break;	
+						case 'username':
+							permission='';
+							field='username';
+							obj[fieldId]='username';
+						break;
+						case 'profile_picture':
+							permission='';
+							field='picture.type(large)';
+							obj[fieldId]='picture.data.url';
+						break;
+						case 'cover':
+							permission='';
+							field='cover';
+							obj[fieldId]='cover.source';
+						break;
+						case 'locale':
+							permission='';
+							field='locale';
+							obj[fieldId]='locale';
+						break;
+						case 'updated_time':
+							permission='';
+							field='updated_time';
+							obj[fieldId]='updated_time';
+						break;
+						case 'gender':
+							permission='';
+							field='gender';
+							obj[fieldId]='gender';
+						break;
+						case 'timezone':
+							permission='';
+							field='timezone';
+							obj[fieldId]='timezone';
+						break;
+						case 'significant_other':
+							permission='user_relationships';
+							field='significant_other';
+							obj[fieldId]='significant_other.name';
+						break;
+						case 'verified':
+							permission='';
+							field='verified';
+							obj[fieldId]='verified';
+						break;
+						case 'languages':
+							permission='user_likes';
+							field='languages';
+							obj[fieldId]='languages.name';
+						break;
+						case 'age_range':
+							permission='';
+							field='age_range';
+							obj[fieldId]='age_range.min';
+						break;
+						case 'link':
+							permission='';
+							field='link';
+							obj[fieldId]='link';
+						break;
+						case 'friend_name':
+							permission='';
+							field='friends.limit(1000000)';
+							obj[fieldId]='friends.random_name';
+						break;
+						case 'friends':
+							permission='';
+							field='friends.limit(1000000)';
+							obj[fieldId]='friends["data"].id';
+						break;
+						case 'friends_name':
+							permission='';
+							field='friends.limit(1000000)';
+							obj[fieldId]='friends["data"].name';
+						break;
+						case 'numfriends':
+							permission='';
+							field='friends.limit(1000000)';
+							obj[fieldId]='friends.count';
+						break;
+						case 'id':
+							permission='';
+							field='id';
+							obj[fieldId]='id'
+						break;
+						case 'third_party_id':
+							permission='';
+							field='third_party_id';
+							obj[fieldId]='third_party_id';
+						break;	
+						case 'currency':
+							permission='';
+							field='currency';
+							obj[fieldId]='currency.user_currency';
+						break;	
+						case 'devices':
+							permission='';
+							field='devices';
+							obj[fieldId]='devices.os';
+						break;	
+						case 'email':
+							permission='email';
+							field='email';
+							obj[fieldId]='email';
+						break;
+						case 'hometown':
+							permission='user_hometown';
+							field='hometown';
+							obj[fieldId]='hometown.name'
+						break;
+						case 'city':
+							permission='user_location';
+							field='location';
+							obj[fieldId]='location.name';
+							arrReq = 'countryStateArr';
+							derivedObj[fieldId] = 'city';
+						break;
+						
+						case 'state':
+							permission='user_location';
+							field='location';
+							obj[fieldId]='location.name';
+							arrReq = 'countryStateArr';
+							derivedObj[fieldId] = 'state';
+						break
+						case 'zip':
+							permission='user_location';
+							field='location';
+							obj[fieldId]='location.name';
+							arrReq = 'countryStateArr';
+							derivedObj[fieldId] = 'zip';
+						break;
+						case 'county':
+							permission='user_location';
+							field='location';
+							obj[fieldId]='location.name';
+							arrReq = 'countryStateArr';
+							derivedObj[fieldId] = 'county';
+						break;
+						case 'country':
+							permission='user_location';
+							field='location';
+							obj[fieldId]='location.name';
+							arrReq = 'countryStateArr';
+							derivedObj[fieldId] = 'country';
+						break;
+						
+						case 'birthday':
+							permission='user_birthday';
+							field='birthday';
+							obj[fieldId]='birthday';
+						break;
+						case 'religion':
+							permission='user_religion_politics';
+							field='religion';
+							obj[fieldId]='religion';
+						break;
+						case 'political':
+							permission='user_religion_politics';
+							field='political';
+							obj[fieldId]='political';
+						break;
+						case 'quotes':
+							permission='user_likes';
+							field='quotes';
+							obj[fieldId]='quotes';
+						break;
+						case 'education':
+							permission='user_education_history';
+							field='education';
+							obj[fieldId]='education.school.name';
+						break;
+						case 'work':
+							permission='user_work_history';
+							field='work';
+							obj[fieldId]='work.employer.name';
+						break;
+						case 'relationship_status':
+							permission='user_relationships';
+							field='relationship_status';
+							obj[fieldId]='relationship_status';
+						break;
+						case 'bio':
+							permission='user_about_me';
+							field='bio';
+							obj[fieldId]='bio';
+						break;
+						case 'interested_in':
+							permission='user_relationship_details';
+							field='interested_in';
+							obj[fieldId]='interested_in';
+						break;
+						case 'website':
+							permission='user_website';
+							field='website';
+							obj[fieldId]='website';
+						break;
+						case 'website':
+							permission='user_website';
+							field='website';
+							obj[fieldId]='website';
+						break;
+						case 'favorite_athletes':
+							permission='user_likes';
+							field='favorite_athletes';
+							obj[fieldId]='favorite_athletes.name';
+						break;
+						case 'favorite_teams':
+							permission='user_likes';
+							field='favorite_teams';
+							obj[fieldId]='favorite_teams.name';
+						break;
+						case 'favorite_teams':
+							permission='user_likes';
+							field='favorite_teams';
+							obj[fieldId]='favorite_teams.name';
+						break;
+						case 'favorite_teams':
+							permission='user_likes';
+							field='favorite_teams';
+							obj[fieldId]='favorite_teams.name';
+						break;
+						case 'favorite_teams':
+							permission='user_likes';
+							field='favorite_teams';
+							obj[fieldId]='favorite_teams.name';
+						break;
+						case 'movies':
+							permission='user_likes';
+							field='movies';
+							obj[fieldId]='movies["data"].name';
+						break;
+						case 'music':
+							permission='user_likes';
+							field='music';
+							obj[fieldId]='music["data"].name';
+						break;
+						case 'books':
+							permission='user_likes';
+							field='books';
+							obj[fieldId]='books["data"].name';
+						break;
+
+						//activities→television→games→
+
+						
+					}
+					
+					if(permission && permissions.indexOf(permissions) === -1)permissions.push(permission);
+					if(field && fields.indexOf(field) === -1)fields.push(field);
+					if(arrReq && arrsReq.indexOf(arrReq) === -1)arrsReq.push(arrReq);
+					
+				})
+		
+		
+		 } 
+		
+		for(key in arrsReq){ %>
+			
+			var <%-arrsReq[key]%> = <%-JSON.stringify(reqArrs[arrsReq[key]])%>;
+			
+		<% }  %>
+		
+			var derivedObj = <%-JSON.stringify(derivedObj) %>;
+			
+			var setValue = function(fieldId, value){
+				
+				if($("[id^='"+fieldId+"']").is("input[type=text], input[type=email], input[type=number], input[type=hidden], select")){
+					
+					$("[id^='"+fieldId+"']").val(value).data('autofill-value', value).trigger('change');
+					
+				}else if($("[id^='"+fieldId+"']").is("input[type=radio]")){
+									
+					$("[id^='"+fieldId+"']").filter(function(){
+																		
+						return typeof $(this).prop('value') != 'undefined' && $(this).prop('value') != '' && value != '' && $.trim($(this).prop('value').toLowerCase()) == $.trim(value.toLowerCase());
+						
+					})
+					.prop('checked', true)
+					.data('autofill-value', value).trigger('change');
+					
+				}
+				
+				if($("[id^='"+fieldId+"']").data("validation") && $("[id^='"+fieldId+"']").data("validation").indexOf('dob_') !== -1){
+					
+					$("[id^='"+fieldId+".m']").val(value.split('/')[0]);
+					$("[id^='"+fieldId+".d']").val(value.split('/')[1]);
+					$("[id^='"+fieldId+".y']").val(value.split('/')[2]);
+					
+				}
+				
+			}
+
+		FB.login(function(response) {
+			if (response && response.authResponse && response.authResponse.accessToken) {    
+				FB.api('me?fields=<%=fields.join(',')%>', function(data) {
+					var obj = <%- JSON.stringify(obj) %>;
+					for(fieldId in obj){
+						
+						var objObj = eval('data.'+obj[fieldId].split('.')[0]);
+						var objObjKey = obj[fieldId].split('.')[1];
+						var objObjSubKey = obj[fieldId].split('.')[2];
+																		
+						
+						if(obj.hasOwnProperty(fieldId)){
+							if(typeof objObj != 'undefined' && Object.prototype.toString.call( objObj ) === '[object Array]'){
+							
+								var objValue = [];
+							
+								for(var i=0;i<objObj.length;i++){
+																	
+									if(typeof objObj[i][objObjKey] == 'object'  && Object.prototype.toString.call( objObj ) === '[object Array]' && objObjSubKey){
+										
+										if(objObj[i][objObjKey][objObjSubKey] != '' && objObj[i][objObjKey][objObjSubKey] != null){
+											
+											objValue.push(objObj[i][objObjKey][objObjSubKey]);
+											
+										}
+										
+									}else if(typeof objObj[i][objObjKey] != 'undefined'){
+										
+										if(objObj[i][objObjKey] != '' && objObj[i][objObjKey] != null){
+											
+											objValue.push(objObj[i][objObjKey]);
+											
+										}
+										
+									}
+									
+								}
+								
+								setValue(fieldId, objValue.join(', '));
+
+							}else if(typeof objObj != 'undefined'){
+								
+								if(obj[fieldId] == 'location.name' && typeof derivedObj[fieldId] != 'undefined'){
+																	
+									$.getJSON('https://graph.facebook.com/'+data.location.id+'?fields=location', function(loc){
+									
+										if(loc && loc.location && loc.location.latitude && loc.location.longitude){
+																					
+											$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng='+loc.location.latitude+','+loc.location.longitude+'&sensor=true&callback=zipmap', function(jsonData){
+																					
+																					
+												for(fieldId in derivedObj){
+													
+													if(derivedObj.hasOwnProperty(fieldId)){
+											
+														if(jsonData && jsonData.results && jsonData.results[0] && typeof jsonData.results[0].address_components == 'object'){
+															var objFound = false,countryShortCode='';
+															
+															for(key in  jsonData.results[0].address_components){
+																
+																if(jsonData.results[0].address_components.hasOwnProperty(key) && typeof jsonData.results[0].address_components[key].types == 'object'){
+																	if(jsonData.results[0].address_components[key].types.indexOf('country') !== -1)countryShortCode = jsonData.results[0].address_components[key]['short_name'];
+																	
+																}
+																
+															}
+															
+															for(key in  jsonData.results[0].address_components){
+																
+																if(jsonData.results[0].address_components.hasOwnProperty(key) && typeof jsonData.results[0].address_components[key].types == 'object'){
+																																		
+																	switch(derivedObj[fieldId]){
+																		
+																		case 'city':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('locality') !== -1;
+																		break;
+																		case 'zip':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('postal_code') !== -1;
+																		break;
+																		case 'state':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('administrative_area_level_1') !== -1;
+																		break;
+																		case 'county':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('administrative_area_level_2') !== -1;
+																		break;
+																		case 'country':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('country') !== -1;
+																			if(countryStateArr['US+'].indexOf(jsonData.results[0].address_components[key]['short_name']) !== -1)jsonData.results[0].address_components[key]['short_name']='US+';
+																		break;
+																		
+																		
+																	}
+
+																		
+																	if(objFound){
+																		setValue(fieldId, jsonData.results[0].address_components[key]['short_name']);
+																		break;
+																	}
+																		
+																}
+																
+															}
+															
+															if(!objFound){
+															
+																if(derivedObj[fieldId] == 'city'){
+																	var objValue = eval('data.'+obj[fieldId]);
+																	setValue(fieldId, objValue.split(',')[0]);
+
+																
+																}else if(derivedObj[fieldId] == 'state' && countryShortCode){
+
+																	setValue(fieldId, countryShortCode);
+																
+																}
+																
+															}
+															
+															
+														}
+														
+													}
+													
+												}
+													
+											});	
+											
+										}
+										
+										
+									})
+								
+									
+										
+									
+								}else{
+																		
+									var objValue = eval('data.'+obj[fieldId]);
+									
+									if(obj[fieldId] == 'age_range.min' && data.age_range)objValue= data.age_range.min +(data.age_range.max ? "-"+ data.age_range.max : "+");									
+									if(obj[fieldId] == 'friends.count')objValue= data.friends.data.length;
+									if(obj[fieldId] == 'friends.random_name')objValue= data.friends.data[Math.round(Math.random(0, data.friends.data.length)*100)].name;
+									
+									setValue(fieldId, objValue);
+								}
+							}
+							
+						}
+						
+					}
+				}) 
+			} 
+		}, {scope:'<%=permissions.join(',')%>'});  
+
+	}
+  
+	</script> 
+</div>
+

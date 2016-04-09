@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Route 53 Manager <small>Add Resource Record</small></h1>
+  </div>
+  <div class="">
+    <form id="addResourceRecordForm">
+        <input type="hidden" id="HostedZoneId" name="HostedZoneId">
+        <input type="hidden" id="domainName" name="domainName">
+    <div class="row">
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="name" name="name" placeholder="Name (i.e. subdomain)">
+      </div>
+      </div>
+    <div class="row">
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="value" name="value" placeholder="Value (i.e. DNS)">
+       
+      </div>
+      <div class="col-sm-5">
+       <a href="#" class="addPresetIp" data-value="72.32.28.75">Sm Net LB (72.32.28.75)</a><br>
+        <a href="#" class="addPresetIp" data-value="50.56.167.173">Lg Net LB (50.56.167.173)</a>
+      </div>
+      </div>
+      <div class="row">
+      <div class="form-group col-sm-2">
+        Type: <input type="text" class="form-control input-lg" id="type" name="type" placeholder="Type" value="A">
+      </div>
+      <div class="form-group col-sm-2">
+        TTL: <input type="text" class="form-control input-lg" id="ttl" name="ttl" placeholder="TTL" value="1200">
+      </div>
+      </div>
+      <div class="clearfix"></div>
+      <!-- /.col-sm-3 -->
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-success btn-lg" id="addResouceRecord">Add Resource Record</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.row -->
+  <div class="clear-fix" ></div>
+  <div style="padding: 10px 16px; clear:both;"><a href="#" class="cancel">Cancel</a></div>
+</div>

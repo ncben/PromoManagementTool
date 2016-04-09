@@ -1,0 +1,14 @@
+
+<div class="well relative eligibilityItem"  data-id="<%= key %>" style="margin:0; border-radius: 0; background-color: transparent; padding:0;"> <span class="triangle-button red removeEligibility" rel="tooltip" data-placement="bottom" data-original-title="Remove"><i class=" icon-remove"></i></span>
+  <div class="box-content">
+    <div class="row box-section slider-container" style="border-top: none;">
+      <div class="col-md-3">
+        <a href="#" data-type="select2" data-original-title="Eligible states/provinces/countries" class="editable editable-click state"></a> in <a href="#" data-type="select2" data-original-title="Select country" data-value="<%= el.country %>" class="editable editable-click country"><%= countries[el.country] %></a>
+        <div class="slider-value"><%=(el.ageMin && el.ageMin > 0) ? el.ageMin : 'Any' %> - <%=(el.ageMax && el.ageMax < 100) ? el.ageMax : 'Any'  %></div>
+      </div>
+      <div class="col-md-8">
+        <div class="ageSlider ranged-slider-ui normal"></div>
+      </div>
+    </div>
+  </div>
+</div>

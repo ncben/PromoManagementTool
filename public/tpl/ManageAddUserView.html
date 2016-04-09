@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Manage Roles <small>Add User</small></h1>
+  </div>
+  <div class="">
+    <form id="addUserForm">
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="firstName" name="firstName" placeholder="First Name">
+      </div>
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="lastName" name="lastName" placeholder="Last Name">
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="email" name="email" placeholder="Email">
+      </div>
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="confirmEmail" name="confirmEmail" placeholder="Confirm Email">
+      </div>
+      <div class="col-sm-8  bottom-buffer">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" id="rolesDropdown" data-toggle="dropdown">Roles <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">View Promo</a></li>
+              <li><a href="#">Edit Promo</a></li>
+              <li><a href="#">Add Promo</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Manage Users</a></li>
+              <li><a href="#">Admin</a></li>
+            </ul>
+          </div>
+          <!-- /btn-group -->
+          <input type="text" class="form-control" id="roles" name="roles" >
+        </div>
+        <% if(groups){ %>
+        <div class="input-group" style="margin-top: 40px;"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> User Group(s) </span>
+          <input type="text" class="form-control" id="groups" name="groups" >
+        </div>
+        <% } %>
+        <!-- /input-group --> 
+      </div>
+      <!-- /.col-sm-3 -->
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-success btn-lg" id="addUser">Add User</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.row -->
+  <div class="clear-fix" ></div>
+  <div style="padding: 10px 16px; clear:both;"><a href="#manage">Cancel</a></div>
+</div>

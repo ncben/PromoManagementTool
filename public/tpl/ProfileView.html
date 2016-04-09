@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="page-header">
+    <h1>My Account <small></small></h1>
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default"> 
+      <!-- Default panel contents -->
+      <div class="panel-heading"> Profile </div>
+      <div class="panel-body">
+        <div class="well">
+          <div class="bottom-buffer">
+            <div style="margin-right:10px;"  class="pull-left bottom-buffer dropdown  btn-xs" > <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/thumb_placeholder.gif" alt=""/></a>
+              <ul class="dropdown-menu" style="font-size:.9em; min-width:inherit;">
+                <li><a href="#profile" class="take-photo" style="padding: 3px 15px;"><i class="glyphicon glyphicon-camera"> </i> Take Photo</a></li>
+                <li><a href="#profile/upload-photo" style="padding: 3px 15px;"><i class="glyphicon glyphicon-upload"> </i> Upload Photo</a></li>
+              </ul>
+            </div>
+            <%= _.escape(user.firstName) %> <%= _.escape(user.lastName) %><br />
+            <%= _.escape(user.email) %></div>
+          <div class="clear-fix"></div>
+          <button type="button" class="btn btn-default btn-sm editPasswordBttn ">Change Password</button>
+          <button type="button" class="btn btn-default btn-sm editProfileBttn ">Edit My Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default"> 
+      <!-- Default panel contents -->
+      <div class="panel-heading"> Roles </div>
+      <div class="panel-body">
+        <%  var roles = _.escape(user.roles).split(',');
+                       
+                      _.each(roles, function(role){
+                      
+                        switch (parseInt(role)) {
+                          case 1   : var labelClass = 'label label-default'; var text = 'View Promo'; break;
+                          case 2   : var labelClass = 'label label-primary'; var text = 'Edit Promo'; break;
+                          case 3   : var labelClass = 'label label-success'; var text = 'Add Promo'; break;
+                          case 4   : var labelClass = 'label label-info'; var text = 'Analytics'; break;
+                          case 5   : var labelClass = 'badge label-warning'; var text = 'Manager'; break;
+                          case 6   : var labelClass = 'badge label-danger'; var text = 'Admin'; break;
+                          default    : var labelClass = 'hidden'; var text = ''; break;
+                        } 
+                                            
+                  	   print('<span class="'+labelClass+'">'+text+'</span> ');
+                	 }); 
+       %>
+      </div>
+    </div>
+    <div class="panel panel-default"> 
+      <!-- Default panel contents -->
+      <div class="panel-heading"> Use Application As </div>
+      <div class="panel-body">
+        <div class="btn-group user-group">
+          <button type="button" class="btn btn-default btn-xs" value="<%= _.escape(user.currentGroup.id) %>"><%= _.escape(user.currentGroup.title) %></button>
+          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> <span class="sr-only">Toggle Dropdown</span></button>
+          <ul class="dropdown-menu user-group-menu" role="menu">
+            <%  _.each(user.groups, function(group){ %>
+            <li><a href="#" data-id="<%= _.escape(group.id) %>"><%= _.escape(group.title) %></a></li>
+            <% }) %>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-default btn-xs switchUserGroup">Go</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-info logOutBttn"><i class="glyphicon glyphicon-log-out"></i> Log Out</button>
+  </div>
+  <div class="modal fade" id="takePhotoModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Take a Photo</h4>
+        </div>
+        <div class="modal-body text-center">
+          <div id="webcam"></div>
+          <div id="webcam-result"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success take-photo-btn">Take Photo</button>
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+</div>

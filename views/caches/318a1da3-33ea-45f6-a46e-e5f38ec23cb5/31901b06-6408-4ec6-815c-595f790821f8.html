@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="<%=(vars&& typeof vars['lang'] != 'undefined' ? vars['lang'] : '') %>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%=(vars&& typeof vars['pageName'] != 'undefined' ? vars['pageName'] : '') %></title>
+<meta property="og:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>"/>
+<meta property="og:description" content="<%=(vars&& typeof vars['ogDescription'] != 'undefined' ? vars['ogDescription'] : '') %>">
+<meta property="og:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>" />
+<meta property="og:type" content="<%=(vars&& typeof vars['ogType'] != 'undefined' ? vars['ogType'] : '') %>" />
+<meta property="og:url" content="<%=(vars&& typeof vars['ogURL'] != 'undefined' ? vars['ogURL'] : '') %>" />
+<meta property="fb:app_id" content="<%=(vars&& typeof vars['app_id'] != 'undefined' ? vars['app_id'] : '') %>">
+<meta property="fb:admins" content="<%=(vars&& typeof vars['fbAdmin'] != 'undefined' ? vars['fbAdmin'] : '') %>">
+<meta property="twitter:card" content="<%=(vars&& typeof vars['twitterCardType'] != 'undefined' ? vars['twitterCardType'] : '') %>">
+<meta property="twitter:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>">
+<meta property="twitter:description" content="<%=(vars&& typeof vars['twitterShareCopy'] != 'undefined' ? vars['twitterShareCopy'] : '')%>">
+<meta property="twitter:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>">
+<meta property="twitter:url" content="<%=(vars&& typeof vars['twitterShareURL'] != 'undefined' ? vars['twitterShareURL'] : '') %>">
+<meta property="pinterest:image" content="<%=(vars&& typeof vars['pinterestImage'] != 'undefined' ? vars['pinterestImage'] : '') %>">
+<meta property="pinterest:url" content="<%=(vars&& typeof vars['pinterestURL'] != 'undefined' ? vars['pinterestURL'] : '') %>">
+<meta property="pinterest:description" content="<%=(vars&& typeof vars['pinterestDescription'] != 'undefined' ? vars['pinterestDescription'] : '') %>">
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script type="text/javascript">
+requirejs.config({
+    appDir: ".",
+    baseUrl: "js",
+    paths: { 
+        'jquery': ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min', 'https://promocms.dja.com/js/jquery.min'],
+        'bootstrap': ['https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'https://promocms.dja.com/js/bootstrap.min'],
+        'validation': ['https://promocms.dja.com/js/validation.basic'],
+    },
+    shim: {
+        'bootstrap' : ['jquery'],
+		'validation' : ['jquery']
+    }
+});
+
+require(['jquery', 'bootstrap','validation'], function($) {
+       
+    return {};
+});
+
+</script>
+<%-(vars&& typeof vars['customHeadValues'] != 'undefined' ? vars['customHeadValues'] : '') %>
+
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script>
+function fbShare(winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent($("meta[property='og:url']").prop('content')), 'fb_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+    }
+
+function tweet(winWidth, winHeight){
+	
+	var share_text = encodeURIComponent($("meta[property='twitter:description']").prop('content'));
+	var share_url = encodeURIComponent($("meta[property='twitter:url']").prop('content'));
+	var url_param = '&url=';
+	if(share_url)url_param += share_url;
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	window.open('https://twitter.com/share?text='+share_text+url_param, 'twtr_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+			
+}
+
+function pinterest(winWidth, winHeight){
+	
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	
+	window.open('http://pinterest.com/pin/create/button/?url='+encodeURIComponent($("meta[property='pinterest:url']").prop('content'))+'&media='+encodeURIComponent($("meta[property='pinterest:image']").prop('content'))+'&description='+encodeURIComponent($("meta[property='pinterest:description']").prop('content')), 'pin', 'top=' + winTop + ',left=' + winLeft +',menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+winHeight+',width='+winWidth);
+	
+}
+</script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+<style>
+body {
+	font-size: 12px;
+}
+.footer {
+	padding: 10px 10px 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+label {
+	display: block;
+}
+input[type='text'] {
+	width: 100%;
+}
+.formfield {
+	margin-top: 5px;
+}
+.flex-control-thumbs li {
+	width: 20%!important;
+}
+.flex-control-thumbs img {
+}
+.input_wrapper img {
+	display: none;
+}
+.input_wrapper.error_container img {
+	display: inline;
+}
+.error_container {
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	border: 1px solid red !important;
+	display: inline-block;
+	zoom: 1;
+ *display:inline;
+	white-space: nowrap;
+}
+.error_container input {
+	margin: 0px;
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+}
+.error_container input, .error_container select {
+	border: 0px;
+}
+.error_container textarea {
+	background: #EDAABD !important;
+}
+.input_wrapper {
+	display: inline-block;
+	zoom: 1;
+*display:inline;
+	white-space: nowrap;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span, .fb-comments div, .fb-post, .fb-post *, .fb-follow, .fb-follow * , .fb-like-box, .fb-like-box *, .fb-like, .fb-like * {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+ /* CSS Document */
+.wrapper {
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF777777', endColorstr='#FF494949');background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #494949));background-image:-webkit-linear-gradient(#777777,#494949);background-image:-moz-linear-gradient(#777777,#494949);background-image:-o-linear-gradient(#777777,#494949);background-image:linear-gradient(#777777,#494949);
+	background:url(https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/core-bg-white.jpg);
+	color:#fff;
+}
+.well {
+	/*background:#5F6062;*/
+	background:#262324;
+	
+	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+	}
+.page-header {
+	margin-top:0;
+}
+#marriottLogo {
+	max-width:150px;
+	width:80%;
+	background:#fff;
+	padding:1em;
+	 -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.page-header img {
+	 -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.shareImg {
+	margin-bottom:10px;
+}
+.shareImg img {
+	cursor:pointer;
+}
+h1, .h1 {
+	font-weight:bold;
+	text-align:center;
+	color:#A0072B;
+	 -webkit-text-shadow: 2px 2px rgba(0,0,0,1);
+   -moz-text-shadow: 2px 2px rgba(0,0,0,1);
+   text-shadow: 2px 2px rgba(0,0,0,1);
+}
+footer a {
+	color:#E3E1DE;
+	text-decoration:underline;
+}
+footer a:hover {
+	color:#A0072B;
+}
+.show-desktop {
+		display:block;
+	}
+	.show-mobile {
+		display:none;
+	}
+@media screen and (max-width:810px) and (min-width:769px){
+h1 {
+	font-size:24px;
+	margin:10px;
+}
+.container {	
+	width:100%;
+	padding:0;
+}
+.col-md-3 {
+    width: 25%;
+}
+.col-md-4 {
+    width: 33.3333%;
+}
+.col-md-5 {
+    width: 41.6667%;
+}
+.col-md-6 {
+	width:50%;
+}
+.col-sm-7 {
+	padding: 0;
+}
+.col-md-3,.col-md-4,.col-md-5, .col-md-6 {
+	float:left;
+}
+}
+@media screen and (max-width:768px){
+	.show-desktop {
+		display:none;
+	}
+	.show-mobile {
+		display:block;
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="fb-root"></div>
+
+<script>
+if(window.self != window.top){
+	document.body.style.overflow = 'hidden'; document.body.scroll = 'no';
+};
+
+ window.fbAsyncInit = function() {
+	
+    FB.init({
+      appId      : '<%=(vars&& typeof vars["app_id"] != "undefined") ? vars["app_id"] : "" %>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	if(typeof window.fbAsyncInitCallback == 'object'){
+	
+		for(var f in fbAsyncInitCallback){
+		
+			if(fbAsyncInitCallback.hasOwnProperty(f) && typeof fbAsyncInitCallback[f] == 'function'){
+			
+				fbAsyncInitCallback[f]();
+				
+			}
+			
+		}
+		
+	}
+	
+  };
+  
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>
+
+<div class="wrapper">
+  <div id="content" class="col-sm-12">
+    <div class="container">
+      <div class="row">
+        <div class="text-center"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/marriott-m-logo.png" alt="Marriott" id="marriottLogo"/> </div>
+        <div class="page-header col-sm-12">
+          <div class="row">
+            <div class="col-md-12 text-right shareImg"> <a href="#" onclick="fbShare(520, 350);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/facebook.png" alt="Facebook"></a> <a href="#" onclick="tweet(550, 520);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/twitter.png" alt="Twitter"></a> <a href="#" onclick="pinterest(800, 480);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/pinterest.png" alt="Pinterest"></a> </div>
+          </div>
+          <div data-panel="1">
+            <div class="row">
+<div class="col-md-12">
+  <div id="256af06e-bc9c-4963-86a1-b306328413ef">
+    Alissa 3.7.14 Sweepstakes Testing<br>
+  </div>
+</div>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="2"> 
+              <div class="row">
+<div class="col-md-12">
+  <div id="552782e3-d9c3-4d32-954b-55401260ab2d">
+    Testing testing testing testing tesing. Lola is cute.<br>
+  </div>
+</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="3"> 
+              <form data-submit="this-panel" data-path="/31901b06-6408-4ec6-815c-595f790821f8.3"><div class="row">
+<div class="col-md-12">
+  <div id="b1f216fb-7175-468e-ad65-7c68764cbc17">
+    <h2><span class="wysiwyg-color-purple"><b>Enter this sweepstakes to test.</b></span></h2>
+  </div>
+</div>
+</div><div class="row">
+
+<div class="col-md-12"> <a href="#" onclick="FBAutofill_f0f517ca();return false;" id="f0f517ca-2c7f-44ef-8918-087d819f917a"> <img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/dbc48b50-358e-4ee0-b4df-8b32bb6e1e9a/4a04bdd5-0385-4b64-a8e6-46ddf2bb0532.png" alt="autofill with facebook" style="max-width:100%;"> </a> 
+  <script type="text/javascript">
+  
+	var FBAutofill_f0f517ca = function(){
+
+		
+		
+			var derivedObj = {};
+			
+			var setValue = function(fieldId, value){
+				
+				if($("[id^='"+fieldId+"']").is("input[type=text], input[type=email], input[type=number], input[type=hidden], select")){
+					
+					$("[id^='"+fieldId+"']").val(value).data('autofill-value', value).trigger('change');
+					
+				}else if($("[id^='"+fieldId+"']").is("input[type=radio]")){
+									
+					$("[id^='"+fieldId+"']").filter(function(){
+																		
+						return typeof $(this).prop('value') != 'undefined' && $(this).prop('value') != '' && value != '' && $.trim($(this).prop('value').toLowerCase()) == $.trim(value.toLowerCase());
+						
+					})
+					.prop('checked', true)
+					.data('autofill-value', value).trigger('change');
+					
+				}
+				
+				if($("[id^='"+fieldId+"']").data("validation") && $("[id^='"+fieldId+"']").data("validation").indexOf('dob_') !== -1){
+					
+					$("[id^='"+fieldId+".m']").val(value.split('/')[0]);
+					$("[id^='"+fieldId+".d']").val(value.split('/')[1]);
+					$("[id^='"+fieldId+".y']").val(value.split('/')[2]);
+					
+				}
+				
+			}
+
+		FB.login(function(response) {
+			if (response.authResponse.accessToken) {    
+				FB.api('me?fields=first_name,last_name,email', function(data) {
+					var obj = {"8c8da51d-5271-4df3-afde-2f7d9fc2001e":"first_name","2cc27d02-8740-404e-a2d4-4a05de3412a3":"last_name","d441351d-2ad9-40ae-97ae-7c6577be1312":"email"};
+					for(fieldId in obj){
+						
+						var objObj = eval('data.'+obj[fieldId].split('.')[0]);
+						var objObjKey = obj[fieldId].split('.')[1];
+						var objObjSubKey = obj[fieldId].split('.')[2];
+																		
+						
+						if(obj.hasOwnProperty(fieldId)){
+							if(typeof objObj != 'undefined' && Object.prototype.toString.call( objObj ) === '[object Array]'){
+							
+								var objValue = [];
+							
+								for(var i=0;i<objObj.length;i++){
+																	
+									if(typeof objObj[i][objObjKey] == 'object'  && Object.prototype.toString.call( objObj ) === '[object Array]' && objObjSubKey){
+										
+										if(objObj[i][objObjKey][objObjSubKey] != '' && objObj[i][objObjKey][objObjSubKey] != null){
+											
+											objValue.push(objObj[i][objObjKey][objObjSubKey]);
+											
+										}
+										
+									}else if(typeof objObj[i][objObjKey] != 'undefined'){
+										
+										if(objObj[i][objObjKey] != '' && objObj[i][objObjKey] != null){
+											
+											objValue.push(objObj[i][objObjKey]);
+											
+										}
+										
+									}
+									
+								}
+								
+								setValue(fieldId, objValue.join(', '));
+
+							}else if(typeof objObj != 'undefined'){
+								
+								if(obj[fieldId] == 'location.name' && typeof derivedObj[fieldId] != 'undefined'){
+																	
+									$.getJSON('https://graph.facebook.com/'+data.location.id+'?fields=location', function(loc){
+									
+										if(loc && loc.location && loc.location.latitude && loc.location.longitude){
+																					
+											$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng='+loc.location.latitude+','+loc.location.longitude+'&sensor=true&callback=zipmap', function(jsonData){
+																					
+																					
+												for(fieldId in derivedObj){
+													
+													if(derivedObj.hasOwnProperty(fieldId)){
+											
+														if(jsonData && jsonData.results && jsonData.results[0] && typeof jsonData.results[0].address_components == 'object'){
+															var objFound = false,countryShortCode='';
+															
+															for(key in  jsonData.results[0].address_components){
+																
+																if(jsonData.results[0].address_components.hasOwnProperty(key) && typeof jsonData.results[0].address_components[key].types == 'object'){
+																	if(jsonData.results[0].address_components[key].types.indexOf('country') !== -1)countryShortCode = jsonData.results[0].address_components[key]['short_name'];
+																	
+																}
+																
+															}
+															
+															for(key in  jsonData.results[0].address_components){
+																
+																if(jsonData.results[0].address_components.hasOwnProperty(key) && typeof jsonData.results[0].address_components[key].types == 'object'){
+																																		
+																	switch(derivedObj[fieldId]){
+																		
+																		case 'city':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('locality') !== -1;
+																		break;
+																		case 'zip':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('postal_code') !== -1;
+																		break;
+																		case 'state':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('administrative_area_level_1') !== -1;
+																		break;
+																		case 'county':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('administrative_area_level_2') !== -1;
+																		break;
+																		case 'country':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('country') !== -1;
+																			if(countryStateArr['US+'].indexOf(jsonData.results[0].address_components[key]['short_name']) !== -1)jsonData.results[0].address_components[key]['short_name']='US+';
+																		break;
+																		
+																		
+																	}
+
+																		
+																	if(objFound){
+																		setValue(fieldId, jsonData.results[0].address_components[key]['short_name']);
+																		break;
+																	}
+																		
+																}
+																
+															}
+															
+															if(!objFound){
+															
+																if(derivedObj[fieldId] == 'city'){
+																	var objValue = eval('data.'+obj[fieldId]);
+																	setValue(fieldId, objValue.split(',')[0]);
+
+																
+																}else if(derivedObj[fieldId] == 'state' && countryShortCode){
+
+																	setValue(fieldId, countryShortCode);
+																
+																}
+																
+															}
+															
+															
+														}
+														
+													}
+													
+												}
+													
+											});	
+											
+										}
+										
+										
+									})
+								
+									
+										
+									
+								}else{
+																		
+									var objValue = eval('data.'+obj[fieldId]);
+									
+									if(obj[fieldId] == 'age_range.min' && data.age_range)objValue= data.age_range.min +(data.age_range.max ? "-"+ data.age_range.max : "+");									
+									if(obj[fieldId] == 'friends.count')objValue= data.friends.data.length;
+									if(obj[fieldId] == 'friends.random_name')objValue= data.friends.data[Math.round(Math.random(0, data.friends.data.length)*100)].name;
+									
+									setValue(fieldId, objValue);
+								}
+							}
+							
+						}
+						
+					}
+				}) 
+			} 
+		}, {scope:'email'});  
+
+	}
+  
+	</script> 
+</div>
+
+</div><div class="row">
+<div class="col-md-5">
+  <div class="formfield">
+    <label for="8c8da51d-5271-4df3-afde-2f7d9fc2001e">
+      First Name
+    </label>
+    <input type="text" placeholder="" id="8c8da51d-5271-4df3-afde-2f7d9fc2001e" name="8c8da51d-5271-4df3-afde-2f7d9fc2001e" data-match="" data-validation="name"  data-required="true"  maxlength="">
+  </div>
+</div>
+
+<div class="col-md-7">
+  <div class="formfield">
+    <label for="2cc27d02-8740-404e-a2d4-4a05de3412a3">
+      Last Name
+    </label>
+    <input type="text" placeholder="" id="2cc27d02-8740-404e-a2d4-4a05de3412a3" name="2cc27d02-8740-404e-a2d4-4a05de3412a3" data-match="" data-validation="name"  data-required="true"  maxlength="">
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-6">
+  <div class="formfield">
+    <label for="1543bfb1-e325-4474-83f9-5a67a2b1c560.0">
+      Phone Number
+    </label>
+    
+    <input type='text' data-validation="/^\d{3}$/" data-required="true" placeholder='' id="1543bfb1-e325-4474-83f9-5a67a2b1c560.0" name="1543bfb1-e325-4474-83f9-5a67a2b1c560[0]"  maxlength="3" style="width: 100px; max-width:25%">
+    -
+    <input type='text' data-validation="/^\d{3}$/" data-required="true" placeholder='' id="1543bfb1-e325-4474-83f9-5a67a2b1c560.1" name="1543bfb1-e325-4474-83f9-5a67a2b1c560[1]" maxlength="3" style="width: 100px; max-width:25%">
+    -
+    <input type='text' data-validation="/^\d{4}$/" data-required="true" placeholder='' id="1543bfb1-e325-4474-83f9-5a67a2b1c560.2" name="1543bfb1-e325-4474-83f9-5a67a2b1c560[2]" maxlength="4" style="width: 120px; max-width:30%">
+    
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="formfield">
+    <label for="d441351d-2ad9-40ae-97ae-7c6577be1312">
+      Email Address
+    </label>
+    <input type="text" placeholder="" id="d441351d-2ad9-40ae-97ae-7c6577be1312" name="d441351d-2ad9-40ae-97ae-7c6577be1312" data-match="" data-validation="email"  data-required="true"  maxlength="255">
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="formfield checkbox">
+    <label for="94e028ed-b55b-49ab-a37e-fa8da7aa71ef">
+      <input type="checkbox" id="94e028ed-b55b-49ab-a37e-fa8da7aa71ef" name="94e028ed-b55b-49ab-a37e-fa8da7aa71ef" data-required="true" >
+      I am 18 years of age or older and have read and agree to the <a rel="nofollow" target="_blank" href="http://dja.com">Official Rules</a>.<br>
+    </label>
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="formfield">
+   
+    <button class="btn btn-default" type="submit" id="e6f031c8-7787-44cf-8bb1-ec491724e202" name="e6f031c8-7787-44cf-8bb1-ec491724e202">
+    Submit
+    </button>
+  
+  </div>
+</div>
+</div></form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer class="footer" data-panel="4">
+            <div class="well"> 
+              <form data-submit="undefined" data-path="/31901b06-6408-4ec6-815c-595f790821f8.4"><div class="row">
+<div class="col-md-12"> <a href="testingtesting.com" onclick="window.open(&#39;testingtesting.com&#39;, &#39;&#39;, &#39;height=800,width=800&#39;);return false;" target="_self" id="883e207a-a422-4d59-bf3b-b7fa95fdb868">
+  Official Rules
+  </a> </div>
+</div></form>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

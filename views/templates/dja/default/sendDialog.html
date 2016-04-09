@@ -1,0 +1,11 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+
+<a href="#" id="<%= (typeof id != 'undefined') ? id : '' %>"><img src="<%= (typeof src != 'undefined') ? src : '' %>" alt="<%= (typeof alt != 'undefined') ? alt : '' %>" style="max-width:<%= (typeof maxWidth != 'undefined') ? maxWidth : '100%'%>;"></a> </div>
+<script>
+document.getElementById("<%= (typeof id != 'undefined') ? id : '' %>").onclick = function(){
+	FB.ui({method: 'send',
+	  link: "<%= (typeof url != 'undefined' && url) ? url.split('#')[0] : '' %><%= (typeof url != 'undefined' && url) ? ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') : '' %><$$= (typeof url != 'undefined' && url) ? (vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') : '' $$>" || window.location.href.split('?')[0].split('#')[0]+"<%= ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') %><$$=  (vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '')  $$>"
+	});
+}
+</script>

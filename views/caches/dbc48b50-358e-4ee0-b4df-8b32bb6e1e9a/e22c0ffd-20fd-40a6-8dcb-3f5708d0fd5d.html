@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="<%=(vars&& typeof vars['lang'] != 'undefined' ? vars['lang'] : '') %>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%=(vars&& typeof vars['pageName'] != 'undefined' ? vars['pageName'] : '') %></title>
+<meta property="og:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>"/>
+<meta property="og:description" content="<%=(vars&& typeof vars['ogDescription'] != 'undefined' ? vars['ogDescription'] : '') %>">
+<meta property="og:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>" />
+<meta property="og:type" content="<%=(vars&& typeof vars['ogType'] != 'undefined' ? vars['ogType'] : '') %>" />
+<meta property="og:url" content="<%=(vars&& typeof vars['ogURL'] != 'undefined' ? vars['ogURL'] : '') %>" />
+<meta property="fb:app_id" content="<%=(vars&& typeof vars['app_id'] != 'undefined' ? vars['app_id'] : '') %>">
+<meta property="fb:admins" content="<%=(vars&& typeof vars['fbAdmin'] != 'undefined' ? vars['fbAdmin'] : '') %>">
+<meta property="twitter:card" content="<%=(vars&& typeof vars['twitterCardType'] != 'undefined' ? vars['twitterCardType'] : '') %>">
+<meta property="twitter:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>">
+<meta property="twitter:description" content="<%=(vars&& typeof vars['twitterShareCopy'] != 'undefined' ? vars['twitterShareCopy'] : '')%>">
+<meta property="twitter:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>">
+<meta property="twitter:url" content="<%=(vars&& typeof vars['twitterShareURL'] != 'undefined' ? vars['twitterShareURL'] : '') %>">
+<meta property="pinterest:image" content="<%=(vars&& typeof vars['pinterestImage'] != 'undefined' ? vars['pinterestImage'] : '') %>">
+<meta property="pinterest:url" content="<%=(vars&& typeof vars['pinterestURL'] != 'undefined' ? vars['pinterestURL'] : '') %>">
+<meta property="pinterest:description" content="<%=(vars&& typeof vars['pinterestDescription'] != 'undefined' ? vars['pinterestDescription'] : '') %>">
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script type="text/javascript">
+requirejs.config({
+    appDir: ".",
+    baseUrl: "js",
+    paths: { 
+        'jquery': ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min', 'https://promocms.dja.com/js/jquery.min'],
+        'bootstrap': ['https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'https://promocms.dja.com/js/bootstrap.min'],
+        'validation': ['https://promocms.dja.com/js/validation.basic'],
+    },
+    shim: {
+        'bootstrap' : ['jquery'],
+		'validation' : ['jquery']
+    }
+});
+
+require(['jquery', 'bootstrap','validation'], function($) {
+       
+    return {};
+});
+
+</script>
+<%-(vars&& typeof vars['customHeadValues'] != 'undefined' ? vars['customHeadValues'] : '') %>
+
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script>
+function fbShare(winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent($("meta[property='og:url']").prop('content')), 'fb_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+    }
+
+function tweet(winWidth, winHeight){
+	
+	var share_text = encodeURIComponent($("meta[property='twitter:description']").prop('content'));
+	var share_url = encodeURIComponent($("meta[property='twitter:url']").prop('content'));
+	var url_param = '&url=';
+	if(share_url)url_param += share_url;
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	window.open('https://twitter.com/share?text='+share_text+url_param, 'twtr_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+			
+}
+
+function pinterest(winWidth, winHeight){
+	
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	
+	window.open('http://pinterest.com/pin/create/button/?url='+encodeURIComponent($("meta[property='pinterest:url']").prop('content'))+'&media='+encodeURIComponent($("meta[property='pinterest:image']").prop('content'))+'&description='+encodeURIComponent($("meta[property='pinterest:description']").prop('content')), 'pin', 'top=' + winTop + ',left=' + winLeft +',menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+winHeight+',width='+winWidth);
+	
+}
+</script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+<style>
+body {
+	font-size: 12px;
+}
+.footer {
+	padding: 10px 10px 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+label {
+	display: block;
+}
+input[type='text'] {
+	width: 100%;
+}
+.formfield {
+	margin-top: 5px;
+}
+.flex-control-thumbs li {
+	width: 20%!important;
+}
+.flex-control-thumbs img {
+}
+.input_wrapper img {
+	display: none;
+}
+.input_wrapper.error_container img {
+	display: inline;
+}
+.error_container {
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	border: 1px solid red !important;
+	display: inline-block;
+	zoom: 1;
+ *display:inline;
+	white-space: nowrap;
+}
+.error_container input {
+	margin: 0px;
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+}
+.error_container input, .error_container select {
+	border: 0px;
+}
+.error_container textarea {
+	background: #EDAABD !important;
+}
+.input_wrapper {
+	display: inline-block;
+	zoom: 1;
+*display:inline;
+	white-space: nowrap;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span, .fb-comments div, .fb-post, .fb-post *, .fb-follow, .fb-follow * , .fb-like-box, .fb-like-box *, .fb-like, .fb-like * {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+ /* CSS Document */
+.wrapper {
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF777777', endColorstr='#FF494949');background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #494949));background-image:-webkit-linear-gradient(#777777,#494949);background-image:-moz-linear-gradient(#777777,#494949);background-image:-o-linear-gradient(#777777,#494949);background-image:linear-gradient(#777777,#494949);
+	background:url(https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/core-bg-white.jpg);
+	color:#fff;
+}
+.well {
+	/*background:#5F6062;*/
+	background:#262324;
+	
+	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+	}
+.page-header {
+	margin-top:0;
+}
+#marriottLogo {
+	max-width:150px;
+	width:80%;
+	background:#fff;
+	padding:1em;
+	 -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.page-header img {
+	 -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.shareImg {
+	margin-bottom:10px;
+}
+.shareImg img {
+	cursor:pointer;
+}
+h1, .h1 {
+	font-weight:bold;
+	text-align:center;
+	color:#A0072B;
+	 -webkit-text-shadow: 2px 2px rgba(0,0,0,1);
+   -moz-text-shadow: 2px 2px rgba(0,0,0,1);
+   text-shadow: 2px 2px rgba(0,0,0,1);
+}
+footer a {
+	color:#E3E1DE;
+	text-decoration:underline;
+}
+footer a:hover {
+	color:#A0072B;
+}
+.show-desktop {
+		display:block;
+	}
+	.show-mobile {
+		display:none;
+	}
+@media screen and (max-width:810px) and (min-width:769px){
+h1 {
+	font-size:24px;
+	margin:10px;
+}
+.container {	
+	width:100%;
+	padding:0;
+}
+.col-md-3 {
+    width: 25%;
+}
+.col-md-4 {
+    width: 33.3333%;
+}
+.col-md-5 {
+    width: 41.6667%;
+}
+.col-md-6 {
+	width:50%;
+}
+.col-sm-7 {
+	padding: 0;
+}
+.col-md-3,.col-md-4,.col-md-5, .col-md-6 {
+	float:left;
+}
+}
+@media screen and (max-width:768px){
+	.show-desktop {
+		display:none;
+	}
+	.show-mobile {
+		display:block;
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="fb-root"></div>
+
+<script>
+if(window.self != window.top){
+	document.body.style.overflow = 'hidden'; document.body.scroll = 'no';
+};
+
+ window.fbAsyncInit = function() {
+	
+    FB.init({
+      appId      : '<%=(vars&& typeof vars["app_id"] != "undefined") ? vars["app_id"] : "" %>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	if(typeof window.fbAsyncInitCallback == 'object'){
+	
+		for(var f in fbAsyncInitCallback){
+		
+			if(fbAsyncInitCallback.hasOwnProperty(f) && typeof fbAsyncInitCallback[f] == 'function'){
+			
+				fbAsyncInitCallback[f]();
+				
+			}
+			
+		}
+		
+	}
+	
+  };
+  
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>
+
+<div class="wrapper">
+  <div id="content" class="col-sm-12">
+    <div class="container">
+      <div class="row">
+        <div class="text-center"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/marriott-m-logo.png" alt="Marriott" id="marriottLogo"/> </div>
+        <div class="page-header col-sm-12">
+          <div class="row">
+            <div class="col-md-12 text-right shareImg"> <a href="#" onclick="fbShare(520, 350);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/facebook.png" alt="Facebook"></a> <a href="#" onclick="tweet(550, 520);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/twitter.png" alt="Twitter"></a> <a href="#" onclick="pinterest(800, 480);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/pinterest.png" alt="Pinterest"></a> </div>
+          </div>
+          <div data-panel="1">
+            
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="2"> 
+              <form data-submit="this-panel" data-path="/e22c0ffd-20fd-40a6-8dcb-3f5708d0fd5d.2"><div class="row">
+<div class="col-md-12">
+  <div class="formfield">
+   
+    <button class="btn btn-default" type="submit" id="ad0e6ffa-342a-4f0f-b7ef-e3e7cee2edd8" name="ad0e6ffa-342a-4f0f-b7ef-e3e7cee2edd8">
+    Skip
+    </button>
+  
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="flexslider" id="3d8b2066-5235-46e2-abb9-2ad7ea7b856d">
+    <ul class="slides" >
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide0.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide0.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide1.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide1.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide2.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide2.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide3.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide3.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide4.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide4.jpg" alt="" /> </li>
+      
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+
+ require.config({
+        paths: {
+            'jquery.flexslider': 'https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/flexslider/flexslider'
+        },
+		shim: {
+       	 'jquery.flexslider': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.flexslider'
+       	 }
+		}
+    });
+	
+require(["jquery", "jquery.flexslider"],
+	function ($,   flexslider) {
+     $('#3d8b2066-5235-46e2-abb9-2ad7ea7b856d').flexslider({
+  		animation: "slide",    controlNav: "thumbnails",    smoothHeight: true
+ 	 })
+	 	 
+});
+
+    var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = "https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/flexslider/flexslider.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+	
+
+</script> </div></form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="3"> 
+              <form data-submit="this-panel" data-path="/e22c0ffd-20fd-40a6-8dcb-3f5708d0fd5d.3"><div class="row">
+
+<div class="col-md-12"> <a href="#" onclick="FBAutofill_3c414a72();return false;" id="3c414a72-3975-4992-8fb5-7c3ec3354710"> <img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/dbc48b50-358e-4ee0-b4df-8b32bb6e1e9a/4a04bdd5-0385-4b64-a8e6-46ddf2bb0532.png" alt="autofill with facebook" style="max-width:100%;"> </a> 
+  <script type="text/javascript">
+  
+	var FBAutofill_3c414a72 = function(){
+
+		
+			
+			var countryStateArr = {"US+":["AS","GU","MP","PR","VI"]};
+			
+		
+		
+			var derivedObj = {"8fa1e4cb-cc40-4eee-84b6-74e3076bddb2":"state","8ec4526c-bda7-4af9-a55b-608af4b4cbc5":"country"};
+			
+			var setValue = function(fieldId, value){
+				
+				if($("[id^='"+fieldId+"']").is("input[type=text], input[type=email], input[type=number], input[type=hidden], select")){
+					
+					$("[id^='"+fieldId+"']").val(value).data('autofill-value', value).trigger('change');
+					
+				}else if($("[id^='"+fieldId+"']").is("input[type=radio]")){
+									
+					$("[id^='"+fieldId+"']").filter(function(){
+																		
+						return typeof $(this).prop('value') != 'undefined' && $(this).prop('value') != '' && value != '' && $.trim($(this).prop('value').toLowerCase()) == $.trim(value.toLowerCase());
+						
+					})
+					.prop('checked', true)
+					.data('autofill-value', value).trigger('change');
+					
+				}
+				
+				if($("[id^='"+fieldId+"']").data("validation") && $("[id^='"+fieldId+"']").data("validation").indexOf('dob_') !== -1){
+					
+					$("[id^='"+fieldId+".m']").val(value.split('/')[0]);
+					$("[id^='"+fieldId+".d']").val(value.split('/')[1]);
+					$("[id^='"+fieldId+".y']").val(value.split('/')[2]);
+					
+				}
+				
+			}
+
+		FB.login(function(response) {
+			if (response.authResponse.accessToken) {    
+				FB.api('me?fields=email,first_name,last_name,location,favorite_teams', function(data) {
+					var obj = {"927f9051-3007-4258-afce-0f5f73ac528e":"email","5686a0c3-7509-46d5-a1f2-0a1321fa4e5b":"first_name","4cdedcc0-ec55-47c2-8162-b5f6d8d0dd55":"last_name","8fa1e4cb-cc40-4eee-84b6-74e3076bddb2":"location.name","8ec4526c-bda7-4af9-a55b-608af4b4cbc5":"location.name","0005ac25-34cb-4e47-bf06-d6d14f6d4b7d":"favorite_teams.name"};
+					for(fieldId in obj){
+						
+						var objObj = eval('data.'+obj[fieldId].split('.')[0]);
+						var objObjKey = obj[fieldId].split('.')[1];
+						var objObjSubKey = obj[fieldId].split('.')[2];
+																		
+						
+						if(obj.hasOwnProperty(fieldId)){
+							if(typeof objObj != 'undefined' && Object.prototype.toString.call( objObj ) === '[object Array]'){
+							
+								var objValue = [];
+							
+								for(var i=0;i<objObj.length;i++){
+																	
+									if(typeof objObj[i][objObjKey] == 'object'  && Object.prototype.toString.call( objObj ) === '[object Array]' && objObjSubKey){
+										
+										if(objObj[i][objObjKey][objObjSubKey] != '' && objObj[i][objObjKey][objObjSubKey] != null){
+											
+											objValue.push(objObj[i][objObjKey][objObjSubKey]);
+											
+										}
+										
+									}else if(typeof objObj[i][objObjKey] != 'undefined'){
+										
+										if(objObj[i][objObjKey] != '' && objObj[i][objObjKey] != null){
+											
+											objValue.push(objObj[i][objObjKey]);
+											
+										}
+										
+									}
+									
+								}
+								
+								setValue(fieldId, objValue.join(', '));
+
+							}else if(typeof objObj != 'undefined'){
+								
+								if(obj[fieldId] == 'location.name' && typeof derivedObj[fieldId] != 'undefined'){
+																	
+									$.getJSON('https://graph.facebook.com/'+data.location.id+'?fields=location', function(loc){
+									
+										if(loc && loc.location && loc.location.latitude && loc.location.longitude){
+																					
+											$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng='+loc.location.latitude+','+loc.location.longitude+'&sensor=true&callback=zipmap', function(jsonData){
+																					
+																					
+												for(fieldId in derivedObj){
+													
+													if(derivedObj.hasOwnProperty(fieldId)){
+											
+														if(jsonData && jsonData.results && jsonData.results[0] && typeof jsonData.results[0].address_components == 'object'){
+															var objFound = false,countryShortCode='';
+															
+															for(key in  jsonData.results[0].address_components){
+																
+																if(jsonData.results[0].address_components.hasOwnProperty(key) && typeof jsonData.results[0].address_components[key].types == 'object'){
+																	if(jsonData.results[0].address_components[key].types.indexOf('country') !== -1)countryShortCode = jsonData.results[0].address_components[key]['short_name'];
+																	
+																}
+																
+															}
+															
+															for(key in  jsonData.results[0].address_components){
+																
+																if(jsonData.results[0].address_components.hasOwnProperty(key) && typeof jsonData.results[0].address_components[key].types == 'object'){
+																																		
+																	switch(derivedObj[fieldId]){
+																		
+																		case 'city':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('locality') !== -1;
+																		break;
+																		case 'zip':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('postal_code') !== -1;
+																		break;
+																		case 'state':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('administrative_area_level_1') !== -1;
+																		break;
+																		case 'county':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('administrative_area_level_2') !== -1;
+																		break;
+																		case 'country':
+																			objFound = jsonData.results[0].address_components[key].types.indexOf('country') !== -1;
+																			if(countryStateArr['US+'].indexOf(jsonData.results[0].address_components[key]['short_name']) !== -1)jsonData.results[0].address_components[key]['short_name']='US+';
+																		break;
+																		
+																		
+																	}
+
+																		
+																	if(objFound){
+																		setValue(fieldId, jsonData.results[0].address_components[key]['short_name']);
+																		break;
+																	}
+																		
+																}
+																
+															}
+															
+															if(!objFound){
+															
+																if(derivedObj[fieldId] == 'city'){
+																	var objValue = eval('data.'+obj[fieldId]);
+																	setValue(fieldId, objValue.split(',')[0]);
+
+																
+																}else if(derivedObj[fieldId] == 'state' && countryShortCode){
+
+																	setValue(fieldId, countryShortCode);
+																
+																}
+																
+															}
+															
+															
+														}
+														
+													}
+													
+												}
+													
+											});	
+											
+										}
+										
+										
+									})
+								
+									
+										
+									
+								}else{
+																		
+									var objValue = eval('data.'+obj[fieldId]);
+									
+									if(obj[fieldId] == 'age_range.min' && data.age_range)objValue= data.age_range.min +(data.age_range.max ? "-"+ data.age_range.max : "+");									
+									if(obj[fieldId] == 'friends.count')objValue= data.friends.data.length;
+									if(obj[fieldId] == 'friends.random_name')objValue= data.friends.data[Math.round(Math.random(0, data.friends.data.length)*100)].name;
+									
+									setValue(fieldId, objValue);
+								}
+							}
+							
+						}
+						
+					}
+				}) 
+			} 
+		}, {scope:'email,user_location,user_location,user_likes'});  
+
+	}
+  
+	</script> 
+</div>
+
+</div><div class="row">
+<div class="col-md-6">
+  <div class="formfield">
+    <label for="5686a0c3-7509-46d5-a1f2-0a1321fa4e5b">
+      First Name
+    </label>
+    <input type="text" placeholder="" id="5686a0c3-7509-46d5-a1f2-0a1321fa4e5b" name="5686a0c3-7509-46d5-a1f2-0a1321fa4e5b" data-match="" data-validation="name"  data-required="true"  maxlength="30">
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="formfield">
+    <label for="4cdedcc0-ec55-47c2-8162-b5f6d8d0dd55">
+      Last Name
+    </label>
+    <input type="text" placeholder="" id="4cdedcc0-ec55-47c2-8162-b5f6d8d0dd55" name="4cdedcc0-ec55-47c2-8162-b5f6d8d0dd55" data-match="" data-validation="name"  data-required="true"  maxlength="35">
+  </div>
+</div>
+</div><div class="row"><div class="col-md-5" style="padding:0">
+  <div class="fb-like-box" data-href="https://www.facebook.com/gillette" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="false" data-show-border="false"></div>
+</div>
+<% if(typeof is_prelike_page != 'undefined' && is_prelike_page == true){ %>
+<script>
+
+var like_url_to_trace = "<%=(typeof like_url_to_trace != 'undefined' && like_url_to_trace != 'null' ? like_url_to_trace : '' ) %>";
+var app_data = "<%=(typeof app_data != 'undefined' && app_data != 'null' ? app_data : '' ) %>";
+var in_tab = "<%=(typeof in_tab != 'undefined' && in_tab === true ? 'true' : 'false' ) %>";
+var in_canvas = "<%=(typeof in_canvas != 'undefined' && in_canvas === true ? 'true' : 'false' ) %>";
+
+if(typeof window.fbAsyncInitCallback != 'object')window.fbAsyncInitCallback = {};
+window.fbAsyncInitCallback['fbLike'] = function(){
+	
+	FB.Event.subscribe('edge.create', function(url, html_element) {
+	
+		var fbPageNamespaceObj = url.replace(/^http(s)?:\/\//, '').split('/');
+		var fbPageNamespace = fbPageNamespaceObj[1];
+		
+		if(fbPageNamespace == 'pages'){
+			
+			fbPageNamespace = fbPageNamespaceObj[3].split('?')[0];
+		}
+							
+		
+		FB.api(fbPageNamespace, function(response){
+		
+			if(response && response.id == like_url_to_trace){
+				
+				if(in_tab == 'true'){
+				
+					window.top.location = response.link+'?sk=app_<%=(typeof app_id != "undefined") ? app_id : "" %>&app_data='+app_data;
+						
+				}else if(in_canvas == 'true'){
+				
+					window.top.location = "<%=(typeof app_url != 'undefined') ? app_url : '' %>"+window.location.pathname+window.location.search;
+						
+				}else{
+				
+					window.location.reload();	
+					
+				}
+				
+			}
+			
+		})
+		
+	});
+}
+	
+
+</script>
+<% } %>
+
+<div class="col-md-4" style="padding:0">
+  <div class="fb-like" data-href="https://promocms.dja.com/promo/dbc48b50-358e-4ee0-b4df-8b32bb6e1e9a#pages" data-layout="box_count" data-action="like" data-show-faces="false" data-share="true"></div>
+</div>
+
+<% if(typeof is_prelike_page != 'undefined' && is_prelike_page == true){ %>
+<script>
+
+var like_url_to_trace = "<%=(typeof like_url_to_trace != 'undefined' && like_url_to_trace != 'null' ? like_url_to_trace : '' ) %>";
+var app_data = "<%=(typeof app_data != 'undefined' && app_data != 'null' ? app_data : '' ) %>";
+var in_tab = "<%=(typeof in_tab != 'undefined' && in_tab === true ? 'true' : 'false' ) %>";
+var in_canvas = "<%=(typeof in_canvas != 'undefined' && in_canvas === true ? 'true' : 'false' ) %>";
+
+if(typeof window.fbAsyncInitCallback != 'object')window.fbAsyncInitCallback = {};
+window.fbAsyncInitCallback['fbLike'] = function(){
+	
+	FB.Event.subscribe('edge.create', function(url, html_element) {
+	
+		var fbPageNamespaceObj = url.replace(/^http(s)?:\/\//, '').split('/');
+		var fbPageNamespace = fbPageNamespaceObj[1];
+		
+		if(fbPageNamespace == 'pages'){
+			
+			fbPageNamespace = fbPageNamespaceObj[3].split('?')[0];
+		}
+							
+		
+		FB.api(fbPageNamespace, function(response){
+		
+			if(response && response.id == like_url_to_trace){
+				
+				if(in_tab == 'true'){
+				
+					window.top.location = response.link+'?sk=app_<%=(typeof app_id != "undefined") ? app_id : "" %>&app_data='+app_data;
+						
+				}else if(in_canvas == 'true'){
+				
+					window.top.location = "<%=(typeof app_url != 'undefined') ? app_url : '' %>"+window.location.pathname+window.location.search;
+						
+				}else{
+				
+					window.location.reload();	
+					
+				}
+				
+			}
+			
+		})
+		
+	});
+}
+	
+
+</script>
+<% } %>
+<div class="col-md-3" style="padding:0">
+  <div class="fb-send" data-href="https://developers.facebook.com/docs/plugins/send-button"></div>
+</div></div><div class="row">
+<div class="col-md-12">
+  <div class="formfield">
+    <label for="927f9051-3007-4258-afce-0f5f73ac528e">
+      Email Address
+    </label>
+    <input type="text" placeholder="" id="927f9051-3007-4258-afce-0f5f73ac528e" name="927f9051-3007-4258-afce-0f5f73ac528e" data-match="" data-validation="email"  data-required="true"  maxlength="255">
+  </div>
+</div>
+</div><div class="row"><div class="col-md-7"></div>
+<div class="col-md-4">
+  <div class="formfield">
+   
+    <button class="btn btn-default" type="submit" id="0c8a3c02-b8d1-4fd1-89ce-0ea574783bc1" name="0c8a3c02-b8d1-4fd1-89ce-0ea574783bc1">
+    Continue
+    </button>
+  
+  </div>
+</div>
+</div><div class="row"><div class="col-md-12" style="padding:0">
+  <div class="fb-post" data-href="https://www.facebook.com/gillette/posts/10201569248808793" data-width="350"></div>
+</div></div><div class="row">
+<div class="col-md-12" style="padding:0">
+  <div class="fb-follow" data-href="https://www.facebook.com/gillette" data-layout="standard" data-show-faces="false"></div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments" data-numposts="5" data-colorscheme="light"></div>
+</div>
+</div><div class="row">
+<div class="col-md-12"> 
+<div id="disqus_thread"></div>
+
+  <script type="text/javascript">
+	
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'promocms'; // required: replace example with your forum shortname
+		
+
+		var disqus_identifier = 'https://promocms.dja.com/promo/dbc48b50-358e-4ee0-b4df-8b32bb6e1e9a#pages';
+
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    
+    </div></div><div class="row"><script type="text/javascript">
+	var RecaptchaOptions = {
+		theme : 'custom',
+		custom_theme_widget: '47de5ccc-5c0c-4f68-8f4b-0f03c88af323'
+	};
+	
+	 var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = "https://promocms.dja.com/css/recaptcha_red.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+
+</script>
+
+<div class="col-md-12">
+  <div class="formfield">
+    <div id="47de5ccc-5c0c-4f68-8f4b-0f03c88af323" style="display:none" class="recaptcha_widget">
+      <div id="recaptcha_image"></div>
+      <div class="recaptcha_field_wrapper">
+        <div class="recaptcha_input">
+          <label class="recaptcha_only_if_image" for="recaptcha_response_field">Enter the words above:</label>
+          <label class="recaptcha_only_if_audio" for="recaptcha_response_field">Enter the numbers you hear:</label>
+          <input type="text" id="recaptcha_response_field" data-required="true" name="recaptcha_response_field">
+        </div>
+        <ul class="recaptcha_options">
+          <li> <a href="javascript:Recaptcha.reload()"> <span class="glyphicon glyphicon-refresh" style="font-size: .7em;"></span> <span class="captcha_hide">Get another CAPTCHA</span> </a> </li>
+          <li class="recaptcha_only_if_image"> <a href="javascript:Recaptcha.switch_type('audio')"> <span class="glyphicon glyphicon-volume-up" style="font-size: .7em;"></span> <span class="captcha_hide"> Get an audio CAPTCHA</span> </a> </li>
+          <li class="recaptcha_only_if_audio"> <a href="javascript:Recaptcha.switch_type('image')"> <span class="glyphicon glyphicon-font" style="font-size: .7em;"></span> <span class="captcha_hide"> Get an image CAPTCHA</span> </a> </li>
+          <li> <a href="javascript:Recaptcha.showhelp()"> <span class="glyphicon glyphicon-question-sign" style="font-size: .7em;"></span> <span class="captcha_hide"> Help</span> </a> </li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript" src="//www.google.com/recaptcha/api/challenge?k=6LeguQgAAAAAANmZQOilQ8bEAHD4xWG9zvhINLHb"></script>
+    <noscript>
+    <iframe src="//www.google.com/recaptcha/api/noscript?k=6LeguQgAAAAAANmZQOilQ8bEAHD4xWG9zvhINLHb" height="300" width="500" style="border:0; padding:0; margin:0; height:300px; width: 500px;"></iframe>
+    <br>
+    <textarea name="recaptcha_challenge_field"></textarea>
+    <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+    </noscript>
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="formfield">
+    <label for="8fa1e4cb-cc40-4eee-84b6-74e3076bddb2">
+      State
+    </label>
+    <select data-validation="state" data-required="true" id="8fa1e4cb-cc40-4eee-84b6-74e3076bddb2" name="8fa1e4cb-cc40-4eee-84b6-74e3076bddb2" style=" width: 100%; max-width:100%;">
+      
+      <option value="AL">
+      AL
+      </option>
+      
+      <option value="AK">
+      AK
+      </option>
+      
+      <option value="AZ">
+      AZ
+      </option>
+      
+      <option value="AR">
+      AR
+      </option>
+      
+      <option value="CA">
+      CA
+      </option>
+      
+      <option value="CO">
+      CO
+      </option>
+      
+      <option value="CT">
+      CT
+      </option>
+      
+      <option value="DE">
+      DE
+      </option>
+      
+      <option value="DC">
+      DC
+      </option>
+      
+      <option value="FL">
+      FL
+      </option>
+      
+      <option value="GA">
+      GA
+      </option>
+      
+      <option value="HI">
+      HI
+      </option>
+      
+      <option value="ID">
+      ID
+      </option>
+      
+      <option value="IL">
+      IL
+      </option>
+      
+      <option value="IN">
+      IN
+      </option>
+      
+      <option value="IA">
+      IA
+      </option>
+      
+      <option value="KS">
+      KS
+      </option>
+      
+      <option value="KY">
+      KY
+      </option>
+      
+      <option value="LA">
+      LA
+      </option>
+      
+      <option value="ME">
+      ME
+      </option>
+      
+      <option value="MD">
+      MD
+      </option>
+      
+      <option value="MA">
+      MA
+      </option>
+      
+      <option value="MI">
+      MI
+      </option>
+      
+      <option value="MN">
+      MN
+      </option>
+      
+      <option value="MS">
+      MS
+      </option>
+      
+      <option value="MO">
+      MO
+      </option>
+      
+      <option value="MT">
+      MT
+      </option>
+      
+      <option value="NE">
+      NE
+      </option>
+      
+      <option value="NV">
+      NV
+      </option>
+      
+      <option value="NH">
+      NH
+      </option>
+      
+      <option value="NJ">
+      NJ
+      </option>
+      
+      <option value="NM">
+      NM
+      </option>
+      
+      <option value="NY">
+      NY
+      </option>
+      
+      <option value="NC">
+      NC
+      </option>
+      
+      <option value="ND">
+      ND
+      </option>
+      
+      <option value="OH">
+      OH
+      </option>
+      
+      <option value="OK">
+      OK
+      </option>
+      
+      <option value="OR">
+      OR
+      </option>
+      
+      <option value="PA">
+      PA
+      </option>
+      
+      <option value="RI">
+      RI
+      </option>
+      
+      <option value="SC">
+      SC
+      </option>
+      
+      <option value="SD">
+      SD
+      </option>
+      
+      <option value="TN">
+      TN
+      </option>
+      
+      <option value="TX">
+      TX
+      </option>
+      
+      <option value="UT">
+      UT
+      </option>
+      
+      <option value="VT">
+      VT
+      </option>
+      
+      <option value="VA">
+      VA
+      </option>
+      
+      <option value="WA">
+      WA
+      </option>
+      
+      <option value="WV">
+      WV
+      </option>
+      
+      <option value="WI">
+      WI
+      </option>
+      
+      <option value="WY">
+      WY
+      </option>
+      
+      <option value="Other">
+      Other
+      </option>
+      
+      
+    </select>
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+    <label for="0005ac25-34cb-4e47-bf06-d6d14f6d4b7d" style="display:none;">
+      Test
+    </label>
+    <input type="hidden" id="0005ac25-34cb-4e47-bf06-d6d14f6d4b7d" name="0005ac25-34cb-4e47-bf06-d6d14f6d4b7d" data-validation=""  data-required="">
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="formfield">
+    <label for="8ec4526c-bda7-4af9-a55b-608af4b4cbc5">
+      Country
+    </label>
+    <select data-validation="state" data-required="true" id="8ec4526c-bda7-4af9-a55b-608af4b4cbc5" name="8ec4526c-bda7-4af9-a55b-608af4b4cbc5" style=" width: 100%; max-width:100%;">
+      
+      <option value="US">
+      United States
+      </option>
+      
+      <option value="CA">
+      Canada
+      </option>
+      
+      <option value="US+">
+      United States Territories
+      </option>
+      
+      <option value="HK">
+      Hong Kong
+      </option>
+      
+      
+    </select>
+  </div>
+</div>
+</div></form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer class="footer" data-panel="4">
+            <div class="well"> 
+              
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

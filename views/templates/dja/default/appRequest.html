@@ -1,0 +1,9 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>"> <a href="#" id="<%= (typeof id != 'undefined') ? id : '' %>"> <img src="<%= (typeof src != 'undefined') ? src : '' %>" alt="<%= (typeof alt != 'undefined') ? alt : '' %>" style="max-width:<%= (typeof maxWidth != 'undefined') ? maxWidth : '100%'%>;"> </a> </div>
+<script>
+document.getElementById("<%= (typeof id != 'undefined') ? id : '' %>").onclick = function(){
+	FB.ui({method: 'apprequests',
+	  message: "<%- (typeof title != 'undefined') ? title.replace(/"/g, '\\"') : '' %>"
+	});
+}
+</script>

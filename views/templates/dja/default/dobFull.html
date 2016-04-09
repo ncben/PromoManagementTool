@@ -1,0 +1,44 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12' %>">
+  <div class="formfield" style="white-space:nowrap">
+    <label for="<%- (typeof id != 'undefined') ? id : '' %>">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <% if (typeof type == 'object' && type.indexOf('month') !== -1){ %>
+    <!-- month -->
+    <select data-validation="dob_m" data-required="<%= (typeof required != 'undefined') ? required : '' %>" name="<%- (typeof monthName != 'undefined') ? monthName : '' %>" id="<%- (typeof monthID != 'undefined') ? monthID : '' %>" style="width: 38%;max-width:38%;">
+      <option value="">Month</option>
+      <% if (typeof dobMonth == 'object') { dobMonth.forEach(function(month) { %>
+      <option value="<%- month.value %>">
+      <%- month.label %>
+      </option>
+      <% }); %>
+      <% }; %>
+    </select>
+    <% } %>
+    <% if (typeof type == 'object' && type.indexOf('date') !== -1){ %>
+    <!-- day -->
+    <select data-validation="dob_d"  data-required="<%= (typeof required != 'undefined') ? required : '' %>" name="<%- (typeof dayName != 'undefined') ? dayName : '' %>" id="<%- (typeof dayID != 'undefined') ? dayID : '' %>" style="width: 30%;; max-width:30%;">
+      <option value="">Day</option>
+      <% if (typeof dobDay== 'object') { dobDay.forEach(function(day) { %>
+      <option value="<%- day.value %>">
+      <%- day.label %>
+      </option>
+      <% }); %>
+      <% }; %>
+    </select>
+    <% }; %>
+    <% if (typeof type == 'object' && type.indexOf('year') !== -1){ %>
+    <!-- year -->
+    <select data-validation="dob_y"  data-required="<%= (typeof required != 'undefined') ? required : '' %>" name="<%- (typeof yearName != 'undefined') ? yearName : '' %>" id="<%- (typeof yearID != 'undefined') ? yearID : '' %>" style="width: 32%;max-width:32%;">
+      <option value="">Year</option>
+      <% if (typeof dobYear== 'object') { dobYear.forEach(function(year) { %>
+      <option value="<%- year.value %>">
+      <%- year.label %>
+      </option>
+      <% }); %>
+      <% }; %>
+    </select>
+    <% }; %>
+  </div>
+</div>

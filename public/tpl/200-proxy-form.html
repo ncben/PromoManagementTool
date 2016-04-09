@@ -1,0 +1,11 @@
+
+<form method="post" id="proxy_form"><input type="hidden" autocomplete="off" id="signed_request" name="signed_request" /></form><script>  
+  function submitForm(appTabUrl, signedRequest) {
+    var proxyForm = document.getElementById("proxy_form");
+    proxyForm.setAttribute("action", appTabUrl);
+    var input = document.getElementById("signed_request");
+    input.setAttribute("value", signedRequest);
+    proxyForm.submit();
+  }
+  
+  submitForm("<%=(typeof next_url != 'undefined') ? next_url : ''  %>", "<%=(typeof signed_request != 'undefined') ? signed_request : ''  %>");</script><noscript><div class="pam uiBoxGray">You need Javascript enabled in your browser to use Facebook Applications.</div></noscript>	

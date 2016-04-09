@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="<%=(vars&& typeof vars['lang'] != 'undefined' ? vars['lang'] : '') %>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%=(vars&& typeof vars['pageName'] != 'undefined' ? vars['pageName'] : '') %></title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script type="text/javascript">
+requirejs.config({
+    appDir: ".",
+    baseUrl: "js",
+    paths: { 
+        'jquery': ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min', 'https://promocms.dja.com/js/jquery.min'],
+        'bootstrap': ['https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'https://promocms.dja.com/js/bootstrap.min'],
+        'validation': ['https://promocms.dja.com/js/validation.basic'],
+    },
+    shim: {
+        'bootstrap' : ['jquery'],
+		'validation' : ['jquery']
+    }
+});
+
+require(['jquery', 'bootstrap','validation'], function($) {
+       
+    return {};
+});
+
+</script>
+<%-(vars&& typeof vars['customHeadValues'] != 'undefined' ? vars['customHeadValues'] : '') %>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+<style>
+body {
+	font-size: 12px;
+}
+.footer {
+	padding: 10px 10px 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+label {
+	display: block;
+}
+input[type='text'] {
+	width: 100%;
+}
+.formfield {
+	margin-top: 5px;
+}
+.flex-control-thumbs li {
+	width: 20%!important;
+}
+.flex-control-thumbs img {
+}
+.input_wrapper img {
+	display: none;
+}
+.input_wrapper.error_container img {
+	display: inline;
+}
+.error_container {
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	border: 1px solid red !important;
+	display: inline-block;
+	zoom: 1;
+ *display:inline;
+	white-space: nowrap;
+}
+.error_container input {
+	margin: 0px;
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+}
+.error_container input, .error_container select {
+	border: 0px;
+}
+.error_container textarea {
+	background: #EDAABD !important;
+}
+.input_wrapper {
+	display: inline-block;
+	zoom: 1;
+*display:inline;
+	white-space: nowrap;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span, .fb-comments div, .fb-post, .fb-post *, .fb-follow, .fb-follow * , .fb-like-box, .fb-like-box *, .fb-like, .fb-like * {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+</style>
+</head>
+
+<body>
+<div id="fb-root"></div>
+
+<script>
+if(window.self != window.top){
+	document.body.style.overflow = 'hidden'; document.body.scroll = 'no';
+};
+
+ window.fbAsyncInit = function() {
+	
+    FB.init({
+      appId      : '<%=(vars&& typeof vars["app_id"] != "undefined") ? vars["app_id"] : "" %>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	if(typeof window.fbAsyncInitCallback == 'object'){
+	
+		for(var f in fbAsyncInitCallback){
+		
+			if(fbAsyncInitCallback.hasOwnProperty(f) && typeof fbAsyncInitCallback[f] == 'function'){
+			
+				fbAsyncInitCallback[f]();
+				
+			}
+			
+		}
+		
+	}
+	
+  };
+  
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>
+
+<div class="wrapper">
+  <div id="content" class="col-sm-12">
+    <div class="container">
+      <div class="row">
+        <div class="page-header col-sm-12">
+          <div data-panel="1">
+            
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well"> 
+            <!-- Default panel contents -->
+            <div class="panel-body" data-panel="2"> 
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default well"> 
+            <!-- Default panel contents -->
+            <div class="panel-body" data-panel="3"> 
+              <div class="row">
+<div class="col-md-12">
+  <div id="0a8b8afb-0d24-4a6b-b725-90b735464398">
+    AE
+  </div>
+</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer class="footer" data-panel="4"> 
+            
+            <div class="text-center"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/ClassObjects/resources/images/powered_by_dja.png" alt="powered by don jagoda associates" /> </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

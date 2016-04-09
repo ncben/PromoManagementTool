@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="<%=(vars&& typeof vars['lang'] != 'undefined' ? vars['lang'] : '') %>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%=(vars&& typeof vars['pageName'] != 'undefined' ? vars['pageName'] : '') %></title>
+<meta property="og:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>"/>
+<meta property="og:description" content="<%=(vars&& typeof vars['ogDescription'] != 'undefined' ? vars['ogDescription'] : '') %>">
+<meta property="og:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>" />
+<meta property="og:type" content="<%=(vars&& typeof vars['ogType'] != 'undefined' ? vars['ogType'] : '') %>" />
+<meta property="og:url" content="<%=(vars&& typeof vars['ogURL'] != 'undefined' ? vars['ogURL'] : '') %>" />
+<meta property="fb:app_id" content="<%=(vars&& typeof vars['app_id'] != 'undefined' ? vars['app_id'] : '') %>">
+<meta property="fb:admins" content="<%=(vars&& typeof vars['fbAdmin'] != 'undefined' ? vars['fbAdmin'] : '') %>">
+<meta property="twitter:card" content="<%=(vars&& typeof vars['twitterCardType'] != 'undefined' ? vars['twitterCardType'] : '') %>">
+<meta property="twitter:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>">
+<meta property="twitter:description" content="<%=(vars&& typeof vars['twitterShareCopy'] != 'undefined' ? vars['twitterShareCopy'] : '')%>">
+<meta property="twitter:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>">
+<meta property="twitter:url" content="<%=(vars&& typeof vars['twitterShareURL'] != 'undefined' ? vars['twitterShareURL'] : '') %>">
+<meta property="pinterest:image" content="<%=(vars&& typeof vars['pinterestImage'] != 'undefined' ? vars['pinterestImage'] : '') %>">
+<meta property="pinterest:url" content="<%=(vars&& typeof vars['pinterestURL'] != 'undefined' ? vars['pinterestURL'] : '') %>">
+<meta property="pinterest:description" content="<%=(vars&& typeof vars['pinterestDescription'] != 'undefined' ? vars['pinterestDescription'] : '') %>">
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script type="text/javascript">
+requirejs.config({
+    appDir: ".",
+    baseUrl: "js",
+    paths: { 
+        'jquery': ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min', 'https://promocms.dja.com/js/jquery.min'],
+        'bootstrap': ['https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'https://promocms.dja.com/js/bootstrap.min'],
+        'validation': ['https://promocms.dja.com/js/validation.basic'],
+    },
+    shim: {
+        'bootstrap' : ['jquery'],
+		'validation' : ['jquery']
+    }
+});
+
+require(['jquery', 'bootstrap','validation'], function($) {
+       
+    return {};
+});
+
+</script>
+<%-(vars&& typeof vars['customHeadValues'] != 'undefined' ? vars['customHeadValues'] : '') %>
+
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script>
+function fbShare(winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent($("meta[property='og:url']").prop('content')), 'fb_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+    }
+
+function tweet(winWidth, winHeight){
+	
+	var share_text = encodeURIComponent($("meta[property='twitter:description']").prop('content'));
+	var share_url = encodeURIComponent($("meta[property='twitter:url']").prop('content'));
+	var url_param = '&url=';
+	if(share_url)url_param += share_url;
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	window.open('https://twitter.com/share?text='+share_text+url_param, 'twtr_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+			
+}
+
+function pinterest(winWidth, winHeight){
+	
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	
+	window.open('http://pinterest.com/pin/create/button/?url='+encodeURIComponent($("meta[property='pinterest:url']").prop('content'))+'&media='+encodeURIComponent($("meta[property='pinterest:image']").prop('content'))+'&description='+encodeURIComponent($("meta[property='pinterest:description']").prop('content')), 'pin', 'top=' + winTop + ',left=' + winLeft +',menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+winHeight+',width='+winWidth);
+	
+}
+</script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+<style>
+body {
+	font-size: 12px;
+}
+.footer {
+	padding: 10px 10px 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+label {
+	display: block;
+}
+input[type='text'] {
+	width: 100%;
+}
+.formfield {
+	margin-top: 5px;
+}
+.flex-control-thumbs li {
+	width: 20%!important;
+}
+.flex-control-thumbs img {
+}
+.input_wrapper img {
+	display: none;
+}
+.input_wrapper.error_container img {
+	display: inline;
+}
+.error_container {
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	border: 1px solid red !important;
+	display: inline-block;
+	zoom: 1;
+ *display:inline;
+	white-space: nowrap;
+}
+.error_container input {
+	margin: 0px;
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+}
+.error_container input, .error_container select {
+	border: 0px;
+}
+.error_container textarea {
+	background: #EDAABD !important;
+}
+.input_wrapper {
+	display: inline-block;
+	zoom: 1;
+*display:inline;
+	white-space: nowrap;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span, .fb-comments div, .fb-post, .fb-post *, .fb-follow, .fb-follow * , .fb-like-box, .fb-like-box *, .fb-like, .fb-like * {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+ /* CSS Document */
+.wrapper {
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF777777', endColorstr='#FF494949');background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #494949));background-image:-webkit-linear-gradient(#777777,#494949);background-image:-moz-linear-gradient(#777777,#494949);background-image:-o-linear-gradient(#777777,#494949);background-image:linear-gradient(#777777,#494949);
+	background:url(https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/core-bg-white.jpg);
+	color:#fff;
+}
+.well {
+	/*background:#5F6062;*/
+	background:#262324;
+	
+	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+	}
+.page-header {
+	margin-top:0;
+}
+#marriottLogo {
+	max-width:150px;
+	width:80%;
+	background:#fff;
+	padding:1em;
+	 -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.page-header img {
+	 -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.shareImg {
+	margin-bottom:10px;
+}
+.shareImg img {
+	cursor:pointer;
+}
+h1, .h1 {
+	font-weight:bold;
+	text-align:center;
+	color:#A0072B;
+	 -webkit-text-shadow: 2px 2px rgba(0,0,0,1);
+   -moz-text-shadow: 2px 2px rgba(0,0,0,1);
+   text-shadow: 2px 2px rgba(0,0,0,1);
+}
+footer a {
+	color:#E3E1DE;
+	text-decoration:underline;
+}
+footer a:hover {
+	color:#A0072B;
+}
+.show-desktop {
+		display:block;
+	}
+	.show-mobile {
+		display:none;
+	}
+@media screen and (max-width:810px) and (min-width:769px){
+h1 {
+	font-size:24px;
+	margin:10px;
+}
+.container {	
+	width:100%;
+	padding:0;
+}
+.col-md-3 {
+    width: 25%;
+}
+.col-md-4 {
+    width: 33.3333%;
+}
+.col-md-5 {
+    width: 41.6667%;
+}
+.col-md-6 {
+	width:50%;
+}
+.col-sm-7 {
+	padding: 0;
+}
+.col-md-3,.col-md-4,.col-md-5, .col-md-6 {
+	float:left;
+}
+}
+@media screen and (max-width:768px){
+	.show-desktop {
+		display:none;
+	}
+	.show-mobile {
+		display:block;
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="fb-root"></div>
+
+<script>
+if(window.self != window.top){
+	document.body.style.overflow = 'hidden'; document.body.scroll = 'no';
+};
+
+ window.fbAsyncInit = function() {
+	
+    FB.init({
+      appId      : '<%=(vars&& typeof vars["app_id"] != "undefined") ? vars["app_id"] : "" %>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	if(typeof window.fbAsyncInitCallback == 'object'){
+	
+		for(var f in fbAsyncInitCallback){
+		
+			if(fbAsyncInitCallback.hasOwnProperty(f) && typeof fbAsyncInitCallback[f] == 'function'){
+			
+				fbAsyncInitCallback[f]();
+				
+			}
+			
+		}
+		
+	}
+	
+  };
+  
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>
+
+<div class="wrapper">
+  <div id="content" class="col-sm-12">
+    <div class="container">
+      <div class="row">
+        <div class="text-center"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/marriott-m-logo.png" alt="Marriott" id="marriottLogo"/> </div>
+        <div class="page-header col-sm-12">
+          <div class="row">
+            <div class="col-md-12 text-right shareImg"> <a href="#" onclick="fbShare(520, 350);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/facebook.png" alt="Facebook"></a> <a href="#" onclick="tweet(550, 520);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/twitter.png" alt="Twitter"></a> <a href="#" onclick="pinterest(800, 480);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/pinterest.png" alt="Pinterest"></a> </div>
+          </div>
+          <div data-panel="1">
+            
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="2"> 
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="3"> 
+              <form data-submit="undefined" data-path="/360a53b1-5c0e-4eef-9f25-b8e3e92346d1.3"><div class="row"><div class="col-md-12" style="padding:0">
+  <div class="fb-share-button" data-href="" data-type="icon"></div>
+</div></div><div class="row">
+<div class="col-md-12"> <a href="#" id="63eede38-2232-4147-a12e-f05a002569b5"> <img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/bf4f1f0d-e726-4374-9a10-438a09ff9c3c.png" alt="" style="max-width:100%;"> </a> </div>
+<script>
+document.getElementById("63eede38-2232-4147-a12e-f05a002569b5").onclick = function(){
+	FB.ui({method: 'apprequests',
+	  message: "Test Dialog\"123\" - ad"
+	});
+}
+</script></div><div class="row">
+<div class="col-md-12">
+
+<a href="#" id="d12e81db-6beb-4d79-b805-025cd1e71438"><img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/8de54b98-8682-4958-a8fd-0eeb0ad648b3.png" alt="" style="max-width:100%;"></a> </div>
+<script>
+document.getElementById("d12e81db-6beb-4d79-b805-025cd1e71438").onclick = function(){
+	FB.ui({method: 'send',
+	  link: "http://dja.com"
+	});
+}
+</script></div><div class="row">
+<div class="col-md-12"> <a href="#" id="3b431d03-8d0f-49ed-a577-ecb5e2a98e82"> <img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/979536fb-6988-4ec4-bd33-88a8ce9998af.png" alt="" style="max-width:100%;"> </a> </div>
+<script>
+document.getElementById("3b431d03-8d0f-49ed-a577-ecb5e2a98e82").onclick = function(){
+	FB.ui({method: 'feed',
+	  link: "http://dja.com",
+	  picture: "https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/c2357cf2-33d0-48e7-b52c-fdcca6696f85.jpg",
+	  name: "Tes&quot;daadaat",
+	  caption: '&nbsp;',
+	  description: "Test 2&quot;da ad&quot;"
+	});
+}
+</script></div><div class="row">
+<div class="col-md-12">
+  
+  <a href="https://twitter.com/intent/tweet?screen_name=daad&amp;text=adaa%22da&#39;&#39;AD%3BD%3A%22AD%3A%22F%3A%22A%3AD%22%3AF%22%3E%26DAJAOPFSLK%20http%3A%2F%2Fdja.com" id="c59d5b4f-a29f-44a1-bd59-a59500900b2e"   class="twitter-mention-button"    data-size="large"  >
+  
+  </a> </div>
+  
+  
+  
+<script>
+
+ require.config({
+        paths: {
+            'twitter_widget': 'https://platform.twitter.com/widgets'
+        }
+    });
+	
+require(["twitter_widget"],
+	function () {
+    
+});
+</script></div><div class="row">
+<div class="col-md-12">
+  
+  <a href="https://twitter.com/dja" id="c7be4451-f04f-4cb6-a90a-d21ead9d5991"   class="twitter-follow-button"  >
+  
+  </a> </div>
+  
+  
+  
+<script>
+
+ require.config({
+        paths: {
+            'twitter_widget': 'https://platform.twitter.com/widgets'
+        }
+    });
+	
+require(["twitter_widget"],
+	function () {
+    
+});
+</script></div><div class="row">
+<div class="col-md-12">
+
+
+<a href="https://plus.google.com/share?url=http%3A%2F%2Fdja.com" id="583628ed-b583-466d-a4a9-67207c4f0913"  data-url="http://dja.com" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+  src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/98ec5553-9db5-4d9f-8924-e8065395aee9.png" alt="Share on Google+"/></a>
+
+  
+</div>
+<script>
+
+ (function(){
+	 
+	 var s = document.getElementById("583628ed-b583-466d-a4a9-67207c4f0913");
+
+ if(!s.getAttribute("data-url")){
+	
+	 s.href += encodeURIComponent(window.location.href.split('?')[0]);
+	 
+  }
+  
+ })();
+
+ require.config({
+        paths: {
+            'google_plus_widget': 'https://apis.google.com/js/platform'
+        }
+    });
+	
+require(["google_plus_widget"],
+	function () {
+    
+});
+</script>
+
+
+</div><div class="row">
+<div class="col-md-12"> <a href="#"  id="c5479bda-3e72-43a4-970e-30ec42f18478" >
+  
+  <img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/e58c5373-bed8-4482-bbd0-c0215394dd71.png" alt="" style="max-width:100%;" />
+  
+  </a> </div>
+
+<script>
+  
+  	document.getElementById("c5479bda-3e72-43a4-970e-30ec42f18478").onclick = function(){
+  	
+        var winTop = (screen.height / 2) - (550 / 2);
+        var winLeft = (screen.width / 2) - (520 / 2);
+		window.open("//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fdja.com&media=https%3A%2F%2Fc8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com%2F98b524ae-fcef-4483-b24c-8987b93bf0a4%2F76a509c8-82fe-4ef2-b5df-fef61e731db8.jpg&description=Test%20Descrioption'%20%3AD%22A%3AD%20%22%3AAD*%26%26%26*D%20UAIDHIOD%22", 'pin_share', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+550+',height='+520);
+        return false;
+        
+        }
+        
+</script>
+
+<script>
+
+ require.config({
+        paths: {
+            'pinterest_widget': 'https://assets.pinterest.com/js/pinit'
+        }
+    });
+	
+require(["pinterest_widget"],
+	function () {
+    
+});
+</script></div><div class="row">
+<div class="col-md-12"> <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fdja.com%2F&amp;media=&amp;description=" data-pin-config="beside" id="b51653f4-9ee8-4afa-ba22-2348c597d7ee"   data-pin-do="buttonPin"    data-pin-height="28"    data-pin-color="red"  >
+  
+  <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" alt="" style="max-width:100%;" />
+  
+  </a> </div>
+
+<script>
+
+ require.config({
+        paths: {
+            'pinterest_widget': 'https://assets.pinterest.com/js/pinit'
+        }
+    });
+	
+require(["pinterest_widget"],
+	function () {
+    
+});
+</script></div><div class="row">
+<div class="col-md-12">
+  <div class="fb-comments" data-href="" data-numposts="9" data-colorscheme="light"></div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+
+<a href="#" id="9cd636a3-c259-4a18-b5f1-b64895a1683d"><img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/8f69142b-3559-4646-9172-48acd4aa37be.gif" alt="" style="max-width:100%;" /></a>
+
+<script>
+  
+  	document.getElementById("9cd636a3-c259-4a18-b5f1-b64895a1683d").onclick = function(){
+  	
+        var winTop = (screen.height / 2) - (550 / 2);
+        var winLeft = (screen.width / 2) - (520 / 2);
+		window.open("http://www.linkedin.com/shareArticle?mini=true&url="+encodeURIComponent(window.location.href.split('?')[0])+"&title=&summary=&source=", 'linkedin_share', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+550+',height='+520);
+        return false;
+        
+        }
+        
+</script>
+
+</div>
+<script>
+
+ require.config({
+        paths: {
+            'linkedin_widget': 'https://platform.linkedin.com/in'
+        }
+    });
+	
+require(["linkedin_widget"],
+	function () {
+    
+});
+</script></div><div class="row">
+<div class="col-md-12">
+<div class="addthis_toolbox">
+<a class="addthis_button_email" id="82cd636f-e78c-4247-883e-1b145881c604"><img src="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/98b524ae-fcef-4483-b24c-8987b93bf0a4/7aa96348-7953-4f39-b45e-c47a1bcc98f5.jpeg" alt="" style="max-width:100%;" /></a>
+</div>
+<script type="text/javascript">
+var addthis_share = { email_vars: { 
+	subject: "SUBJECT",
+	description: "CONTENT",
+	url: "http://dja.com"
+	},
+	email_template: "PromoCMS_Template"
+}
+var addthis_config = addthis_config||{};
+
+var addthis_pub="ra-4e8f1b562667bb31";
+
+addthis_config.data_track_addressbar = true;
+addthis_config.pubid = "ra-4e8f1b562667bb31";
+addthis_config.ui_email_subject = "SUBJECT";
+addthis_config.ui_email_note = "CONTENT";
+
+</script>
+</div>
+<script>
+
+ require.config({
+        paths: {
+            'addthis_widget': 'https:///s7.addthis.com/js/300/addthis_widget'
+        }
+    });
+	
+require(["addthis_widget"],
+	function () {
+    
+});
+</script></div></form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer class="footer" data-panel="4">
+            <div class="well"> 
+              
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

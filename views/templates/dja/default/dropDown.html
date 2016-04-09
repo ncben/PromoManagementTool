@@ -1,0 +1,17 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12' %>">
+  <div class="formfield">
+    <label for="<%- (typeof id != 'undefined') ? id : '' %>">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <select data-validation="" data-required="<%= (typeof required != 'undefined') ? required : '' %>" id="<%- (typeof id != 'undefined') ? id : '' %>" name="<%- (typeof name != 'undefined') ? name : '' %>" style=" width: 100%; max-width:100%;">
+      <% if (typeof selectData== 'object') {
+	selectData.forEach(function(select) { %>
+      <option value="<%- select.value %>">
+      <%- select.label %>
+      </option>
+      <% }); %>
+      <% }; %>
+    </select>
+  </div>
+</div>

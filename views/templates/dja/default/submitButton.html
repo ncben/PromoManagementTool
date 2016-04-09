@@ -1,0 +1,12 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12' %>">
+  <div class="formfield">
+  <% if(typeof style == 'undefined' || (typeof style != 'undefined' && style == 'regular-button')){ %> 
+    <button class="btn btn-<%- (typeof color != 'undefined') ? color : 'default'%>" type="submit" id="<%- (typeof id != 'undefined') ? id : ''%>" name="<%- (typeof name != 'undefined') ? name : '' %>">
+    <%- (typeof label != 'undefined') ? label : '' %>
+    </button>
+  <% }else if(typeof style != 'undefined' && style == 'image-button' && typeof imageUrl != 'undefined' && imageUrl){ %>
+ 	<input id="<%- (typeof id != 'undefined') ? id : ''%>" name="<%- (typeof name != 'undefined') ? name : '' %>" type="image" alt="Submit" src="<%=imageUrl%>" style="max-width: 100%;" />
+  <% } %>
+  </div>
+</div>

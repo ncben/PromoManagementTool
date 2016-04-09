@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="<$$=(vars&& typeof vars['lang'] != 'undefined' ? vars['lang'] : '') $$>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><$$=(vars&& typeof vars['pageName'] != 'undefined' ? vars['pageName'] : '') $$></title>
+<meta property="og:title" content="<$$=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') $$>"/>
+<meta property="og:description" content="<$$=(vars&& typeof vars['ogDescription'] != 'undefined' ? vars['ogDescription'] : '') $$>">
+<meta property="og:image" content="<$$=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') $$>" />
+<meta property="og:type" content="<$$=(vars&& typeof vars['ogType'] != 'undefined' ? vars['ogType'] : '') $$>" />
+<meta property="og:url" content="<$$=(vars&& typeof vars['ogURL'] != 'undefined' ? vars['ogURL'] : '') $$>" />
+<meta property="fb:app_id" content="<$$=(vars&& typeof vars['app_id'] != 'undefined' ? vars['app_id'] : '') $$>">
+<meta property="fb:admins" content="<$$=(vars&& typeof vars['fbAdmin'] != 'undefined' ? vars['fbAdmin'] : '') $$>">
+<meta property="twitter:card" content="<$$=(vars&& typeof vars['twitterCardType'] != 'undefined' ? vars['twitterCardType'] : '') $$>">
+<meta property="twitter:title" content="<$$=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') $$>">
+<meta property="twitter:description" content="<$$=(vars&& typeof vars['twitterShareCopy'] != 'undefined' ? vars['twitterShareCopy'] : '')$$>">
+<meta property="twitter:image" content="<$$=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') $$>">
+<meta property="twitter:url" content="<$$=(vars&& typeof vars['twitterShareURL'] != 'undefined' ? vars['twitterShareURL'] : '') $$>">
+<meta property="pinterest:image" content="<$$=(vars&& typeof vars['pinterestImage'] != 'undefined' ? vars['pinterestImage'] : '') $$>">
+<meta property="pinterest:url" content="<$$=(vars&& typeof vars['pinterestURL'] != 'undefined' ? vars['pinterestURL'] : '') $$>">
+<meta property="pinterest:description" content="<$$=(vars&& typeof vars['pinterestDescription'] != 'undefined' ? vars['pinterestDescription'] : '') $$>">
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script type="text/javascript">
+requirejs.config({
+    appDir: ".",
+    baseUrl: "js",
+    paths: { 
+        'jquery': ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min', 'https://promocms.dja.com/js/jquery.min'],
+        'bootstrap': ['https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'https://promocms.dja.com/js/bootstrap.min'],
+        'validation': ['https://promocms.dja.com/js/validation.basic'],
+    },
+    shim: {
+        'bootstrap' : ['jquery'],
+		'validation' : ['jquery']
+    }
+});
+
+require(['jquery', 'bootstrap', 'validation'], function($) {
+       
+    return {};
+});
+
+</script>
+<$$-(vars&& typeof vars['customHeadValues'] != 'undefined' ? vars['customHeadValues'] : '') $$>
+
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script>
+function fbShare(winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent($("meta[property='og:url']").prop('content')), 'fb_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+    }
+
+function tweet(winWidth, winHeight){
+	
+	var share_text = encodeURIComponent($("meta[property='twitter:description']").prop('content'));
+	var share_url = encodeURIComponent($("meta[property='twitter:url']").prop('content'));
+	var url_param = '&url=';
+	if(share_url)url_param += share_url;
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	window.open('https://twitter.com/share?text='+share_text+url_param, 'twtr_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+			
+}
+
+function pinterest(winWidth, winHeight){
+	
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	
+	window.open('http://pinterest.com/pin/create/button/?url='+encodeURIComponent($("meta[property='pinterest:url']").prop('content'))+'&media='+encodeURIComponent($("meta[property='pinterest:image']").prop('content'))+'&description='+encodeURIComponent($("meta[property='pinterest:description']").prop('content')), 'pin', 'top=' + winTop + ',left=' + winLeft +',menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+winHeight+',width='+winWidth);
+	
+}
+</script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+<style>
+<% include ../default/styles.css %>
+</style>
+<style>
+<% include theme.css %>
+</style>
+</head>
+
+<body>
+<% include __dirname/../../default/fbInit.html %>
+<div class="wrapper">
+  <div id="content" class="col-sm-12">
+    <div class="container">
+      <div class="row">
+        <div class="text-center"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/marriott-m-logo.png" alt="Marriott" id="marriottLogo"/> </div>
+        <div class="page-header col-sm-12">
+          <div class="row">
+            <div class="col-md-12 text-right shareImg"> <a href="#" onclick="fbShare(520, 350);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/facebook.png" alt="Facebook"></a> <a href="#" onclick="tweet(550, 520);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/twitter.png" alt="Twitter"></a> <a href="#" onclick="pinterest(800, 480);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/pinterest.png" alt="Pinterest"></a> </div>
+          </div>
+          <div data-panel="1"><%=(typeof showPanelNumber != 'undefined' && showPanelNumber == true) ? '[Panel 1]' : '' %>
+            <%-panels[1]%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well"> 
+            <div class="panel-body" data-panel="2"> <%=(typeof showPanelNumber != 'undefined' && showPanelNumber == true) ? '[Panel 2]' : '' %>
+              <%-panels[2]%>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default well"> 
+            <div class="panel-body" data-panel="3"> <%=(typeof showPanelNumber != 'undefined' && showPanelNumber == true) ? '[Panel 3]' : '' %>
+              <%-panels[3]%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer class="footer" data-panel="4">
+            <div class="well"> <%=(typeof showPanelNumber != 'undefined' && showPanelNumber == true) ? '[Panel 4]' : '' %>
+              <%-panels[4]%>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

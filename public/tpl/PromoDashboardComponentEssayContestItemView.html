@@ -1,0 +1,89 @@
+
+<div class="col-md-12 essayOptionsContainer" style="margin:15px 0 20px">
+  <div class="dataCache" data-id="<%=(typeof key != 'undefined') ? key : '' %>" style="box-shadow:0px 4px 10px 0px #DDD;">
+    <div class="box-header" style="padding: 0 24px 0 0;margin: 0;position: relative;">
+      <div style="padding: 0;">
+        <div class="fanPageTitle" style="text-overflow: ellipsis; max-width: 100%; white-space: nowrap;overflow: hidden;text-align: center;">Essay Options</div>
+        <div class="btn-group" style="position: absolute; right:0; top:0; ">
+          <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" style="border-top: 0;border-bottom: 0; font-size: 10px;"><i class="icon-cog"></i></button>
+          <ul class="dropdown-menu open-left" style="text-align: left;">
+            <li><a href="#" class="removeEssayItem"><i class="icon-remove-sign"></i> Remove</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="box-toolbar">
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box closable-chat-box" style="margin-bottom:0;">
+          <div class="box-content padded">
+            <div class="fields">
+              <ul style="margin:10px 0;">
+                <li><b>Enter description for essay</b> <span class="b-k-G learnMore tt" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about essay description" data-container="body" data-content='The essay description is displayed to the user above the essay box. You may include essay requirements, guidelines, specifications, tips, etc.'>?</span></li>
+              </ul>
+            </div>
+            <form class="fill-up essayDescriptionItem" action="#">
+              <div class="chat-message-box">
+                <div class="essayDescriptionDisplay" style="margin: 5px; min-height:15px; padding-left: 5px; color: #858585; cursor: text;">enter description</div>
+                <textarea class="essayDescription" rows="5" placeholder="enter description" style="display:none;"></textarea>
+              </div>
+              <div class="clearfix actions">
+                <div class="pull-right faded-toolbar"><a href="#" class="btn btn-blue btn-xs saveBttn">Save</a> </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-content" style="background: #FFF;"> 
+      <!-- find me in partials/gallery -->
+      
+      <div class="well relative essaySizeItem"  data-id="0" style="margin:0; border-radius: 0; background-color: transparent; padding:0;">
+        <div class="box-content">
+          <div class="row box-section slider-container relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin: -1px 0 0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about essay box height" data-container="body" data-content='This option sets the default height of the essay textarea box in pixels.<br><br>When the adjustable height option is turned on, the user will have the option to adjust the height of the box vertically.'><i class="icon-question-sign"></i></span>
+            <div class="col-sm-8" style="padding-left:0;">
+              <div class="col-md-3"> <strong>Essay box height</strong> </div>
+              <div class="col-md-1">
+                <div class="slider-value" style="display:inline-block;"><%=(typeof el['essay-height'] != 'undefined' && el['essay-height'] != '') ? el['essay-height'] : '' %></div>
+                pixels </div>
+              <div class="col-md-8">
+                <div class="essaySizeSlider ranged-slider-ui normal"></div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="col-md-6" style="padding-left:0;"> <strong>Is height adjustable?</strong> </div>
+              <div class="col-md-6" style="padding-left:0">
+                <input class="iButton-icons-tab essayHeightAdjustableSwitch" type="checkbox" />
+              </div>
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about essay limit" data-container="body" data-content='The essay limit consists of three settings. The first two options defines the minimum and maximum number of characters or words allowed in the essay box. The last option allows to you choose the limit type between characters or words.'><i class="icon-question-sign"></i></span>
+            <div class="col-sm-8">
+              <div class="col-sm-3" style="padding-left:0;"> <strong> What is the limit?</strong> </div>
+              <div class="col-sm-3" style="padding-left:0;"><div><strong>Minimum:</strong></div> <a title="" data-original-title="" class="editable editable-click essayMinLimitQuantity" href="#" data-type="text" data-pk="1" data-title="Enter Quantity" data-value="<%=(typeof el['limit-number-min'] != 'undefined' && el['limit-number-min'] != '') ? el['limit-number-min'] : '0' %>">No Minimum</a> </div>
+              <div class="col-sm-3" style="padding-left:0;"><div><strong>Maximum:</strong></div> <a title="" data-original-title="" class="editable editable-click essayMaxLimitQuantity" href="#" data-type="text" data-pk="1" data-title="Enter Quantity" data-value="<%=(typeof el['limit-number-max'] != 'undefined' && el['limit-number-max'] != '') ? el['limit-number-max'] : '0' %>">Unlimited</a> </div>
+              <div class="col-sm-3" style="padding-left:0;"><div><strong>Limit by:</strong></div> <a class="editable editable-click essayLimitType" href="#" data-type="select" data-pk="1"  data-value="<%=(typeof el['limit-type'] != 'undefined' && el['limit-type'] != '') ? el['limit-type'] : '' %>" data-title="Select Limit"></a> </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="col-md-6" style="padding-left:0;"> <strong>Trim when limit exceeded?</strong> </div>
+              <div class="col-md-6" style="padding-left:0">
+                <input class="iButton-icons-tab essayTrimTextSwitch" type="checkbox" />
+              </div>
+            </div>
+          </div>
+          <div class="row box-section relative" style="border-top: none;"> <span class="triangle-button left blue learnMore" style="left:0; margin: -1px 0 0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about essay limit counter" data-container="body" data-content='The character/word counter displays at the bottom right corner of the essay box. <br><br>When displayed in descending order, the counter reflects the number of characters or words remaining and updates as the user types.<br><br>When displayed in ascending order, the counter shows the number of characters or words used and as the user types it counts up to the limit.'><i class="icon-question-sign"></i></span>
+            <div class="col-md-2"> <strong>Word/character counter</strong> </div>
+            <div class="col-md-3"> <a class="editable editable-click essayLimitCounter" href="#" data-type="select" data-pk="1" data-value="<%=(typeof el['essay-counter'] != 'undefined' && el['essay-counter'] != '') ? el['essay-counter'] : '' %>" data-title="Select Counter"></a> </div>
+          </div>
+          <div class="row box-section" style="border-top: none;">
+            <div class="col-md-2"> <strong>Is essay required?</strong> </div>
+            <div class="col-md-3">
+              <input class="iButton-icons-tab essayRequiredSwitch" type="checkbox" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<!-- Use title if it's in the page YAML frontmatter -->
+<title>Promotion Manager</title>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link href="//promocms.dja.com/css/application.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation"> 
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header"> <a class="navbar-brand" href="https://promocms.dja.com">PromoCMS</a> </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="error-box">
+        <div class="message-small">Log in to Facebook to participate</div>
+        <div class="message-small" style="padding-top:50px; font-size: 1.4em;"> This promotion is ‘Like-gated’, which means only fans are eligible to enter. Logging in allows us to check that you’re a fan of the Facebook Page associated with this promotion.</div>
+        <div style="margin-top: 50px"> 
+        
+        <% if(typeof in_iframe != 'undefined' && in_iframe == 1){ %>
+            <form action="<%=(typeof next != 'undefined' && next != null ? next : 'javascript:window.location.reload();')%>" method="post" id="proxy_form" target="<%=(typeof target != 'undefined' && target != null && target != '' ? target : '_self')%>">
+             <input type="hidden" autocomplete="off" id="signed_request" name="signed_request" value="<%=(typeof signed_request != 'undefined') ? signed_request : ''  %>" />
+             <button type="submit" class="btn btn-blue" > <i class="icon-refresh"></i> Try Again </button>
+            </form>
+        <% }else{ %>
+        
+        	<a class="btn btn-blue" href="<%=(typeof next != 'undefined' && next != null ? next : 'javascript:window.location.reload();')%>" target="<%=(typeof target != 'undefined' && target != null && target != '' ? target : '_self')%>"> <i class="icon-refresh"></i> Try Again </a>
+
+        <% } %>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<noscript>
+<div class="pam uiBoxGray">You need Javascript enabled in your browser to use Facebook Applications.</div>
+</noscript>
+
+</body>
+</html>

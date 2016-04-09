@@ -1,0 +1,26 @@
+<% _.each(ResourceSets, function(ResourceSet){ %>
+<tr>
+  <td><%= _.escape(ResourceSet.Name) %></td>
+  <td><%= _.escape(ResourceSet.Type) %></td>
+  <td><%= _.escape(ResourceSet.TTL) %></td>
+  <td class="recordValue"><%
+   if(typeof ResourceSet.ResourceRecords.ResourceRecord == 'object'){
+   	  if(typeof ResourceSet.ResourceRecords.ResourceRecord.length == 'undefined'){ %>
+      
+        <div><%=ResourceSet.ResourceRecords.ResourceRecord.Value%></div>
+      <% }
+      
+      _.each(ResourceSet.ResourceRecords.ResourceRecord, function(ResourceRecord, key){ 
+      
+      %>
+      
+        <div><%=ResourceRecord.Value%></div>
+      
+      <% })
+      
+  }
+
+   %></td>
+  <td><button type="button" class="btn btn-default btn-xs deleteResourceRecordBttn" data-name="<%= _.escape(ResourceSet.Name) %>"  data-type="<%= _.escape(ResourceSet.Type) %>" data-ttl="<%= _.escape(ResourceSet.TTL) %>">Delete</button></td>
+</tr>
+<% }); %>

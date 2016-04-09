@@ -1,0 +1,101 @@
+/* CSS Document */
+.wrapper {
+	background:url(https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/core-bg.jpg);
+	color:#fff;
+}
+.well {
+	background:#00245D;
+	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+	}
+	.radio,.checkbox {
+		
+	}
+.page-header {
+	margin-top:0;
+}
+#marriottLogo {
+	max-width:150px;
+	width:80%;
+	padding:1em;
+	background:#ffffff;
+	 -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.page-header img {
+	 -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+.shareImg {
+	margin-bottom:10px;
+}
+.shareImg img {
+	cursor:pointer;
+}
+h1, .h1 {
+	font-weight:bold;
+	text-align:center;
+	color:#fff;
+	 -webkit-text-shadow: 2px 2px rgba(0,0,0,1);
+   -moz-text-shadow: 2px 2px rgba(0,0,0,1);
+   text-shadow: 2px 2px rgba(0,0,0,1);
+}
+.btn-default {
+	color:#fff;
+    text-shadow: 0px 1px 0px rgb(255, 255, 255);
+    background-color:rgb(160, 7, 43);
+	background-image:none;
+    background-repeat: repeat-x;
+    border-color: rgb(204, 204, 204);
+}
+.btn-default{
+
+}
+footer a {
+	color:#ffffff;
+	text-decoration:underline;
+}
+footer a:hover {
+	color:#ffffff;
+}
+@media screen and (max-width:810px) and (min-width:769px){
+h1 {
+	font-size:24px;
+	margin:10px;
+}
+.container {	
+	width:100%;
+	padding:0;
+}
+.col-md-3 {
+    width: 25%;
+}
+.col-md-4 {
+    width: 33.3333%;
+}
+.col-md-5 {
+    width: 41.6667%;
+}
+.col-md-6 {
+	width:50%;
+}
+.col-sm-7 {
+	padding: 0;
+}
+.col-md-3,.col-md-4,.col-md-5, .col-md-6 {
+	float:left;
+}
+}

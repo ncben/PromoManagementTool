@@ -1,0 +1,1902 @@
+<div class="interactivePanel" style="display:none;">
+  <iframe style="border: none; width: 100%; height:800px;"></iframe>
+</div>
+<div class="row designPanel">
+  <div class="box" style="padding: 0;margin: 0 15px; background: none;">
+    <div class="box-header"> <span class="title"> <span style="margin-right: 10px; display:none;" class="label label-gray labelIncomplete">Incomplete</span> <span style="margin-right: 10px; display:none;" class="label label-green labelComplete">Complete</span> <span style="margin-right: 10px; display:none;" class="label label-dark-red labelRequired">Required</span></span>
+      <ul class="box-toolbar">
+        <li class="toolbar-link" style="margin-left: 0;"> <a href="#" class="dropdown" data-toggle="dropdown"> <i class="icon-th"></i> <span class="templateName"></span> </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="viewTemplate"><i class="icon-search"></i> View Template: <span class="templateName"></span></a></li>
+            <li class="divider"></li>
+            <li><a href="#" class="changeTemplate"><i class="icon-pencil"></i> Change Template</a></li>
+          </ul>
+        </li>
+        <li class="toolbar-link" style="margin-left: 0;"> <a href="#" class="dropdown" data-toggle="dropdown"> <i class="icon-file-alt"></i> <span class="templatePage"></span> </a>
+          <ul class="dropdown-menu templatePageDropdown">
+          </ul>
+          <div class="templatePageItemTemplate" style="display:none;"><a href="#" class="dataCache">Switch to: <span class="templatePageItemPageName"></span></a></div>
+          <div class="templatePageItemSwitchPopover	" style="display:none"> Are you sure you want to switch to a new page view? If applicable, data will be transferred to the matching panels.
+            <button class="btn btn-sm btn-blue">Yes</button>
+            <button class="btn btn-sm btn-default">Cancel</button>
+          </div>
+        </li>
+        <li class="toolbar-link" style="margin-left: 0;"> <a href="#" class="openFullScreen"> <span class="goFullScreen"><i class="icon-share"></i></span> <span class="exitFullScreen" style="display:none;"><i class="icon-resize-small"></i> Exit Fullscreen</span> </a> </li>
+        <li class="toolbar-link" style="margin-left: 0;"> <a href="#" class="dropdown" data-toggle="dropdown"><i class="icon-cog"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="previewPage"><i class="icon-search"></i> Preview Saved Page</a></li>
+            <li><a href="#" class="configurePage"><i class="icon-info-sign"></i> Configure Page</a>
+              <div class="configurePageTemplate" style="display:none">
+                <form class="fill-up configureURLForm" action="#" style="min-width:250px;">
+                  <div class="textarea-template" style="display:none"> <span class="configurePageFieldDesc"></span>
+                    <div class="relative">
+                      <textarea class="configurablePageEditField" style="margin-bottom:5px;"></textarea>
+                    </div>
+                  </div>
+                  <div class="image-upload-template" style="display:none"> <span class="configurePageFieldDesc"></span>
+                    <div class="relative uploadImageContainer">
+                      <input class="configurablePageEditField" type="text" style="padding: 0 0 0 25px;margin-bottom:5px;">
+                      <button type="button" class="close uploadImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 1px; overflow: hidden;">
+                      <i class="cloudUploadIcon icon-cloud-upload"></i>
+                      <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                      </button>
+                    </div>
+                  </div>
+                  <div class="input-template" style="display:none"> <span class="configurePageFieldDesc"></span>
+                    <div class="relative">
+                      <input class="configurablePageEditField" type="text" style="margin-bottom:5px;">
+                    </div>
+                  </div>
+                  <div class="configurePageFields"></div>
+                  <div class="configurePageFields-initialHidden collapse"></div>
+                  <div class="configurePageFields-more-only" style="display:none;"><a class="collapsed configurePagesToggleMoreOptions toggleMoreOptions" href="#"><span class="showMoreSpan"><i class="icon-angle-down"></i> Show More Options</span> <span class="showLessSpan"><i class="icon-angle-up"></i> Show Less Options</span> </a></div>
+                  <div style="padding-top:15px;">
+                    <div style="padding-bottom:20px;">
+                      <label style="font-weight:normal;">
+                        <input type="checkbox" class="applyConfigToAllPages" style="width:auto;" />
+                        Apply same configurations to all pages</label>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-green configurePageConfirm">Save</button>
+                    <button type="button" class="btn btn-sm btn-default configurePageClose">Close</button>
+                    <div class="configurePageError" style="display: block;color: red; max-width: 200px;"></div>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li><a href="#" class="viewURL"><i class="icon-link"></i> Embed/View URL</a>
+              <div class="viewURLTemplate" style="display:none">
+                <form class="fill-up viewURLForm" action="#">
+                  <div class="goURLBttnTemplate" style="display:none">
+                    <button type="button" class="btn btn-default btn-xs goURLBttn" data-container="#pageDesignModal .modal-body" data-animation="false" data-placement="top" data-toggle="tooltip" title="Go" style="position:absolute; right: 0; top:0; line-height:1em;"><i class="icon-circle-arrow-right" style="font-size:1.1em;"></i></button>
+                  </div>
+                  <div>
+                    <div>
+                      <label>Direct URL <span class="b-k-G learnMore tt" data-animation="false" data-placement="bottom" data-toggle="tooltip" title="The direct URL unique for this page after page is published">?</span> </label>
+                    </div>
+                    <div style="padding-bottom:10px;">
+                      <div class="directURL" style="color:#858585"></div>
+                      <div class="directURLTemplate" style="display:none">
+                        <div style="position:relative;" class="directURLWrapper">
+                          <div style=" white-space:nowrap; text-overflow: ellipsis; max-width: 230px; min-width:200px; width: 90%; overflow: hidden;" class="directURLText"> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <label>Configurable Namespace <span class="b-k-G learnMore tt" data-animation="false" data-placement="bottom" data-toggle="tooltip" title="The namespace can be used in place of the page ID">?</span></label>
+                    </div>
+                    <div style="position:relative;" class="configURLWrapper">
+                      <div style="white-space:nowrap; text-overflow: ellipsis; max-width: 230px; width: 90%; overflow: hidden;"><span class="configURLText" style="color:#858585"></span> </div>
+                      <div class="form-action" style="margin-top:10px;">
+                        <button type="button" class="btn btn-blue viewURLEdit">Edit Namespace</button>
+                      </div>
+                    </div>
+                    <div style="display:none" class="viewURLEditFields">
+                      <input type="text" placeholder="Namespace" class="viewURLEditNamespace" style="margin-bottom:5px;">
+                      <button type="submit" class="btn btn-sm btn-green viewURLEditConfirm">Edit</button>
+                      <button type="submit" class="btn btn-sm btn-default viewURLEditCancel">Cancel</button>
+                      <div class="viewURLEditError" style="display: block;color: red; max-width: 200px;"></div>
+                    </div>
+                    <div style="display:none; font-style: italic; padding-top: 10px;" class="viewURLWarningNoURL"> <i class="icon-warning-sign"></i> You have not created an URL for this promotion. You can go to "Basic" and create one. </div>
+                    <div style="display:none; font-style: italic; padding-top: 10px;" class="viewURLWarningNotPublished"> <i class="icon-warning-sign"></i> This page has not been published. You must first publish this page for the direct URL to work. </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="interactiveViewMenuItem"><a href="#" class="switchToInteractiveView"><i class=" icon-screenshot"></i> Interactive View</a></li>
+            <li class="designViewMenuItem" style="display:none;"><a href="#" class="switchToDesignView"><i class=" icon-tablet"></i> Design View</a></li>
+            <li class="resetPageContentMenuItem"><a href="#" class="deletePage"><i class="icon-remove-sign"></i> Reset Page Content</a></li>
+            <li class="deletePageMenuItem"><a href="#" class="deletePage"><i class="icon-remove-sign"></i> Delete Page</a></li>
+            <li class="unpublishPageContentMenuItem"><a href="#" class="unpublishPage"><i class=" icon-minus-sign"></i> Unpublish Page</a></li>
+            <li class="editPageTitleDescMenuItem"><a href="#" class="editPageTitleDesc"><i class="icon-pencil"></i> Edit Page Name/Description</a>
+              <div class="editTitleDescTemplate" style="display:none">
+                <form class="fill-up editTitleDescForm">
+                  <input type="text" placeholder="Page name" class="editPageTitle" style="margin-bottom:5px;">
+                  <textarea placeholder="Description of the page" class="editPageDesc" rows="3"></textarea>
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-blue editTitleDescConfirm">Edit</button>
+                    <button type="button" class="btn btn-default editTitleDescCancel">Cancel</button>
+                    <div class="editTitleDescError" style="display: block;color: red; max-width: 200px;"></div>
+                  </div>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="carouselPages" class="carousel slide action-nav-normal action-nav-line" style="margin: 5px 0;">
+      <div class="carousel-inner"> </div>
+      <div class="carouselItemTemplate" style="display:none">
+        <div class="item dataCache">
+          <div class="item-content">
+            <div class="col-sm-12 action-nav-button"> <a href="#" class="panelBttn">
+              <div class="avatar blue panelCompleteIcon" style="float: none; display:none"><i class="icon-ok icon-2x" ></i></div>
+              <div class="avatar cyan  panelIncompleteIcon panelNumber" style="float: none; display:none; color:#FFF;"></div>
+              <span class="pageName"></span> </a> <span class="triangle-button red tip" style="display:none;" rel="tooltip" data-placement="bottom" data-original-title="Required"></span> </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carouselPages" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a> <a class="right carousel-control" href="#carouselPages" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a> </div>
+  </div>
+  <div class="" style="padding:0 5px;">
+    <div class="col-md-3 closerLeft">
+      <div class="box fieldsBox">
+        <div class="box-content">
+          <div class="panel-group relative" id="leftMenu">
+            <div class="disableSelection" style="width: 100%;position: absolute;height: 100%;opacity: .9;background: #FFF;"></div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseComponents"> Components </a> </h4>
+              </div>
+              <div id="collapseComponents" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="nav-menu">
+                    <ul class="nav nav-list">
+                    </ul>
+                    <div class="fieldTypeTemplate" style="display:none;">
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" class="dataCache">
+                      <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title"></span></span></button>
+                      </li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseBasic"> Basic Elements </a> </h4>
+              </div>
+              <div id="collapseBasic" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="nav-menu">
+                    <ul class="nav nav-list">
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="text" data-title="Text" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" id="addTextBttn" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Text</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Text">
+                          <div style="width: 470px; max-width:100%">
+                            <form class="fill-up addNewTextForm">
+                              <div class="chat-message-box">
+                                <div style="height:84px; width:100%;" class="hideWhenLaunched"></div>
+                                <textarea placeholder="Description of the page" class="addTextContent" data-wysihtml5="true" style="height:150px;"></textarea>
+                              </div>
+                              <div class="form-actions" style="white-space: nowrap; ">
+                                <button type="submit" class="btn btn-blue addTextConfirm">Add</button>
+                                <button type="button" class="btn btn-default addTextCancel">Cancel</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="image" data-title="Image" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Image</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Image">
+                          <div style="width: 470px; max-width:100%">
+                            <form class="fill-up addNewImageForm">
+                              <div  style="margin-bottom:10px; border: 1px solid #D8D8D8;">
+                                <input type="text" placeholder="Link to the image" class="addImageContent" style="border:0;">
+                              </div>
+                              <div class="overlay-field">
+                                <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                  <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                                </div>
+                              </div>
+                              <div class="uploadErrorMsg" style="color:red"></div>
+                              <div class="form-actions" style="white-space: nowrap; ">
+                                <button type="submit" class="btn btn-blue addImageConfirm">Add</button>
+                                <button type="button" class="btn btn-default addImageCancel">Cancel</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseStyling"> Styling Elements </a> </h4>
+              </div>
+              <div id="collapseStyling" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="nav-menu">
+                    <ul class="nav nav-list">
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="slider" data-title="Slider" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Slider</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Slider">
+                          <div style="width: 470px; max-width:100%">
+                            <form class="fill-up addNewSliderForm">
+                              <div class="addSliderContainer" style="border: 1px solid #D8D8D8;"> </div>
+                              <p><a href="#" class="addMoreSliderImage">Add More</a></p>
+                              <div class="addSliderItemTemplate" style="display:none;">
+                                <div class="relative sliderItem">
+                                  <input type="text" placeholder="Link to the image" class="addSliderContent" style="border:0;padding: 0 25px;">
+                                  <button type="button" class="close deleteSliderItem" title="Remove" aria-hidden="true" style="position: absolute; right: 3px; top: 1px;">×</button>
+                                  <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 1px; overflow: hidden;">
+                                  <i class="cloudUploadIcon icon-cloud-upload"></i>
+                                  <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="form-actions" style="white-space: nowrap; ">
+                                <button type="submit" class="btn btn-blue addSliderConfirm">Add</button>
+                                <button type="button" class="btn btn-default addSliderCancel">Cancel</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="line-break" data-title="Line Break" data-editable="false" data-popover="false" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Line Break</span></span></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseShare"> Social Elements </a> </h4>
+              </div>
+              <div id="collapseShare" class="panel-collapse collapse">
+                <div class="panel-body" style="padding:6px;">
+                  <div class="well" style="padding:0; margin-bottom:0; background-color:#EDEFF4;">
+                    <div style="left: 0;width: 100%;text-align: center;text-shadow: 0 1px 1px #92CFF5, 0 -1px 1px #68A6CE;background: #68A6CE;background-size: 100%;background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4C67A1), color-stop(100%, #6D84B4));background-image: -webkit-linear-gradient(top, #4C67A1, #6D84B4);background-image: -moz-linear-gradient(top, #4C67A1, #6D84B4);background-image: -o-linear-gradient(top, #4C67A1, #6D84B4);background-image: linear-gradient(top, #4C67A1, #6D84B4); color:#FFF;"><i class="icon-facebook-sign"></i> Facebook Plugins</div>
+                    <ul class="nav nav-list" style="padding: 0 5px 5px;">
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="like-button" data-title="Like Button" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Like Button</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Like Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL to Like" data-placeholder-likegate-only=" (Leave blank to use fan-gate URL)" />
+                            </div>
+                            <div class="overlay-field">Layout:
+                              <select class="addLinkLayoutOption">
+                                <option value="button">button only</option>
+                                <option value="button_count">button_count</option>
+                                <option value="standard">standard</option>
+                                <option value="box_count">box_count</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field">Include Share Button:
+                              <input type="checkbox" class="fieldIncludeShareButton" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="like-box" data-title="Like Box" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Like Box</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Like Box">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="Facebook Page URL"data-placeholder-likegate-only=" (Leave blank to use fan-gate URL)"  />
+                            </div>
+                            <div class="overlay-field">Color Scheme:
+                              <select class="addLinkColorOption">
+                                <option value="light">light</option>
+                                <option value="dark">dark</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field">Show Posts:
+                              <input type="checkbox" class="fieldShowPosts" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="follow-button" data-title="Follow Button" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Follow Button</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Follow Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="Profile URL" />
+                            </div>
+                            <div class="overlay-field">Layout:
+                              <select class="addLinkLayoutOption">
+                                <option value="button">button only</option>
+                                <option value="button_count">button_count</option>
+                                <option value="standard">standard</option>
+                                <option value="box_count">box_count</option>
+                              </select>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="share-button" data-title="Share Button" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Share Button</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Share Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL to Share (Leave blank to use current page URL)" />
+                            </div>
+                            <div class="overlay-field">Layout:
+                              <select class="addLinkLayoutOption">
+                                <option value="button">button only</option>
+                                <option value="button_count">button_count</option>
+                                <option value="box_count">box_count</option>
+                                <option value="icon_link">icon_link</option>
+                                <option value="icon">icon</option>
+                                <option value="link">link</option>
+                              </select>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="send-button" data-title="Send Button" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Send Button</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Send Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL to Send" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="embedded-post" data-title="Embedded Post" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Embedded Post</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Embedded Post">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL of Post" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="comment-box" data-title="Comment Box" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Comment Box </span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Comment Box">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL to comment on" />
+                            </div>
+                            <div class="overlay-field">Color Scheme:
+                              <select class="addLinkColorOption">
+                                <option value="light">light</option>
+                                <option value="dark">dark</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field">Number of Posts
+                              <select class="fieldNumPosts">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                              </select>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="app-request" data-title="Facebook Request Dialog" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Requests Dialog</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add App Request (Invite Friends) Dialog">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldImage" style="width: 100%" placeholder="Button Image URL" />
+                            </div>
+                            <div class="overlay-field">
+                              <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </div>
+                              <div class="uploadErrorMsg" style="color:red"></div>
+                            </div>
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="Title for the Dialog (max 50 characters)" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="fb-send" data-title="Facebook Send Dialog"  data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Send Dialog</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Send Dialog">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldImage" style="width: 100%" placeholder="Button Image URL" />
+                            </div>
+                            <div class="overlay-field">
+                              <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </div>
+                              <div class="uploadErrorMsg" style="color:red"></div>
+                            </div>
+                            <div class="overlay-field">
+                              <input type="text" class="fieldURL" style="width: 100%" placeholder="URL to send" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="fb-share" data-title="Facebook Share" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Feed and Share Dialog</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Facebook Feed Dialog">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldShareButtonImage" style="width: 100%" placeholder="Button Image URL" />
+                            </div>
+                            <div class="overlay-field">
+                              <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </div>
+                              <div class="uploadErrorMsg" style="color:red"></div>
+                            </div>
+                            <div class="overlay-field">
+                              <input type="text" class="fieldURL" style="width: 100%" placeholder="URL to share" />
+                            </div>
+                            <div class="overlay-field image-button-only relative">
+                              <input type="text" class="fieldImageUrl" style="width: 100%; padding-left:25px;" placeholder="Share Image URL (200x200 or above recommended)" />
+                              <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 7px; overflow: hidden;">
+                              <i class="cloudUploadIcon icon-cloud-upload"></i>
+                              <input type="file" name="imageFile" class="browseComputer2" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </button>
+                            </div>
+                            <div class="overlay-field">
+                              <input type="text" class="fieldShareTitle" style="width: 100%" placeholder="Share Title" />
+                            </div>
+                            <div class="overlay-field">
+                              <textarea class="fieldShareCopy" style="width: 100%" placeholder="Share Copy"></textarea>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul class="nav nav-list" style="padding: 0 5px 5px;">
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="twitter-share" data-title="Twitter Share" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Share via Twitter</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Twitter Share Popup">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Appearance:
+                              <select class="fieldStyle">
+                                <option value="class:twitter-share-button">Tweet Button with Count</option>
+                                <option value="class:twitter-share-button,count:none">Tweet Button without Count</option>
+                                <option value="class:twitter-share-button,size:large">Tweet Button with Count (Large)</option>
+                                <option value="class:twitter-share-button,count:none,size:large">Tweet Button without Count (Large)</option>
+                                <option value="class:twitter-follow-button">Follow Button</option>
+                                <option value="class:twitter-follow-button,size:large">Follow Button (Large)</option>
+                                <option value="class:twitter-hashtag-button">Hashtag</option>
+                                <option value="class:twitter-hashtag-button,size:large">Hashtag (Large)</option>
+                                <option value="class:twitter-mention-button">Tweet to</option>
+                                <option value="class:twitter-mention-button,size:large">Tweet to (Large)</option>
+                                <option value="custom">Custom Image</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <input type="text" class="fieldCustomButtonImageUrl" style="width: 100%; padding-left:25px;" placeholder="Custom Button Image URL" />
+                              <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 7px; overflow: hidden;">
+                              <i class="cloudUploadIcon icon-cloud-upload"></i>
+                              <input type="file" name="imageFile" class="browseComputer2" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </button>
+                            </div>
+                            <div class="overlay-field hide-follow-only">
+                              <textarea class="fieldShareCopy" style="width: 100%" placeholder="Tweet text (140 characters or less. Any types of URL counts as 22 characters)"></textarea>
+                            </div>
+                            <div class="overlay-field hashtag-only" style="display:none;">
+                              <div class="input-prepend"> <span class="add-on">#</span>
+                                <input class="fieldShareHashtag" placeholder="Hashtag" />
+                              </div>
+                            </div>
+                            <div class="overlay-field follow-or-mention-only" style="display:none;">
+                              <div class="input-prepend"> <span class="add-on">@</span>
+                                <input class="fieldShareMention" spellcheck="false"  placeholder="Twitter Handle" />
+                              </div>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="google-plus-share" data-title="Google+ Share" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Share via Google+</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Google+ Share Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL to Share (Leave blank to use current page URL)" />
+                            </div>
+                            <div class="overlay-field">Appearance:
+                              <select class="addLinkLayoutOption">
+                                <option value="bubble">Count Beside the Button</option>
+                                <option value="vertical-bubble">Count Above the Button</option>
+                                <option value="inline">Inline Annotation</option>
+                                <option value="none">Button Only (No Count/Annotation)</option>
+                                <option value="custom">Custom Image</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <input type="text" class="fieldCustomButtonImageUrl" style="width: 100%; padding-left:25px;" placeholder="Custom Button Image URL" />
+                              <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 7px; overflow: hidden;">
+                              <i class="cloudUploadIcon icon-cloud-upload"></i>
+                              <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </button>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="pinterest-share" data-title="Pinterest Share" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Share via Pinterest</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Pinterest Pin It Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldURL" style="width: 100%" placeholder="URL to Share (Leave blank to use current page URL)" />
+                            </div>
+                            <div class="overlay-field">
+                              <input type="text" class="fieldShareImage" style="width: 100%" placeholder="Share Image URL (Leave blank to pin any image on page)" />
+                            </div>
+                            <div class="overlay-field">
+                              <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </div>
+                              <div class="uploadErrorMsg" style="color:red"></div>
+                            </div>
+                            <div class="overlay-field">
+                              <textarea class="fieldShareCopy" style="width: 100%" placeholder="Description"></textarea>
+                            </div>
+                            <div class="overlay-field">Appearance:
+                              <select class="fieldStyle">
+                                <option value="rect|pin-do:buttonPin">Small Rectangular Gray</option>
+                                <option value="rect|pin-do:buttonPin,pin-color:red">Small Rectangular Red</option>
+                                <option value="rect|pin-do:buttonPin,pin-color:white">Small Rectangular White</option>
+                                <option value="rect|pin-do:buttonPin,pin-height:28">Large Rectangular Gray</option>
+                                <option value="rect|pin-do:buttonPin,pin-height:28,pin-color:red">Large Rectangular Red</option>
+                                <option value="rect|pin-do:buttonPin,pin-height:28,pin-color:white">Large Rectangular White</option>
+                                <option value="round|pin-do:buttonPin,pin-shape:round">Small Circular</option>
+                                <option value="round|pin-do:buttonPin,pin-height:32,pin-shape:round">Large Circular</option>
+                                <option value="custom">Custom Image</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <input type="text" class="fieldCustomButtonImageUrl" style="width: 100%; padding-left:25px;" placeholder="Custom Button Image URL" />
+                              <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 7px; overflow: hidden;">
+                              <i class="cloudUploadIcon icon-cloud-upload"></i>
+                              <input type="file" name="imageFile" class="browseComputer2" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </button>
+                            </div>
+                            <div class="overlay-field">Show Pin Count:
+                              <select class="fieldPinCount">
+                                <option value="beside">Beside the Button</option>
+                                <option value="above">Above the Button</option>
+                                <option value="none">Not Shown</option>
+                              </select>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="linkedin-share" data-title="LinkedIn Share" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Share via LinkedIn</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add LinkedIn Share Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="URL to Share (Leave blank to use current page URL)" />
+                            </div>
+                            <div class="overlay-field">Appearance:
+                              <select class="addLinkLayoutOption">
+                                <option value="right">Count Beside the Button</option>
+                                <option value="top">Count Above the Button</option>
+                                <option value="none">No Count</option>
+                                <option value="custom">Custom Image</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <input type="text" class="fieldCustomButtonImageUrl" style="width: 100%; padding-left:25px;" placeholder="Custom Button Image URL" />
+                              <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 7px; overflow: hidden;">
+                              <i class="cloudUploadIcon icon-cloud-upload"></i>
+                              <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </button>
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <input type="text" class="fieldTitle" style="width: 100%;" placeholder="The title of the article (max 200 characters)" />
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <input type="text" class="fieldSource" style="width: 100%;" placeholder="The source of the article (max 200 characters)" />
+                            </div>
+                            <div class="overlay-field custom-button-only relative" style="display:none;">
+                              <textarea type="text" class="fieldSummary" style="width: 100%;" placeholder="A brief summary of the article (max 256 characters)"></textarea>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="email-share" data-title="Email Share" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Share via Email</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Email Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">
+                              <input type="text" class="fieldShareImage" style="width: 100%" placeholder="Button Image URL" />
+                            </div>
+                            <div class="overlay-field">
+                              <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </div>
+                              <div class="uploadErrorMsg" style="color:red"></div>
+                            </div>
+                            <div class="overlay-field">
+                              <input type="text" class="fieldLabel" style="width: 100%" placeholder="Email Subject" />
+                            </div>
+                            <div class="overlay-field">
+                              <textarea class="fieldShareCopy" style="width: 100%" placeholder="Email Content"></textarea>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="disqus" data-title="Comment Box" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Disqus Comment Box</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Disqus Comment Box">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field"> URL to comment on
+                              <select class="addURLOption">
+                                <option value="this page">This Page</option>
+                                <option value="custom">Another URL</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field custom-only" style="display:none;">
+                              <input type="text" class="fieldURL" style="width: 100%" placeholder="URL to comment on" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseLinks"> Page Navigations </a> </h4>
+              </div>
+              <div id="collapseLinks" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul class="nav nav-list">
+                    <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="link" data-title="Link" data-editable="true" data-popover="true" data-desc="">
+                      <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Link</span></span></button>
+                      <div class="external-event-template" style="display:none;" data-title="Add Link">
+                        <form class="addForm" style="width: 360px; max-width:100%;">
+                          <div class="overlay-field">
+                            <input type="text" class="fieldLabel" style="width: 100%" placeholder="Link Text" />
+                          </div>
+                          <div class="overlay-field relative">
+                            <input type="text" class="fieldURL" style="width: 100%; padding-right: 25px; " placeholder="Link URL" />
+                            <button type="button" class="close findPage" title="Use an existing page" data-placement="left" aria-hidden="true" style="position: absolute; right: 3px; top: 7px;"><i class="icon-folder-open"></i></button>
+                          </div>
+                          <div class="overlay-field">Open in:
+                            <select class="addLinkOpenOption">
+                              <option value="_self">Same Window (Self)</option>
+                              <option value="_top">Same Window (Top)</option>
+                              <option value="new">New Full Page Window</option>
+                              <option value="popup">Popup</option>
+                            </select>
+                          </div>
+                          <div class="link-popup-only" style="display:none;">
+                            <input type="text" class="popupWidth" placeholder="Width" style="width: 50px" />
+                            x
+                            <input type="text" class="popupHeight" placeholder="Height" style="width: 50px" />
+                          </div>
+                          <div class="form-actions" style="white-space: nowrap; ">
+                            <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                            <button type="button" class="btn btn-default addCancel">Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                    </li>
+                    <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="image-link" data-title="Twitter Share" data-editable="true" data-popover="true" data-desc="">
+                      <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Image</span></span></button>
+                      <div class="external-event-template" style="display:none;" data-title="Add Image Link">
+                        <form class="addForm" style="width: 360px; max-width:100%;">
+                          <div class="overlay-field">
+                            <input type="text" class="fieldLabel" style="width: 100%" placeholder="Image URL" />
+                          </div>
+                          <div class="overlay-field">
+                            <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                              <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                            </div>
+                            <div class="uploadErrorMsg" style="color:red"></div>
+                          </div>
+                          <div class="overlay-field relative">
+                            <input type="text" class="fieldURL" style="width: 100%; padding-right: 25px; " placeholder="Link URL" />
+                            <button type="button" class="close findPage" title="Use an existing page" data-placement="left" aria-hidden="true" style="position: absolute; right: 3px; top: 7px;"><i class="icon-folder-open"></i></button>
+                          </div>
+                          <div class="overlay-field">Open in:
+                            <select class="addLinkOpenOption">
+                              <option value="_self">Same Window (Self)</option>
+                              <option value="_top">Same Window (Top)</option>
+                              <option value="new">New Full Page Window</option>
+                              <option value="popup">Popup</option>
+                            </select>
+                          </div>
+                          <div class="link-popup-only" style="display:none;">
+                            <input type="text" class="popupWidth" placeholder="Width" style="width: 50px" />
+                            x
+                            <input type="text" class="popupHeight" placeholder="Height" style="width: 50px" />
+                          </div>
+                          <div class="form-actions" style="white-space: nowrap; ">
+                            <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                            <button type="button" class="btn btn-default addCancel">Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                    </li>
+                    <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="button-link" data-title="Add Button Link" data-popover="true" data-editable="true" data-desc="">
+                      <button class="btn btn-default btn-xs external-event" style="z-index:100;"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Button</span></span></button>
+                      <div class="external-event-template" style="display:none;" data-title="Add Button Link">
+                        <form class="addForm" style="width: 360px; max-width:100%;">
+                          <div class="overlay-field regular-button-only">Button Text:
+                            <input type="text" class="fieldLabel" style="width: 200px" placeholder="Text" />
+                          </div>
+                          <div class="overlay-field regular-button-only">Button Style:
+                            <select class="fieldAction">
+                              <option value="default">Default</option>
+                              <option value="green">Green</option>
+                              <option value="blue">Blue</option>
+                              <option value="red">Red</option>
+                            </select>
+                          </div>
+                          <div class="overlay-field relative">
+                            <input type="text" class="fieldURL" style="width: 100%; padding-right: 25px; " placeholder="Link URL" />
+                            <button type="button" class="close findPage" title="Use an existing page" data-placement="left" aria-hidden="true" style="position: absolute; right: 3px; top: 7px;"><i class="icon-folder-open"></i></button>
+                          </div>
+                          <div class="overlay-field">Open in:
+                            <select class="addLinkOpenOption">
+                              <option value="_self">Same Window (Self)</option>
+                              <option value="_top">Same Window (Top)</option>
+                              <option value="new">New Full Page Window</option>
+                              <option value="popup">Popup</option>
+                            </select>
+                          </div>
+                          <div class="link-popup-only" style="display:none;">
+                            <input type="text" class="popupWidth" placeholder="Width" style="width: 50px" />
+                            x
+                            <input type="text" class="popupHeight" placeholder="Height" style="width: 50px" />
+                          </div>
+                          <div class="overlay-field save-and-go-to-page-only" style="display:none;">Next page: </div>
+                          <div class="form-actions" style="white-space: nowrap; ">
+                            <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                            <button type="button" class="btn btn-default addCancel">Cancel</button>
+                          </div>
+                        </form>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#leftMenu" href="#collapseForm"> Form Elements </a> </h4>
+              </div>
+              <div id="collapseForm" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class="nav-menu">
+                    <ul class="nav nav-list formFieldElements">
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="text-field" data-title="Text Field" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="text-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Text Field</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Text Field">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel" style="width: 150px" />
+                              or
+                              <select class="prefill">
+                                <option value="">Select One</option>
+                                <option data-req="true" data-validation-type="email" data-maxchar="255">Email Address</option>
+                                <option data-req="true" data-validation-type="match" data-maxchar="255">Confirm Email Address</option>
+                                <option data-req="true" data-validation-type="name" data-maxchar="30">First Name</option>
+                                <option data-req="true" data-validation-type="name" data-maxchar="35">Last Name</option>
+                                <option data-req="true" data-validation-type="address" data-maxchar="100">Address 1</option>
+                                <option data-req="false" data-validation-type="any" data-maxchar="100">Address 2</option>
+                                <option data-req="true" data-validation-type="city" data-maxchar="30">City</option>
+                                <option data-req="true" data-validation-type="zip" data-maxchar="5">Zip Code</option>
+                                <option data-req="true" data-validation-type="zip_with_ca" data-maxchar="7">Zip Code/Postal Code</option>
+                                <option data-req="true" data-validation-type="zip_ca_only" data-maxchar="7">Postal Code</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" />
+                            </div>
+                            <div class="overlay-field">Max Length:
+                              <input type="text" class="fieldMaxLength" maxlength="4" style="width: 50px" />
+                            </div>
+                            <div class="overlay-field">Validation Type:
+                              <select class="fieldValidation">
+                                <option value="any">Accept Any Value</option>
+                                <option value="name">Name</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone Number</option>
+                                <option value="address">Address</option>
+                                <option value="city">City</option>
+                                <option value="zip">Zip (US)</option>
+                                <option value="zip_with_ca">Zip (US & Canada)</option>
+                                <option value="zip_ca_only">Postal Code (Canada)</option>
+                                <option value="match">Match another field..</option>
+                              </select>
+                              <select class="fieldMatch" style="display:none">
+                              </select>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="phone-field" data-title="Phone Field" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="phone-field"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Phone Field</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Phone Field">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel" style="width: 150px" value="Phone Number" />
+                            </div>
+                            <div class="overlay-field">Style:
+                              <select class="fieldStyle">
+                                <option value="3-fields-with-autotab">3 Fields with AutoTab</option>
+                                <option value="single-field-auto-format">Single Field with Auto Format</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" checked=""/>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="date-of-birth" data-title="Date of Birth" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="date-of-birth-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Date of Birth</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Date of Birth Field">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel" style="width: 150px" value="Date of Birth" />
+                            </div>
+                            <div class="overlay-field include-checkbox">Include:
+                              <label style="font-weight:normal">
+                                <input type="checkbox" class="fieldDOB" value="year" checked />
+                                Year</label>
+                              <label style="font-weight:normal">
+                                <input type="checkbox" class="fieldDOB" value="month" checked />
+                                Month</label>
+                              <label style="font-weight:normal">
+                                <input type="checkbox" class="fieldDOB" value="date" checked />
+                                Date</label>
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" checked="" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="checkbox" data-title="Checkbox" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="checkbox-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Checkbox</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Checkbox">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <div class="chat-message-box" style="margin-top:10px;">
+                                <div style="height:84px; width:100%;" class="hideWhenLaunched"></div>
+                                <textarea placeholder="Label text" class="addTextContent" data-wysihtml5="true" style="height:150px;"></textarea>
+                              </div>
+                            </div>
+                            <div class="overlay-field">Pre-checked:
+                              <input type="checkbox" class="fieldPreChecked" />
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="state-drop-down" data-title="State Drop-down" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="state-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">State Drop-down</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Checkbox">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel"  style="width: 150px" value="State">
+                              Required:
+                              <input type="checkbox" class="fieldRequired" checked="">
+                              Abbreviated:
+                              <input type="checkbox" class="fieldAbbreviated">
+                            </div>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="AL-Alabama" checked="">
+                              AL-Alabama</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="AK-Alaska" checked="">
+                              AK-Alaska</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="AZ-Arizona" checked="">
+                              AZ-Arizona</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="AR-Arkansas" checked="">
+                              AR-Arkansas</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="CA-California" checked="">
+                              CA-California</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="CO-Colorado" checked="">
+                              CO-Colorado</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="CT-Connecticut" checked="">
+                              CT-Connecticut</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="DE-Delaware" checked="">
+                              DE-Delaware</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="DC-District of Columbia" checked="">
+                              DC-District of Columbia</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="FL-Florida" checked="">
+                              FL-Florida</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="GA-Georgia" checked="">
+                              GA-Georgia</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="HI-Hawaii" checked="">
+                              HI-Hawaii</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="ID-Idaho" checked="">
+                              ID-Idaho</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="IL-Illinois" checked="">
+                              IL-Illinois</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="IN-Indiana" checked="">
+                              IN-Indiana</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="IA-Iowa" checked="">
+                              IA-Iowa</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="KS-Kansas" checked="">
+                              KS-Kansas</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="KY-Kentucky" checked="">
+                              KY-Kentucky</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="LA-Louisiana" checked="">
+                              LA-Louisiana</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="ME-Maine" checked="">
+                              ME-Maine</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MD-Maryland" checked="">
+                              MD-Maryland</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MA-Massachusetts" checked="">
+                              MA-Massachusetts</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MI-Michigan" checked="">
+                              MI-Michigan</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MN-Minnesota" checked="">
+                              MN-Minnesota</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MS-Mississippi" checked="">
+                              MS-Mississippi</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MO-Missouri" checked="">
+                              MO-Missouri</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MT-Montana" checked="">
+                              MT-Montana</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NE-Nebraska" checked="">
+                              NE-Nebraska</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NV-Nevada" checked="">
+                              NV-Nevada</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NH-New Hampshire" checked="">
+                              NH-New Hampshire</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NJ-New Jersey" checked="">
+                              NJ-New Jersey</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NM-New Mexico" checked="">
+                              NM-New Mexico</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NY-New York" checked="">
+                              NY-New York</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NC-North Carolina" checked="">
+                              NC-North Carolina</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="ND-North Dakota" checked="">
+                              ND-North Dakota</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="OH-Ohio" checked="">
+                              OH-Ohio</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="OK-Oklahoma" checked="">
+                              OK-Oklahoma</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="OR-Oregon" checked="">
+                              OR-Oregon</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="PA-Pennsylvania" checked="">
+                              PA-Pennsylvania</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="RI-Rhode Island" checked="">
+                              RI-Rhode Island</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="SC-South Carolina" checked="">
+                              SC-South Carolina</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="SD-South Dakota" checked="">
+                              SD-South Dakota</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="TN-Tennessee" checked="">
+                              TN-Tennessee</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="TX-Texas" checked="">
+                              TX-Texas</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="UT-Utah" checked="">
+                              UT-Utah</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="VT-Vermont" checked="">
+                              VT-Vermont</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="VA-Virginia" checked="">
+                              VA-Virginia</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="WA-Washington" checked="">
+                              WA-Washington</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="WV-West Virginia" checked="">
+                              WV-West Virginia</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="WI-Wisconsin" checked="">
+                              WI-Wisconsin</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="WY-Wyoming" checked="">
+                              WY-Wyoming</label>
+                            <div class="overlay-field"></div>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="AS-American Samoa">
+                              AS-American Samoa</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="GU-Guam">
+                              GU-Guam</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MP-Northern Mariana Islands">
+                              MP-Northern Mariana Islands</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="PR-Puerto Rico">
+                              PR-Puerto Rico</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="VI-U.S. Virgin Islands">
+                              VI-U.S. Virgin Islands</label>
+                            <div class="overlay-field"></div>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="AB-Alberta">
+                              AB-Alberta</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="BC-British Columbia">
+                              BC-British Columbia</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="MB-Manitoba">
+                              MB-Manitoba</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NB-New Brunswick">
+                              NB-New Brunswick</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NL-Newfoundland and Labrador">
+                              NL-Newfoundland and Labrador</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NS-Nova Scotia">
+                              NS-Nova Scotia</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NT-Northwest Territories">
+                              NT-Northwest Territories</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="NU-Nunavut">
+                              NU-Nunavut</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="ON-Ontario">
+                              ON-Ontario</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="PE-Prince Edward Island">
+                              PE-Prince Edward Island</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="QC-Quebec">
+                              QC-Quebec</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="SK-Saskatchewan">
+                              SK-Saskatchewan</label>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="YT-Yukon">
+                              YT-Yukon</label>
+                            <div class="overlay-field"></div>
+                            <label class="state-label">
+                              <input class="state-checkbox" type="checkbox" value="Other-Other">
+                              Other</label>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="country-drop-down" data-title="Country Drop-down" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="country-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Country Drop-down</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Country Drop-down">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel" style="width: 150px" value="Country" />
+                            </div>
+                            <div class="overlay-field">Countries:<br>
+                              <select multiple class="addCountryDropdownOptions" style="width:300px; height:110px;">
+                                <optgroup label="US/Canada">
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="US+">United States Territories</option>
+                                </optgroup>
+                                <optgroup label="International">
+                                <option value="AF">Afghanistan</option>
+                                <option value="AX">Åland Islands</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AQ">Antarctica</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CX">Christmas Island</option>
+                                <option value="CC">Cocos (Keeling) Islands</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CD">Congo, The Democratic Republic of The</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="CI">Cote D'ivoire</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="GF">French Guiana</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="TF">French Southern Territories</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GR">Greece</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GP">Guadeloupe</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GG">Guernsey</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HM">Heard Island and Mcdonald Islands</option>
+                                <option value="VA">Holy See (Vatican City State)</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran, Islamic Republic of</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IM">Isle of Man</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JE">Jersey</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KP">Korea, Democratic People's Republic of</option>
+                                <option value="KR">Korea, Republic of</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Lao People's Democratic Republic</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libyan Arab Jamahiriya</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MO">Macao</option>
+                                <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="YT">Mayotte</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia, Federated States of</option>
+                                <option value="MD">Moldova, Republic of</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="AN">Netherlands Antilles</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NU">Niue</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PS">Palestinian Territory, Occupied</option>
+                                <option value="PA">Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PN">Pitcairn</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Reunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RU">Russian Federation</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="SH">Saint Helena</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="PM">Saint Pierre and Miquelon</option>
+                                <option value="VC">Saint Vincent and The Grenadines</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">San Marino</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="GS">South Georgia and The South Sandwich Islands</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                <option value="SZ">Swaziland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syrian Arab Republic</option>
+                                <option value="TW">Taiwan, Province of China</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania, United Republic of</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TL">Timor-leste</option>
+                                <option value="TG">Togo</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="UM">United States Minor Outlying Islands</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VE">Venezuela</option>
+                                <option value="VN">Viet Nam</option>
+                                <option value="VG">Virgin Islands, British</option>
+                                <option value="WF">Wallis and Futuna</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                                </optgroup>
+                              </select>
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" checked="checked" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="drop-down" data-title="Drop-down" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="dropdown-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Drop-down</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Drop-down">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel" style="width: 150px" />
+                            </div>
+                            <div class="overlay-field">Options:<br>
+                              <textarea class="addDropDownOptions" style="width: 220px; height:150px;"></textarea>
+                              <br>
+                              (Enter one option per line)</div>
+                            <div class="overlay-field">First Option Has No Value:
+                              <input type="checkbox" class="firstOptionNoValue" />
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="textarea" data-title="Textarea" data-editable="true" data-popover="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="textarea-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Textarea</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Textarea">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <div class="chat-message-box" style="margin-top:10px;">
+                                <div style="height:84px; width:100%;" class="hideWhenLaunched"></div>
+                                <textarea placeholder="Label text" class="addTextContent" data-wysihtml5="true" style="height:150px;"></textarea>
+                              </div>
+                            </div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="radio-button" data-title="Radio Button" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="radio-button-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Radio Button</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Radio Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Label:
+                              <input type="text" class="fieldLabel" style="width: 150px" />
+                            </div>
+                            <div class="overlay-field">Options:<br>
+                              <textarea class="addRadioButtonOptions" style="width: 220px; height:150px;"></textarea>
+                              <br>
+                              (Enter one option per line)</div>
+                            <div class="overlay-field">Required:
+                              <input type="checkbox" class="fieldRequired" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="prefill-with-facebook" data-title="Prefill Form with Facebook" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="prefill-facebook-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Prefill with Facebook</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Prefill with Facebook Button">
+                          <div style="width: 470px; max-width:100%">
+                            <form class="fill-up addForm">
+                              <div class="overlay-field"> Button Image URL:
+                                <div  style="margin-bottom:2px; border: 1px solid #D8D8D8;">
+                                  <input type="text" placeholder="Button Image URL" class="addImageContent" value="https://c8e4837710701ff3763e-7e9e4af2c5313ee17d7196f45a211afd.ssl.cf1.rackcdn.com/dbc48b50-358e-4ee0-b4df-8b32bb6e1e9a/4a04bdd5-0385-4b64-a8e6-46ddf2bb0532.png" style="border:0;">
+                                </div>
+                                <div class="btn btn-default btn-xs"  style="position:relative; overflow:hidden;">Browse Computer
+                                  <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                                </div>
+                                <div class="uploadErrorMsg" style="color:red"></div>
+                              </div>
+                              <div class="overlay-field"> Map fields to autofill:
+                                <div class="mapFields"></div>
+                                <div class="mapFieldsTemplate" style="display:none;">
+                                  <div class="overlay-field mapItem">
+                                    <div style="width:40%;display:inline-block; vertical-align:middle;">
+                                      <select class="mapFieldPermission">
+                                        <optgroup label="Basic permission">
+                                        <option value="name">Full Name</option>
+                                        <option value="first_name">First Name</option>
+                                        <option value="middle_name">Middle Name</option>
+                                        <option value="last_name">Last Name</option>
+                                        <option value="username">Username</option>
+                                        <option value="profile_picture">Profile Picture</option>
+                                        <option value="cover">Cover Photo</option>
+                                        <option value="locale">Locale</option>
+                                        <option value="gender">Gender</option>
+                                        <option value="timezone">Timezone</option>
+                                        <option value="verified">Account is Verified</option>
+                                        <option value="updated_time">Account Last Updated Time</option>
+                                        <option value="age_range">Age Range</option>
+                                        <option value="link">Link to Profile</option>
+                                        <option value="friend_name">Random Friend's Name</option>
+                                        <option value="friends">All Friend IDs</option>
+                                        <option value="friends_name">All Friend Names</option>
+                                        <option value="numfriends">Number of Friends</option>
+                                        <option value="id">Facebook User ID</option>
+                                        <option value="third_party_id">Third-party ID</option>
+                                        <option value="currency">Currency</option>
+                                        <option value="devices">Devices</option>
+                                        </optgroup>
+                                        <optgroup label="User data permission">
+                                        <option value="email">Email</option>
+                                        <option value="birthday">Date of Birth</option>
+                                        <option value="city">Current City</option>
+                                        <option value="state">Current State/Province</option>
+                                        <option value="zip">Current Zip/Postal Code</option>
+                                        <option value="county">Current County</option>
+                                        <option value="country">Current Country</option>
+                                        <option value="languages">Languages</option>
+                                        <option value="significant_other">Significant Other</option>
+                                        <option value="hometown">Hometown</option>
+                                        <option value="religion">Religion</option>
+                                        <option value="political">Political Views</option>
+                                        <option value="quotes">Favorite Quote</option>
+                                        <option value="education">Current School</option>
+                                        <option value="work">Current Employer</option>
+                                        <option value="relationship_status">Relationship Status</option>
+                                        <option value="bio">About me</option>
+                                        <option value="interested_in">Interested in (Male/Female)</option>
+                                        <option value="website">Website</option>
+                                        <option value="favorite_athletes">Favorite Athletes</option>
+                                        <option value="favorite_teams">Favorite Teams</option>
+                                        <option value="movies">Favorite Movies</option>
+                                        <option value="music">Favorite Music</option>
+                                        <option value="books">Favorite Books</option>
+                                        </optgroup>
+                                      </select>
+                                    </div>
+                                    <div style="display:inline-block; vertical-align:middle;"><i class="icon-share-alt"></i></div>
+                                    <div  style="width:40%; display:inline-block; vertical-align:middle;">
+                                      <select class="fieldMatch">
+                                      </select>
+                                    </div>
+                                    <a href="#" class="removeMap" data-animation="false" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="Remove Map" style="display:none;vertical-align:middle;"><i class="icon-remove"></i></a> <a href="#" class="addMap" data-animation="false" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="Add New Map"  style="display:none;vertical-align:middle;"><i class=" icon-plus-sign"></i></a> </div>
+                                </div>
+                              </div>
+                              <div class="form-actions" style="white-space: nowrap; ">
+                                <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                                <button type="button" class="btn btn-default addCancel">Cancel</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="recaptcha" data-title="Recaptcha" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="recaptcha-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Recaptcha</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Recaptcha">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Style:
+                              <select class="fieldStyle">
+                                <option value="white">White</option>
+                                <option value="clean">Clean</option>
+                                <option value="red">Red</option>
+                                <option value="blackglass">Blackglass</option>
+                              </select>
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="hidden-input" data-title="Hidden Field" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="hidden-input-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Hidden Field</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Hidden Field">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Name:
+                              <input type="text" class="fieldLabel" style="width: 150px" />
+                            </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                      <li class="dataCache" style="position:static; float:left; margin-right: 5px;" data-type="submit-button" data-title="Submit Button" data-popover="true" data-editable="true" data-desc="">
+                        <button class="btn btn-default btn-xs external-event" style="z-index:100;" data-option="submit-option"><span class="button-icon-wrapper"><i class="icon-plus-sign"></i></span><span class="button-content"><span class="title">Submit Button</span></span></button>
+                        <div class="external-event-template" style="display:none;" data-title="Add Submit Button">
+                          <form class="addForm" style="width: 360px; max-width:100%;">
+                            <div class="overlay-field">Type:
+                              <select class="fieldStyle">
+                                <option value="regular-button">Regular Button</option>
+                                <option value="image-button">Image Button</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field image-button-only relative" style="display:none">
+                              <input type="text" class="fieldImageUrl" style="width: 100%; padding-left:25px;" placeholder="Image URL" />
+                              <button type="button" class="close uploadSliderImage" title="Upload to CDN" aria-hidden="true" style="position: absolute; left: 3px; top: 7px; overflow: hidden;">
+                              <i class="cloudUploadIcon icon-cloud-upload"></i>
+                              <input type="file" name="imageFile" class="browseComputer" style="opacity: 0;bottom: 0;cursor: pointer;left: 0;position: absolute;right: 0;top: 0;z-index: 1;" />
+                              </button>
+                            </div>
+                            <div class="overlay-field regular-button-only">Button Text:
+                              <input type="text" class="fieldLabel" style="width: 100px" value="Submit" />
+                            </div>
+                            <div class="overlay-field regular-button-only">Style:
+                              <select class="fieldAction">
+                                <option value="default">Default</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                                <option value="red">Red</option>
+                              </select>
+                            </div>
+                            <div class="overlay-field save-and-go-to-page-only" style="display:none;">Next page: </div>
+                            <div class="form-actions" style="white-space: nowrap; ">
+                              <button type="submit" class="btn btn-blue addConfirm">Add</button>
+                              <button type="button" class="btn btn-default addCancel">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 closerRight">
+      <div class="box">
+        <div class="box-content">
+          <div class="noPageSelected text-center" style="height: 400px;padding-top: 200px;">Select an area above to edit.</div>
+          <div class="gridsterContainer relative" style="display:none;">
+            <div class="gridster" style="min-height:400px">
+              <ul>
+              </ul>
+            </div>
+          </div>
+          <div class="gridsterItemTemplate" style="display:none">
+            <li class="gridsterItem dataCache" data-row="1" data-col="1" data-sizex="6" data-sizey="1">
+              <button type="button" class="close editPageElement" aria-hidden="true" style="float:left; position:absolute; top: -4px;left: -1px;"><i class="icon-pencil"></i></button>
+              <button type="button" class="close removePageElement" data-dismiss="li" aria-hidden="true" style="position:absolute; right: 0; top: 0;">×</button>
+              <div class="pageElement">
+                <h4 class="ellipsis pageElementTitle"></h4>
+                <p class="ellipsis pageElementDesc"></p>
+              </div>
+            </li>
+          </div>
+          <div class="search-dropdown box">
+            <div class="box-footer flat text-center additionalOptions" style="display:none;"> Apply same <span class="pagePanelSelected"></span> to: <span class="b-k-G learnMorePopover tt" data-template='<div class="popover" style="max-width: 450px;"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+ data-animation="true" data-placement="top" data-toggle="popover" data-title="Learn more about applying content to pages" data-html="true" data-container="#pageDesignModal .modal-body" data-content='By default, the content you create here will only be applied to the current page. As a shortcut, you can repeat the same content you create here on the other pages that you choose below. This is especially useful for panels with repeating contents such as header and footer. Please be aware that this will overwrite any existing content in the corresponding panel on those pages. '>?</span> </div>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both;">
+        <div class="col-sm-12 text-center">
+          <ul class="pagination pagination-xs pagePanelsApplyTo" style="margin: 0 0 20px 0;">
+          </ul>
+          <div class="pagePanelsApplyToItemTemplate" style="display:none">
+            <li class="dataCache"><a href="#"></a></li>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both;">
+        <div class="col-sm-6 additionalOptionsForm" style="display:none;">
+          <div class="well">
+            <div class="news-time">
+              <div style="cursor:pointer;" class="learnMorePopover" data-template='<div class="popover" style="max-width: 450px;"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+ data-animation="true" data-placement="top" data-toggle="popover" data-title="Learn more about submit actions" data-html="true" data-container="#pageDesignModal .modal-body" data-content='<table class="table table-normal">
+
+      <tbody>
+       <tr>
+        <td>Save and submit</td>
+        <td class="text-center">This option should be used if the current form is the last part of the submission process or the entire submission process consists of just this page. When the current form is submitted, the user will be sent to the "Registration Complete" page or the appropiate page determined by the system. </td>
+      </tr>
+      <tr>
+        <td>Save and continue</td>
+        <td class="text-center">This option should be used when the current form is not the last part of the entire submission process. When the current form is submitted, the data will be saved and the user will be sent to the next submission form page that you choose. The data is saved so that if the user has somehow left the page and returned after submitting this form or if the "bypass this page if user has previously completed this form" option is enabled, the user will not have to complete this form again. </td>
+      </tr>
+       <tr>
+        <td>Skip saving and continue</td>
+        <td class="text-center">This option should be used when the current form is not the last part of the entire submission process and you do not want any data saved until the entire submission process is complete. When the current form is submitted, the user will be sent to the next submission form page that you choose and no data will be saved in the database. The current form data will be passed along to the next submission form page and will not be saved until the user submits the last form in the submission process which should have the "Save and submit" option enabled. </td>
+      </tr>
+      
+    
+      </tbody>
+    </table>'>?</div>
+            </div>
+            <div class="">
+              <div class="news-title" style="padding-bottom:10px;"><a href="javascript:false">When submit button is clicked..</a></div>
+              <div class="news-text">
+                <div style="white-space:nowrap; padding-bottom:5px;">
+                  <input type="radio" name="submitActionRadio" class="icheck submitActionRadio" id="submitActionRadio1" value="save-and-submit">
+                  <div class="checkboxLabel">
+                    <label style=" font-weight: normal;" for="submitActionRadio1">Save and submit</label>
+                  </div>
+                </div>
+                <div style="white-space:nowrap;  padding-bottom:5px;">
+                  <input type="radio" name="submitActionRadio" class="icheck submitActionRadio" id="submitActionRadio2" value="save-and-continue">
+                  <div class="checkboxLabel saveAndContinueOption">
+                    <label style=" font-weight: normal;" for="submitActionRadio2">Save now and continue onto:</label>
+                    <a href="#" class="chooseNextFormPage editable editable-click " data-type="select"  title="" data-original-title="Choose next submission page" style="font-weight:normal">choose next form page</a> </div>
+                </div>
+                <div style="white-space:nowrap;  padding-bottom:5px;">
+                  <input type="radio" name="submitActionRadio" class="icheck submitActionRadio" id="submitActionRadio3" value="do-not-save-and-continue">
+                  <div class="checkboxLabel doNotSaveOption">
+                    <label style=" font-weight: normal;" for="submitActionRadio3">Don't save now and continue onto:</label>
+                    <a href="#" class="chooseNextFormPage editable editable-click " data-type="select"  title="" data-original-title="Choose next submission page" style="font-weight:normal;">choose next form page</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 additionalOptionsForm" style="display:none;">
+          <div class="well">
+            <div class="news-time">
+              <div style="cursor:pointer;" class="learnMorePopover" data-template='<div class="popover" style="max-width: 450px;"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+ data-animation="true" data-placement="left" data-toggle="popover" data-title="Learn more about bypassing options" data-html="true" data-container="#pageDesignModal .modal-body" data-content='<table class="table table-normal">
+
+      <tbody>
+       <tr>
+        <td>user has previously completed this form</td>
+        <td class="text-center">If this option is enabled and the page is able to identify the user and match the user against an existing record in the database, this page will be bypassed and the chosen action under "When submit button is clicked" will be taken. </td>
+      </tr>
+      <tr>
+        <td>user is ineligible as determined by..</td>
+        <td class="text-center">If this option is enabled and the user has been determined as ineligible to register based on date of birth or location such as state, province and country, the user will be taken directly to the "Not Eligible" page and this page will be bypassed. If session cookies option is chosen, as long as the browsing session is active and the cookies is not reset on the user end, this page will be bypassed. If unique user identifier option is chosen, the unique user identifier will be saved in our database so that if the user comes back at any point and the system identifies the user as previously ineligible or if the user enters the same unique user identifier, the user will get the "Not Eligible" page. </td>
+      </tr>
+       <tr>
+        <td>user has reached entry limit as determined by..</td>
+        <td class="text-center">If this option is enabled and the entry limit has been reached, the user will be taken directly to the "Already Entered" page and the current page will be bypassed. If the session cookies option is chosen, as long as the browsing session is active and the cookies is not reset on the user end, this page will be bypassed. If unique user identifier option is chosen, the unique user identifier will be saved in our database so that if the user comes back at any point and the system identifies the user as having reached the current entry limit, the user will get the "Already Entered" page. </td>
+      </tr>
+      
+    
+      </tbody>
+    </table>'>?</div>
+            </div>
+            <div class="">
+              <div class="news-title" style="padding-bottom:10px;"><a href="javascript:false">Bypass this page if..</a></div>
+              <div class="news-text">
+                <div style="white-space:nowrap;  padding-bottom:5px;">
+                  <input type="checkbox" name="bypassPageCheckbox" class="icheck bypassPageCheckbox" id="bypassPageCheckbox1">
+                  <div class="checkboxLabel">
+                    <label style=" font-weight: normal;" for="bypassPageCheckbox1">user has previously completed this form</label>
+                  </div>
+                </div>
+                <div style="white-space:nowrap;  padding-bottom:5px;">
+                  <input type="checkbox" name="bypassPageCheckbox" class="icheck bypassPageCheckbox" id="bypassPageCheckbox2">
+                  <div class="checkboxLabel">
+                    <label style=" font-weight: normal;" for="bypassPageCheckbox2">user is ineligible as determined by</label>
+                    <a href="#" class="bypassPageIneligibleIdentifier editable editable-click " data-type="select"  title="" data-original-title="Select determined by" style="font-weight:normal">session cookies</a></div>
+                </div>
+                <div style="white-space:nowrap;  padding-bottom:5px;">
+                  <input type="checkbox" name="bypassPageCheckbox" class="icheck bypassPageCheckbox" id="bypassPageCheckbox3">
+                  <div  class="checkboxLabel">
+                    <label style=" font-weight: normal;" for="bypassPageCheckbox3">user has reached entry limit as determined by</label>
+                    <a href="#" class="bypassPageEntryLimitIdentifier editable editable-click " data-type="select"  title="" data-original-title="Select determined by" style="font-weight:normal">session cookies and unique user identifier</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="clear: both; text-align: right; padding: 0 15px 10px 0; display:none;" class="additionalOptionsForm" ><a data-toggle="collapse" href="#formMoreOptions" class="collapsed toggleMoreOptions"><span class="showMoreSpan"><i class="icon-angle-down"></i> Show More Options</span> <span class="showLessSpan"><i class="icon-angle-up"></i> Show Less Options</span> </a></div>
+      <div id="formMoreOptions" style="clear:both;" class="collapse">
+        <div class="col-sm-4 additionalOptionsForm" style="display:none;">
+          <div class="well">
+            <div class="news-time">
+              <div style="cursor:pointer;" class="learnMorePopover" data-template='<div class="popover" style="max-width: 350px;"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+ data-animation="true" data-placement="top" data-toggle="popover" data-title="Learn more about entry limit entities" data-html="true" data-container="#pageDesignModal .modal-body" data-content='Depending on the entry limit settings under the "Registration Form" component page, the system will check against the database to see if all of the fields in each of the entity box matches an existing person or household record.<br><br>For example, if both "Email" and "First Name" are set in the same entity box under the "Person" category, only when both "Email" and "First Name" are identical will the user be matched against the same person in the database. If only "Email" is set in a single entity box, then it will match an existing record as long as the "Email" matches. If you have multiple entity boxes under the "Person" category separately, such as having "Email" in the first box and "Facebook User ID" in the second, then the system will consider the user the same person when either "Email" or "Facebook User ID" matches. <br><br> The same logic applies to the "Household" category. If you add "Address 1" and "Zip Code" in the same entity box, then the user will be considered coming from the same household if both "Address 1" and "Zip Code" match an existing record. <br><br> You should note that the "Person" and "Household" categories are not always required. For example, if you have not set any household entry limit, then the household entity box here will have no effect on policing the entry limit. '>?</div>
+            </div>
+            <div class="">
+              <div class="news-title"><a href="javascript:false">Check entry limit with..</a></div>
+              <div class="news-text" style="padding-top:10px;">
+                <div><i class="icon-sort-down"></i> Person</div>
+                <span class="checkEntryLimitPerson"></span> <a href="#" class="checkEntryLimitWithAddPerson" data-animation="false" data-placement="right" data-toggle="tooltip" title="Add More Entity"><i class=" icon-plus-sign"></i></a>
+                <div><i class="icon-sort-down"></i> Household</div>
+                <span class="checkEntryLimitHousehold"></span> <a href="#" class="checkEntryLimitWithAddHousehold" data-animation="false" data-placement="right" data-toggle="tooltip" title="Add More Entity"><i class=" icon-plus-sign"></i></a> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 additionalOptionsForm" style="display:none;">
+          <div class="well">
+            <div class="news-time">
+              <div style="cursor:pointer;" class="learnMorePopover" data-template='<div class="popover" style="max-width: 350px;"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+ data-animation="true" data-placement="top" data-toggle="popover" data-title="Learn more about eligiblity checking" data-html="true" data-container="#pageDesignModal .modal-body" data-content='Depending on the eligibility settings under the "Registration Form" component page, the system will check against the data provided to see if the user meets the eligibility requirements. The form fields of the information needed to determine user eligibility are specified in the entity boxes below. <br><br>If multiple form fields are set in the same entity box, the system will check all of the fields provided to see if the user is eligible. The registration fails if any combinations of the fields do not meet the eligibility requirements. <br><br>Please note that not all the entity categories are necessary. For example, if your promotion is limited to US and/or Canada only and you have only a state field but do not have a country field on the form, the system will check only the State field and the date of birth to determine eligibility.'>?</div>
+            </div>
+            <div class="">
+              <div class="news-title"><a href="javascript:false">Check eligiblity with..</a></div>
+              <div class="news-text" style="padding-top:10px;">
+                <div><i class="icon-sort-down"></i> Date Of Birth</div>
+                <input type="hidden" class="checkEligibilityWithDOB" />
+                <div><i class="icon-sort-down"></i> State</div>
+                <input type="hidden" class="checkEligibilityWithState" />
+                <div><i class="icon-sort-down"></i> Country</div>
+                <input type="hidden" class="checkEligibilityWithCountry" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 additionalOptionsForm" style="display:none;">
+          <div class="well">
+            <div class="news-time">
+              <div style="cursor:pointer;" class="learnMorePopover" data-template='<div class="popover" style="max-width: 350px;"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+ data-animation="true" data-placement="top" data-toggle="popover" data-title="Learn more about form options" data-html="true" data-container="#pageDesignModal .modal-body" data-content='If you have form fields across different panels on the same page, you can choose if clicking on the submit button on this panel will submit data from form fields in this panel only, or if it should submit all form fields on the entire page.'>?</div>
+            </div>
+            <div class="">
+              <div class="news-title"><a href="javascript:false">Form Options</a></div>
+              <div class="news-text" style="padding-top:10px;">
+                <div>Submit form in <a href="#" class="saveDataFromPanel editable editable-click " data-type="select"  title="" data-original-title="Select form data" style="font-weight: normal;">this panel only</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="savePageDesignBttn" style="display:none;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/DJAUploader/images/formbuilder-done.png" alt="Save"></div>
+    </div>
+  </div>
+</div>

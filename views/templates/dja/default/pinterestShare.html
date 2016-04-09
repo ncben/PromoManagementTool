@@ -1,0 +1,57 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>"> <a href="<% if(style != 'custom'){ %>//www.pinterest.com/pin/create/button/?url=<%= (typeof url != 'undefined' && url) ? encodeURIComponent(url.split('#')[0]) : '' %><%= (typeof url != 'undefined' && url) ? encodeURIComponent((url.indexOf('?') === -1 ? '?' : '&')+'ref=') : '' %><$$= (typeof url != 'undefined' && url) ? (vars&& typeof vars['uid'] != 'undefined' ? encodeURIComponent(vars['uid']) : '') : '' $$>&amp;media=<%=encodeURIComponent((img || '')) %>&amp;description=<%=encodeURIComponent((description || '')) %><% }else{ %>#<% } %>" <% if(style != 'custom'){ %>data-pin-config="<%=(typeof pincount != 'undefined' ? pincount : '')%>"<% } %> id="<%= (typeof id != 'undefined' ? id : '') %>" <% 
+
+	 if(typeof style != 'undefined'){
+     
+     	var styleTags = style.split('|')[1] ? style.split('|')[1].split(',') : [];
+                
+        for(var tag in styleTags){
+        	
+            var tagName = styleTags[tag].split(':')[0];
+            var tagContent = styleTags[tag].split(':')[1];
+ 
+            if(tagName){
+            
+            	tagName = (tagName == 'class') ? tagName : 'data-'+tagName;
+            
+            %>  <%= tagName %>="<%=tagContent%>"  <%
+            
+            }
+            
+        }
+        
+   } %>>
+  <% if(style != 'custom'){ %>
+  <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_<%=(typeof style != 'undefined' && style != 'custom' ? style.split('|')[0] : 'rect') %>_<%=(typeof style != 'undefined' && style != 'custom' && style.split('pin-color:')[1] ? style.split('pin-color:')[1].split(',')[0] : 'gray') %>_<%=(typeof style != 'undefined' && style != 'custom' && style.split('pin-height:')[1] ? style.split('pin-height:')[1].split(',')[0] : '20') %>.png" alt="" style="max-width:100%;" />
+  <% }else{ %>
+  <img src="<%=(typeof src != 'undefined' ? src : '') %>" alt="" style="max-width:100%;" />
+  <% } %>
+  </a> </div>
+<% if(style == 'custom'){  %>
+<script>
+  
+  	document.getElementById("<%= (typeof id != 'undefined') ? id : '' %>").onclick = function(){
+  	
+        var winTop = (screen.height / 2) - (550 / 2);
+        var winLeft = (screen.width / 2) - (520 / 2);
+		window.open("//www.pinterest.com/pin/create/button/?url="+encodeURIComponent(("<%= (typeof url != 'undefined' && url) ? url.split('#')[0] : '' %><%= (typeof url != 'undefined' && url) ? ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') : '' %><$$= (typeof url != 'undefined' && url) ? (vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') : '' $$>" || window.location.href.split('?')[0].split('#')[0]+"<%= ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') %><$$=  (vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '')  $$>"
+))+"&media=<%-encodeURIComponent((img || ""))%>&description=<%-encodeURIComponent((description || ""))%>", 'pin_share', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+550+',height='+520);
+        return false;
+        
+        }
+        
+</script>
+<% } %>
+<script>
+
+ require.config({
+        paths: {
+            'pinterest_widget': 'https://assets.pinterest.com/js/pinit'
+        }
+    });
+	
+require(["pinterest_widget"],
+	function () {
+    
+});
+</script>

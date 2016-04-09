@@ -1,0 +1,36 @@
+<td><a href="#" data-pk="1" data-value="<%=(typeof el['protocol'] != 'undefined') ? el['protocol'] : '' %>" data-type="select" data-title="Select Protocol" class="domainProtocol editable editable-click" data-original-title="" title=""></a>
+<td><a href="#" data-pk="1" data-value="<%=(typeof el['domain-type'] != 'undefined') ? el['domain-type'] : '' %>" data-type="select" data-title="Domain" class="domainType editable editable-click" data-original-title="" title=""></a> <a href="#" data-pk="1" data-value="<%=(typeof el['domain'] != 'undefined') ? el['domain'] : '' %>" data-type="text" data-title="Domain" class="domainName editable editable-click" data-original-title="" title=""></a></td>
+<td><a href="#" class="domainLandingPage editable editable-click" data-type="select" data-pk="1" data-value="<%=(typeof el['landing-page'] != 'undefined') ? el['landing-page'] : '' %>" title="Select Landing Page"></a></td>
+<td class="dataCache text-left"  data-id="<%=(typeof key != 'undefined') ? key : '' %>"><div class="btn-group">
+    <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i></button>
+    <ul class="dropdown-menu open-left">
+      <li><a href="#" class="viewDetails"><i class="icon-link"></i> View Details</a>
+        <div class="viewURLTemplate" style="display:none">
+          <form class="fill-up viewURLForm">
+            <div>
+              <div>
+                <label>Direct URL <span class="b-k-G learnMore tt" data-animation="false" data-placement="bottom" title="The unique URL to access the site">?</span> </label>
+              </div>
+              <div style="padding-bottom:10px; white-space:nowrap; text-overflow: ellipsis; max-width: 350px; width: 100%; overflow: hidden;"> <span class="directURL" style="color:#858585"></span> </div>
+            </div>
+            <div>
+              <div>
+                <label>Landing Page <span class="b-k-G learnMore tt" data-animation="false" data-placement="bottom" title="The default root page of the URL">?</span></label>
+              </div>
+              <div style="padding-bottom:10px; white-space:nowrap; text-overflow: ellipsis; max-width: 350px; width: 100%; overflow: hidden;"><span class="landingPage" style="color:#858585">Already Entered</span> </div>
+            </div>
+            <div class="CNAMEWrapper">
+              <div>
+                <label>CNAME <span class="b-k-G learnMore tt" data-animation="false" data-placement="bottom" title="The DNS record to point your custom domain to">?</span></label>
+              </div>
+              <div style="white-space:nowrap; text-overflow: ellipsis; max-width: 350px; width: 100%; overflow: hidden;"><span class="CNAME" style="color:#858585">dns.dja.com</span> </div>
+            </div>
+            <div class="form-action" style="margin-top:10px;">
+              <button type="button" class="btn btn-blue goToURL">Go to URL</button>
+            </div>
+          </form>
+        </div>
+      </li>
+      <li><a href="#" class="removeDefaultDomain"><i class="icon-remove-sign"></i> Remove</a></li>
+    </ul>
+  </div></td>

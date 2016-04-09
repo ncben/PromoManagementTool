@@ -1,0 +1,44 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12' %>">
+  <div class="flexslider" id="<%= (typeof id != 'undefined') ? id : '' %>">
+    <ul class="slides" >
+      <% if (typeof slideData == 'object') { 
+    	slideData.forEach(function(slide){ %>
+      <li data-thumb="<%- slide.thumbNail %>"> <img src="<%- slide.src %>" alt="" /> </li>
+      <% })
+        } else {%>
+      <%= "No Data" %>
+      <%	} %>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+
+ require.config({
+        paths: {
+            'jquery.flexslider': 'https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/flexslider/flexslider'
+        },
+		shim: {
+       	 'jquery.flexslider': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.flexslider'
+       	 }
+		}
+    });
+	
+require(["jquery", "jquery.flexslider"],
+	function ($,   flexslider) {
+     $('#<%= (typeof id != 'undefined') ? id : '' %>').flexslider({
+  		animation: "slide",    controlNav: "thumbnails",    smoothHeight: true
+ 	 })
+	 	 
+});
+
+    var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = "https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/flexslider/flexslider.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+	
+
+</script> 

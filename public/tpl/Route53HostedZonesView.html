@@ -1,0 +1,9 @@
+<% _.each(HostedZones, function(HostedZone){ %>
+<tr>
+  <td><%= _.escape(HostedZone.Id) %></td>
+  <td><a href="#GetHostedZone/<%= _.escape(HostedZone.Id.split('/')[2]) %>"><%= _.escape(HostedZone.Name) %></a></td>
+  <td><%= _.escape(HostedZone.Config.Comment) %></td>
+  <td><%= _.escape(HostedZone.CallerReference) %></td>
+  <td><button type="button" class="btn btn-default btn-xs deleteHostedZoneBttn" data-uid="<%= _.escape(HostedZone.Id.split('/')[2]) %>">Delete</button></td>
+</tr>
+<% }); %>

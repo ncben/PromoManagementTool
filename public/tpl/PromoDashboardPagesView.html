@@ -1,0 +1,170 @@
+
+<div class="container">
+  <div class="row">
+    <div class="area-top clearfix">
+      <div class="pull-left header">
+        <h3 class="title"> <i class="icon-edit"></i> Pages </h3>
+        <h5> <span> Manage the pages of the promotion </span> </h5>
+      </div>
+      <ul class="list-inline pull-right sparkline-box">
+        <li class="sparkline-row">
+          <h4 class="blue"><span>Orders</span> 847</h4>
+          <div class="sparkline big" data-color="blue"><!--19,12,16,28,7,16,24,26,26,26,28,21--></div>
+        </li>
+        <li class="sparkline-row">
+          <h4 class="green"><span>Reviews</span> 223</h4>
+          <div class="sparkline big" data-color="green"><!--11,15,20,4,20,15,6,18,15,5,19,3--></div>
+        </li>
+        <li class="sparkline-row">
+          <h4 class="red"><span>New visits</span> 7930</h4>
+          <div class="sparkline big"><!--3,14,5,9,11,26,17,19,21,18,3,24--></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container padded">
+  <div class="row"> 
+    
+    <!-- Breadcrumb line -->
+    
+    <div id="breadcrumbs">
+      <div class="breadcrumb-button blue"> <span class="breadcrumb-label"><i class="icon-home"></i> Home</span> <span class="breadcrumb-arrow"><span></span></span> </div>
+      <div class="breadcrumb-button"> <span class="breadcrumb-label"> <i class="icon-edit"></i> Pages </span> <span class="breadcrumb-arrow"><span></span></span> </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box" id="pagesBox">
+        <div class="box-header"> <span class="title">Pages</span>
+          <ul class="box-toolbar">
+            <li>
+              <form class="fill-up" style="width: 100px">
+                <label class="input-with-submit" style="margin-bottom: 0;">
+                  <input type="text" placeholder="Search...">
+                  <button type="submit" class="submit-icon"> <i class="icon-search"></i> </button>
+                </label>
+              </form>
+            </li>
+            <li><span class="label label-blue totalNumberOfPages"></span></li>
+            <li class="toolbar-link"> <a href="#" class="addNewPage"><i class="icon-plus-sign"></i></a> </li>
+          </ul>
+          <div class="addNewPageTemplate" style="display: none">
+            <form class="fill-up addNewPageForm">
+              <input type="text" placeholder="Title" class="addNewPageTitle" style="margin-bottom:5px;">
+              <textarea placeholder="Description of the page" class="addNewPageDesc" rows="3"></textarea>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-blue addPageConfirm">Add Page</button>
+                <button type="button" class="btn btn-default addPageCancel">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="box-content scrollable pageItems" style="max-height: 1252px; overflow-y: auto"> </div>
+        <div class="publishPageTemplate" style="display: none">
+          <form class="fill-up publishPageForm">
+            <div class="form-actions text-center">
+              <button type="submit" class="btn btn-lg btn-green publishPageConfirm"><i class="icon-circle-arrow-right"></i> Publish Now</button>
+            </div>
+            <div class="" style="text-align: center;position: relative;font-size: 1.1em;color: orange;"><span class="ppp" style="
+    display: inline-block;
+">or</span> </div>
+            <div class="form-actions text-center">
+             <a href="#" data-type="combodate" data-template="YYYY MMM D HH:mm" data-format="YYYY-MM-DD HH:mm" data-viewformat="MMM D, YYYY, h:mma" data-pk="" data-title="Select date and time to publish page (Eastern Time)" class="publishPageScheduleTime editable editable-click editable-unsaved" data-original-title="" title="" style="font-size: 0px;opacity: 0;visibility: hidden;width: 0;height: 0; position:absolute;"><i class="icon-calendar"></i> <span class="publishPageScheduleText">Now</span></a>
+              <button type="submit" class="btn btn-gray btn-blue publishPageSchedule"><i class="icon-calendar"></i> Schedule</button>
+              <button type="button" class="btn btn-default publishPageCancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div class="pageItemTemplate" style="display:none;">
+          <div class="box-section news with-icons dataCache">
+            <div class="avatar blue pageCompleteIcon" style="display:none"><i class="icon-ok icon-2x"></i></div>
+            <div class="avatar cyan pageIncompleteIcon" style="display:none"><i class="icon-lightbulb icon-2x"></i></div>
+            <div class="news-time" style="text-align:right; font-size: .8em;"> <span style="text-align:right;" class="publishPageBttnWrapper">
+              <button class="btn btn-lg btn-green publishPageBttn">Publish</button>
+              </span><span style="text-align:right; display:none; color:#A2C873; font-size:1.9em;" class="pagePublished"><i class="icon-ok-sign icon-large"></i> Latest Version Published</span> last published:
+              <div class="lastPublishedTime" style="display:inline"></div>
+            </div>
+            <div class="news-content">
+              <div class="news-title"><a href="#" class="pageName"></a></div>
+              <div class="news-text pageText"> </div>
+              <div class="labels"> <span style="margin-right: 10px; display:none;" class="label label-gray labelIncomplete">Incomplete</span> <span style="margin-right: 10px; display:none;" class="label label-green labelComplete">Complete</span> <span style="margin-right: 10px; display:none;" class="label label-dark-red labelRequired">Required</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="fieldsOptionsModal" aria-hidden="false" role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="fields-options-content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger confirm">Delete</button>
+        <button type="button" class="btn btn-success confirm">Submit</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<div class="modal fade" id="pageDesignModal" aria-hidden="false" role="dialog" >
+  <div class="modal-dialog" style="width: 90%; margin-bottom: 60px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title pageName"></h4>
+        <span class="pageDesc"></span> </div>
+      <div class="modal-body" style="padding:0"> </div>
+    </div>
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<div class="modal fade" id="deletePageModal" aria-hidden="false" role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close cancel" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"><span class="deleteConfirmText">Delete</span><span class="resetConfirmText">Reset</span> Page</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to <span class="deleteConfirmText">delete</span><span class="resetConfirmText">reset</span> this page?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger confirm"><span class="deleteConfirmText">Delete</span><span class="resetConfirmText">Reset</span></button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<div class="modal fade" id="unpublishPageModal" aria-hidden="false" role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close cancel" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Unpublish Page</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to unpublish this page?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger confirm">Unpublish</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>

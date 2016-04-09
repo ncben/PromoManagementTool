@@ -1,0 +1,9 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <div class="formfield checkbox">
+    <label for="<%= (typeof id != 'undefined') ? id : '' %>">
+      <input type="checkbox" id="<%= (typeof id != 'undefined') ? id : '' %>" name="<%= (typeof inputName != 'undefined') ? inputName : '' %>" data-required="<%= (typeof required != 'undefined') ? required : '' %>" <%= (typeof prechecked != 'undefined' && prechecked === 'true') ? 'checked' : '' %>>
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+  </div>
+</div>

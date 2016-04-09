@@ -1,0 +1,115 @@
+
+<div class="col-md-12 photoOptionsContainer" style="margin:15px 0 20px">
+  <div class="dataCache" data-id="<%=(typeof key != 'undefined') ? key : '' %>" style="box-shadow:0px 4px 10px 0px #DDD;">
+    <div class="box-header" style="padding: 0 24px 0 0;margin: 0;position: relative;">
+      <div style="padding: 0;">
+        <div class="fanPageTitle" style="text-overflow: ellipsis; max-width: 100%; white-space: nowrap;overflow: hidden;text-align: center;">Photo Options</div>
+        <div class="btn-group" style="position: absolute; right:0; top:0; ">
+          <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" style="border-top: 0;border-bottom: 0; font-size: 10px;"><i class="icon-cog"></i></button>
+          <ul class="dropdown-menu open-left" style="text-align: left;">
+            <li><a href="#" class="removePhotoItem"><i class="icon-remove-sign"></i> Remove</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="box-toolbar">
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box closable-chat-box" style="margin-bottom:0;">
+          <div class="box-content padded">
+            <div class="fields">
+              <ul style="margin:10px 0;">
+                <li><b>Enter description for photo import</b> <span class="b-k-G learnMore tt" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about photo description" data-container="body" data-content='The photo import description will be displayed to the user above the photo import options. You may include photo requirements, guidelines, specifications, tips for taking a good photo, etc.'>?</span></li>
+              </ul>
+            </div>
+            <form class="fill-up photoDescriptionItem" action="#">
+              <div class="chat-message-box">
+                <div class="photoDescriptionDisplay" style="margin: 5px; min-height:15px; padding-left: 5px; color: #858585; cursor: text;">enter description</div>
+                <textarea class="photoDescription" rows="5" placeholder="enter description" style="display:none;"></textarea>
+              </div>
+              <div class="clearfix actions">
+                <div class="pull-right faded-toolbar"><a href="#" class="btn btn-blue btn-xs saveBttn">Save</a> </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-content" style="background:#FFF;">
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about photo size" data-container="body" data-content='This option sets the minimum and maximum file size allowed per photo uploaded locally or imported from a URL. If there is no minimum file size requirement, set the left pointer of the range selector all the way to the left so it displays "Any". You can allow up to a maximum of 25MB per file uploaded.<br><br><strong>Please note:</strong> This option does not apply to files imported from Facebook and Instagram.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Photo File Size (MB)</strong> </div>
+        <div class="col-md-3"> 
+          <div class="slider-value"><%=(typeof el['photo-size-min'] != 'undefined' && el['photo-size-min'] > 0) ? el['photo-size-min']+'MB' : 'Any' %> - <%=(typeof el['photo-size-max'] != 'undefined') ? ((el['photo-size-max'] > 0) ? el['photo-size-max']+'MB' : 'Any') : '10MB' %></div>
+        </div>
+        <div class="col-md-5">
+          <div class="photoSizeSlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about number of photos" data-container="body" data-content='This option sets the minimum and maximum number of photos the users are required to upload or import. If there is no upper limit on how many photos the user is required to upload, set the right pointer of the range selector all the way to the right so it displays "No Limit". At minimum, the user is required to upload or import at least one photo unless the "Is Photo Required?" switch is turned off.<br><br>If a minimum is set and "Is Photo Required?" is turned off, then the minimum requirement only applies when the user uploads or imports a photo.<br><br><strong>Please note:</strong> If this photo is optional, you must turn off the "Is Photo Required?" option.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Number of Photos </strong> </div>
+        <div class="col-md-3"> 
+          <div class="slider-value"><%
+          
+          if(typeof el['photo-quantity-min'] != 'undefined' && typeof el['photo-quantity-max'] != 'undefined' && el['photo-quantity-min'] == el['photo-quantity-max']){ %>
+          
+          	<%=(el['photo-quantity-min'] > 1) ? ((el['photo-quantity-min'] > 100) ? 'No Limit' : el['photo-quantity-min']) : '1' %>
+          
+          <% }else{ %>
+          
+          <%=(typeof el['photo-quantity-min'] != 'undefined' && el['photo-quantity-min'] > 1) ? ((el['photo-quantity-min'] > 100) ? 'No Limit' : el['photo-quantity-min']) : '1' %> - <%=(typeof el['photo-quantity-max'] != 'undefined') ? ((el['photo-quantity-max'] > 1) ? ((el['photo-quantity-max'] > 100) ? 'No Limit' : el['photo-quantity-max']) : '1') : '1' %>
+          
+          <% } %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="photoQuantitySlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about photo height restriction" data-container="body" data-content='This option sets the minimum height required and the maximum height allowed in pixels. This setting is useful to deter user from uploading placeholder images such as a 1x1 pixel, images that are too low in resolution or unprocessed images of too high of a resolution.<br><br><strong>Please note:</strong> If Facebook and/or Instagram import is enabled, the maximum height should be set to at least 2048px.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Photo Height Allowed</strong> </div>
+        <div class="col-md-3">
+          <div class="slider-value"><%=(typeof el['photo-height-min'] != 'undefined' && el['photo-height-min'] > 0) ? (el['photo-height-min']<4880 ? el['photo-height-min']+'px' : 'Any') : 'Any' %> - <%=(typeof el['photo-height-max'] != 'undefined') ? ((el['photo-height-max'] > 0) ? (el['photo-height-max']<4880 ? el['photo-height-max']+'px' : 'Any') : 'Any') : 'Any' %></div>
+        </div>
+        <div class="col-md-5">
+          <div class="photoHeightSlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about photo width restriction" data-container="body" data-content='This option sets the minimum width required and the maximum width allowed in pixels. This setting is useful to deter user from uploading placeholder images such as a 1x1 pixel, images that are too low in resolution or unprocessed images of too high of a resolution.<br><br><strong>Please note:</strong> If Facebook and/or Instagram import is enabled, the maximum width should be set to at least 2048px.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Photo Width Allowed</strong> </div>
+        <div class="col-md-3">
+          <div class="slider-value"><%=(typeof el['photo-width-min'] != 'undefined' && el['photo-width-min'] > 0) ? (el['photo-width-min']<4880 ? el['photo-width-min']+'px' : 'Any') : 'Any' %> - <%=(typeof el['photo-width-max'] != 'undefined') ? ((el['photo-width-max'] > 0) ? (el['photo-width-max']<4880 ? el['photo-width-max']+'px' : 'Any') : 'Any') : 'Any' %></div>
+        </div>
+        <div class="col-md-5">
+          <div class="photoWidthSlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about file types" data-container="body" data-content='This option sets the allowed file extensions. You can choose from the pre-defined list or enter your own. Please note that files without extensions will not be accepted, and we cannot guarantee the actual file type uploaded will match its extension.<br><br><strong>Please note:</strong> This option does not apply to images imported from Facebook and Instagram.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong>Allowed File Types</strong> </div>
+        <div class="col-md-3"> <a href="#" class="editable editable-click photoFileTypes" data-type="select2" data-pk="1" data-title="Enter File Types" data-value="<%= (typeof el['photo-file-type'] != 'undefined') ? el['photo-file-type'] : '' %>"></a> </div>
+      </div>
+      <div class="row box-section relative" style="border-top: none;">
+        <div class="col-md-2"> <strong>Allowed File Sources</strong> </div>
+        <div class="col-md-3"> <a class="editable editable-click photoFileSource" title="" data-original-title="" href="#" data-type="checklist" data-value="<%= (typeof el['photo-file-source'] != 'undefined') ? el['photo-file-source'] : '' %>" data-title="Select File Source"></a> </div>
+      </div>
+      <div class="row box-section relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about file sources" data-container="body" data-content='When this option is enabled, a small thumbnail appears after the image is uploaded or imported and during the upload (if supported by browser). '><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong>Include Preview Image on Upload</strong> </div>
+        <div class="col-md-3">
+          <input class="iButton-icons-tab photoPreviewImageSwitch" type="checkbox" />
+        </div>
+      </div>
+      <div class="row box-section" style="border-top: none;">
+        <div class="col-md-2"> <strong>Is Photo Required?</strong> </div>
+        <div class="col-md-3">
+          <input class="iButton-icons-tab photoRequiredSwitch" type="checkbox" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

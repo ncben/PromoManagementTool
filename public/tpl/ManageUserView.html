@@ -1,0 +1,32 @@
+<% _.each(users, function(user){ %>
+<tr>
+  <td><%  
+  
+  				 if(user.suspended){
+                	 print('<span class="label label-warning"><i class="glyphicon glyphicon-warning-sign" style="color:red;"></i> Suspended</span> ');
+                 }else{
+      
+                     var roles = _.escape(user.roles).split(',');
+                       
+                      _.each(roles, function(role){
+                      
+                        switch (parseInt(role)) {
+                          //case 1   : var labelClass = 'label label-default'; var text = '1'; break;
+                          //case 2   : var labelClass = 'label label-primary'; var text = '2'; break;
+                          //case 3   : var labelClass = 'label label-success'; var text = '3'; break;
+                          //case 4   : var labelClass = 'label label-info'; var text = '4'; break;
+                          case 5   : var labelClass = 'badge label-warning'; var text = 'Manager'; break;
+                          case 6   : var labelClass = 'badge label-danger'; var text = 'Admin'; break;
+                          default    : var labelClass = 'hidden'; var text = ''; break;
+                        } 
+                                            
+                  	   print('<span class="'+labelClass+'">'+text+'</span>');
+                	 }); 
+                 }    
+      %></td>
+  <td><%= _.escape(user.firstName) %></td>
+  <td><%= _.escape(user.lastName) %></td>
+  <td><%= _.escape(user.email) %></td>
+  <td><button type="button" class="btn btn-default btn-xs editUserBttn" data-uid="<%= _.escape(user.email) %>"><!--span class="glyphicon glyphicon-edit"></span-->Edit</button></td>
+</tr>
+<% }); %>

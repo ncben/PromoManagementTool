@@ -1,0 +1,36 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+<% if(style != 'custom'){  %>
+<script type="IN/Share" data-url="<%= (typeof url != 'undefined') ? (url.split('#')[0]) : '' %><%= (typeof url != 'undefined' && url) ? ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') : '' %><% if(typeof url != 'undefined' && url){ %><$$=(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') $$><% } %>" data-counter="<%= (typeof style != 'undefined' ? style : '') %>"></script>
+
+
+<% }else{ %>
+<a href="#" id="<%= (typeof id != 'undefined' ? id : '') %>"><img src="<%=(typeof src != 'undefined' ? src : '') %>" alt="" style="max-width:100%;" /></a>
+
+<script>
+  
+  	document.getElementById("<%= (typeof id != 'undefined') ? id : '' %>").onclick = function(){
+  	
+        var winTop = (screen.height / 2) - (550 / 2);
+        var winLeft = (screen.width / 2) - (520 / 2);
+		window.open("http://www.linkedin.com/shareArticle?mini=true&url=<%- ((typeof url != 'undefined' && url) ? encodeURIComponent((url.split('#')[0])+((url.indexOf('?') === -1 ? '?' : '&')+'ref='))+"<$$=(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') $$>" : "\"+encodeURIComponent(window.location.href.split('?')[0].split('#')[0])+\"" ) %>&title=<%-encodeURIComponent((title || ""))%>&summary=<%-encodeURIComponent((summary || ""))%>&source=<%-encodeURIComponent((source || ""))%>", 'linkedin_share', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+550+',height='+520);
+        return false;
+        
+        }
+        
+</script>
+<% } %>
+</div>
+<script>
+
+ require.config({
+        paths: {
+            'linkedin_widget': 'https://platform.linkedin.com/in'
+        }
+    });
+	
+require(["linkedin_widget"],
+	function () {
+    
+});
+</script>

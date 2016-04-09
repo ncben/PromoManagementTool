@@ -1,0 +1,126 @@
+
+<div class="col-md-12 videoOptionsContainer" style="margin:15px 0 20px">
+  <div class="dataCache" data-id="<%=(typeof key != 'undefined') ? key : '' %>" style="box-shadow:0px 4px 10px 0px #DDD;">
+    <div class="box-header" style="padding: 0 24px 0 0;margin: 0;position: relative;">
+      <div style="padding: 0;">
+        <div class="fanPageTitle" style="text-overflow: ellipsis; max-width: 100%; white-space: nowrap;overflow: hidden;text-align: center;">Video Options</div>
+        <div class="btn-group" style="position: absolute; right:0; top:0; ">
+          <button class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" style="border-top: 0;border-bottom: 0; font-size: 10px;"><i class="icon-cog"></i></button>
+          <ul class="dropdown-menu open-left" style="text-align: left;">
+            <li><a href="#" class="removeVideoItem"><i class="icon-remove-sign"></i> Remove</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="box-toolbar">
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box closable-chat-box" style="margin-bottom:0;">
+          <div class="box-content padded">
+            <div class="fields">
+              <ul style="margin:10px 0;">
+                <li><b>Enter description for video import</b> <span class="b-k-G learnMore tt" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about video description" data-container="body" data-content='The video import description will be displayed to the user above the video import options. You may include video requirements, guidelines, specifications, tips for taking a good video, etc.'>?</span></li>
+              </ul>
+            </div>
+            <form class="fill-up videoDescriptionItem" action="#">
+              <div class="chat-message-box">
+                <div class="videoDescriptionDisplay" style="margin: 5px; min-height:15px; padding-left: 5px; color: #858585; cursor: text;">enter description</div>
+                <textarea class="videoDescription" rows="5" placeholder="enter description" style="display:none;"></textarea>
+              </div>
+              <div class="clearfix actions">
+                <div class="pull-right faded-toolbar"><a href="#" class="btn btn-blue btn-xs saveBttn">Save</a> </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-content" style="background:#FFF;">
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about video size" data-container="body" data-content='This option sets the minimum and maximum file size allowed per video uploaded locally or imported from a URL. If there is no minimum file size requirement, set the left pointer of the range selector all the way to the left so it displays "Any". You can allow up to a maximum of 1024MB per file uploaded.<br><br><strong>Please note:</strong> This option does not apply to files imported from Facebook and Instagram.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Video File Size (MB)</strong> </div>
+        <div class="col-md-3"> 
+          <div class="slider-value"><%=(typeof el['video-size-min'] != 'undefined' && el['video-size-min'] > 0) ? el['video-size-min']+'MB' : 'Any' %> - <%=(typeof el['video-size-max'] != 'undefined') ? ((el['video-size-max'] > 0) ? el['video-size-max']+'MB' : 'Any') : '10MB' %></div>
+        </div>
+        <div class="col-md-5">
+          <div class="videoSizeSlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about number of videos" data-container="body" data-content='This option sets the minimum and maximum number of videos the users are required to upload or import. If there is no upper limit on how many videos the user is required to upload, set the right pointer of the range selector all the way to the right so it displays "No Limit". At minimum, the user is required to upload or import at least one video unless the "Is Video Required?" switch is turned off.<br><br>If a minimum is set and "Is Video Required?" is turned off, then the minimum requirement only applies when the user uploads or imports a video.<br><br><strong>Please note:</strong> If this video is optional, you must turn off the "Is Video Required?" option.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Number of Videos </strong> </div>
+        <div class="col-md-3"> 
+          <div class="slider-value"><%
+          
+          if(typeof el['video-quantity-min'] != 'undefined' && typeof el['video-quantity-max'] != 'undefined' && el['video-quantity-min'] == el['video-quantity-max']){ %>
+          
+          	<%=(el['video-quantity-min'] > 1) ? ((el['video-quantity-min'] > 100) ? 'No Limit' : el['video-quantity-min']) : '1' %>
+          
+          <% }else{ %>
+          
+          <%=(typeof el['video-quantity-min'] != 'undefined' && el['video-quantity-min'] > 1) ? ((el['video-quantity-min'] > 100) ? 'No Limit' : el['video-quantity-min']) : '1' %> - <%=(typeof el['video-quantity-max'] != 'undefined') ? ((el['video-quantity-max'] > 1) ? ((el['video-quantity-max'] > 100) ? 'No Limit' : el['video-quantity-max']) : '1') : '1' %>
+          
+          <% } %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="videoQuantitySlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about video aspect ratio restriction" data-container="body" data-content='This option sets the range of aspect ratio allowed. This setting is useful to prevent users from uploading videos that are too wide or too tall. The recommended restriction is to limit the aspect ratio of the video to be between 9x16 and 16x9. '><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Video Aspect Ratio Allowed</strong> </div>
+        <div class="col-md-3">
+          <div class="slider-value"><% 	var values = ['1:999','1:3','3:7','9:16','3:5','2:3','3:4','6:7','8:9','1:1','9:8','7:6','4:3','3:2','5:3','16:9','21:9','3:1','999:1']; %><%=(typeof el['video-aspect-ratio-min'] != 'undefined' && values.indexOf(el['video-aspect-ratio-min']) > 0) ? (values.indexOf(el['video-aspect-ratio-min']<17) ? el['video-aspect-ratio-min'] : 'Any') : 'Any' %> - <%=(typeof el['video-aspect-ratio-max'] != 'undefined') ? ((values.indexOf(el['video-aspect-ratio-max']) > 0) ? (values.indexOf(el['video-aspect-ratio-max'])<17 ? el['video-aspect-ratio-max'] : 'Any') : 'Any') : 'Any' %></div>
+        </div>
+        <div class="col-md-5">
+          <div class="videoAspectRatioSlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section slider-container relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about video length restriction" data-container="body" data-content='This option sets the minimum length of the video required and the maximum length allowed in seconds.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong> Video Length Allowed</strong> </div>
+        <div class="col-md-3">
+          <div class="slider-value"><% String.prototype.toHHMMSS = function () {
+					var sec_num = parseInt(this, 10); // don't forget the second parm
+					var hours   = Math.floor(sec_num / 3600);
+					var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+					var seconds = sec_num - (hours * 3600) - (minutes * 60);
+				
+					if (hours   < 10) {hours   = "0"+hours;}
+					if (minutes < 10) {minutes = "0"+minutes;}
+					if (seconds < 10) {seconds = "0"+seconds;}
+					var time    = hours+':'+minutes+':'+seconds;
+					return time;
+				} %><%=(typeof el['video-length-min'] != 'undefined' && el['video-length-min'] > 0) ? (el['video-length-min']<3605  ? el['video-length-min'].toHHMMSS() : 'Any') : 'Any' %> - <%=(typeof el['video-length-max'] != 'undefined') ? ((el['video-length-max'] > 0) ? (el['video-length-max']<3605 ? el['video-length-max'].toHHMMSS() : 'Any') : 'Any') : 'Any' %></div>
+        </div>
+        <div class="col-md-5">
+          <div class="videoLengthSlider ranged-slider-ui normal"></div>
+        </div>
+      </div>
+      <div class="row box-section relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about file types" data-container="body" data-content='This option sets the allowed file extensions. You can choose from the pre-defined list or enter your own. Please note that files without extensions will not be accepted, and we cannot guarantee the actual file type uploaded will match its extension.<br><br><strong>Please note:</strong> This option does not apply to images imported from Facebook and Instagram.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong>Allowed File Types</strong> </div>
+        <div class="col-md-3"> <a href="#" class="editable editable-click videoFileTypes" data-type="select2" data-pk="1" data-title="Enter File Types" data-value="<%= (typeof el['video-file-type'] != 'undefined') ? el['video-file-type'] : '' %>"></a> </div>
+      </div>
+      <div class="row box-section relative" style="border-top: none;">
+        <div class="col-md-2"> <strong>Allowed File Sources</strong> </div>
+        <div class="col-md-3"> <a class="editable editable-click videoFileSource" title="" data-original-title="" href="#" data-type="checklist" data-value="<%= (typeof el['video-file-source'] != 'undefined') ? el['video-file-source'] : '' %>" data-title="Select File Source"></a> </div>
+      </div>
+      <div class="row box-section relative" style="border-top: none;">
+      <span class="triangle-button left blue learnMore" style="left:0; margin:0;" data-animation="true" data-placement="bottom" data-toggle="popover" data-title="Learn more about file sources" data-container="body" data-content='When this option is enabled, a small thumbnail appears after the video is uploaded or imported. The thumbnail is the very middle frame of hevideo. for example: If your video was 2 Minutes, 10 Seconds, and 22 Milliseconds, it would take a frame at 1 Minute, 5 Seconds, and 11 Milliseconds as the thumbnail.'><i class="icon-question-sign"></i></span>
+        <div class="col-md-2"> <strong>Display Video Thumbnail Image</strong> </div>
+        <div class="col-md-3">
+          <input class="iButton-icons-tab videoPreviewImageSwitch" type="checkbox" />
+        </div>
+      </div>
+      <div class="row box-section" style="border-top: none;">
+        <div class="col-md-2"> <strong>Is Video Required?</strong> </div>
+        <div class="col-md-3">
+          <input class="iButton-icons-tab videoRequiredSwitch" type="checkbox" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

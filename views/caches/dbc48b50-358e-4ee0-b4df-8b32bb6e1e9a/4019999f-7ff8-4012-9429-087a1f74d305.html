@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="<%=(vars&& typeof vars['lang'] != 'undefined' ? vars['lang'] : '') %>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%=(vars&& typeof vars['pageName'] != 'undefined' ? vars['pageName'] : '') %></title>
+<meta property="og:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>"/>
+<meta property="og:description" content="<%=(vars&& typeof vars['ogDescription'] != 'undefined' ? vars['ogDescription'] : '') %>">
+<meta property="og:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>" />
+<meta property="og:type" content="<%=(vars&& typeof vars['ogType'] != 'undefined' ? vars['ogType'] : '') %>" />
+<meta property="og:url" content="<%=(vars&& typeof vars['ogURL'] != 'undefined' ? vars['ogURL'] : '') %>" />
+<meta property="fb:app_id" content="<%=(vars&& typeof vars['app_id'] != 'undefined' ? vars['app_id'] : '') %>">
+<meta property="fb:admins" content="<%=(vars&& typeof vars['fbAdmin'] != 'undefined' ? vars['fbAdmin'] : '') %>">
+<meta property="twitter:card" content="<%=(vars&& typeof vars['twitterCardType'] != 'undefined' ? vars['twitterCardType'] : '') %>">
+<meta property="twitter:title" content="<%=(vars&& typeof vars['ogTitle'] != 'undefined' ? vars['ogTitle'] : '') %>">
+<meta property="twitter:description" content="<%=(vars&& typeof vars['twitterShareCopy'] != 'undefined' ? vars['twitterShareCopy'] : '')%>">
+<meta property="twitter:image" content="<%=(vars&& typeof vars['ogImage'] != 'undefined' ? vars['ogImage'] : '') %>">
+<meta property="twitter:url" content="<%=(vars&& typeof vars['twitterShareURL'] != 'undefined' ? vars['twitterShareURL'] : '') %>">
+<meta property="pinterest:image" content="<%=(vars&& typeof vars['pinterestImage'] != 'undefined' ? vars['pinterestImage'] : '') %>">
+<meta property="pinterest:url" content="<%=(vars&& typeof vars['pinterestURL'] != 'undefined' ? vars['pinterestURL'] : '') %>">
+<meta property="pinterest:description" content="<%=(vars&& typeof vars['pinterestDescription'] != 'undefined' ? vars['pinterestDescription'] : '') %>">
+<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script type="text/javascript">
+requirejs.config({
+    appDir: ".",
+    baseUrl: "js",
+    paths: { 
+        'jquery': ['https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min', 'https://promocms.dja.com/js/jquery.min'],
+        'bootstrap': ['https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min', 'https://promocms.dja.com/js/bootstrap.min'],
+        'validation': ['https://promocms.dja.com/js/validation.basic'],
+    },
+    shim: {
+        'bootstrap' : ['jquery'],
+		'validation' : ['jquery']
+    }
+});
+
+require(['jquery', 'bootstrap','validation'], function($) {
+       
+    return {};
+});
+
+</script>
+<%-(vars&& typeof vars['customHeadValues'] != 'undefined' ? vars['customHeadValues'] : '') %>
+
+<!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script>
+function fbShare(winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent($("meta[property='og:url']").prop('content')), 'fb_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+    }
+
+function tweet(winWidth, winHeight){
+	
+	var share_text = encodeURIComponent($("meta[property='twitter:description']").prop('content'));
+	var share_url = encodeURIComponent($("meta[property='twitter:url']").prop('content'));
+	var url_param = '&url=';
+	if(share_url)url_param += share_url;
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	window.open('https://twitter.com/share?text='+share_text+url_param, 'twtr_sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width='+winWidth+',height='+winHeight);
+			
+}
+
+function pinterest(winWidth, winHeight){
+	
+	var winTop = (screen.height / 2) - (winHeight / 2);
+	var winLeft = (screen.width / 2) - (winWidth / 2);
+	
+	window.open('http://pinterest.com/pin/create/button/?url='+encodeURIComponent($("meta[property='pinterest:url']").prop('content'))+'&media='+encodeURIComponent($("meta[property='pinterest:image']").prop('content'))+'&description='+encodeURIComponent($("meta[property='pinterest:description']").prop('content')), 'pin', 'top=' + winTop + ',left=' + winLeft +',menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+winHeight+',width='+winWidth);
+	
+}
+</script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+<style>
+body {
+	font-size: 12px;
+}
+.footer {
+	padding: 10px 10px 10px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+label {
+	display: block;
+}
+input[type='text'] {
+	width: 100%;
+}
+.formfield {
+	margin-top: 5px;
+}
+.flex-control-thumbs li {
+	width: 20%!important;
+}
+.flex-control-thumbs img {
+}
+.input_wrapper img {
+	display: none;
+}
+.input_wrapper.error_container img {
+	display: inline;
+}
+.error_container {
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+	border: 1px solid red !important;
+	display: inline-block;
+	zoom: 1;
+ *display:inline;
+	white-space: nowrap;
+}
+.error_container input {
+	margin: 0px;
+	background-image: url('https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/form/images/error.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+}
+.error_container input, .error_container select {
+	border: 0px;
+}
+.error_container textarea {
+	background: #EDAABD !important;
+}
+.input_wrapper {
+	display: inline-block;
+	zoom: 1;
+*display:inline;
+	white-space: nowrap;
+}
+.fb-comments, .fb-comments iframe[style], .fb-comments span, .fb-comments div, .fb-post, .fb-post *, .fb-follow, .fb-follow * , .fb-like-box, .fb-like-box *, .fb-like, .fb-like * {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+ /* CSS Document */
+.wrapper {
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF777777', endColorstr='#FF494949');background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #494949));background-image:-webkit-linear-gradient(#777777,#494949);background-image:-moz-linear-gradient(#777777,#494949);background-image:-o-linear-gradient(#777777,#494949);background-image:linear-gradient(#777777,#494949);
+	background:url(https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/core-bg-white.jpg);
+	color:#fff;
+}
+.well {
+	/*background:#5F6062;*/
+	background:#262324;
+	
+	-webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+	}
+.page-header {
+	margin-top:0;
+}
+#marriottLogo {
+	max-width:150px;
+	width:80%;
+	background:#fff;
+	padding:1em;
+	 -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.page-header img {
+	 -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.28);
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+    -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   border:1px solid #000;
+}
+.shareImg {
+	margin-bottom:10px;
+}
+.shareImg img {
+	cursor:pointer;
+}
+h1, .h1 {
+	font-weight:bold;
+	text-align:center;
+	color:#A0072B;
+	 -webkit-text-shadow: 2px 2px rgba(0,0,0,1);
+   -moz-text-shadow: 2px 2px rgba(0,0,0,1);
+   text-shadow: 2px 2px rgba(0,0,0,1);
+}
+footer a {
+	color:#E3E1DE;
+	text-decoration:underline;
+}
+footer a:hover {
+	color:#A0072B;
+}
+.show-desktop {
+		display:block;
+	}
+	.show-mobile {
+		display:none;
+	}
+@media screen and (max-width:810px) and (min-width:769px){
+h1 {
+	font-size:24px;
+	margin:10px;
+}
+.container {	
+	width:100%;
+	padding:0;
+}
+.col-md-3 {
+    width: 25%;
+}
+.col-md-4 {
+    width: 33.3333%;
+}
+.col-md-5 {
+    width: 41.6667%;
+}
+.col-md-6 {
+	width:50%;
+}
+.col-sm-7 {
+	padding: 0;
+}
+.col-md-3,.col-md-4,.col-md-5, .col-md-6 {
+	float:left;
+}
+}
+@media screen and (max-width:768px){
+	.show-desktop {
+		display:none;
+	}
+	.show-mobile {
+		display:block;
+	}
+}
+</style>
+</head>
+
+<body>
+<div id="fb-root"></div>
+
+<script>
+if(window.self != window.top){
+	document.body.style.overflow = 'hidden'; document.body.scroll = 'no';
+};
+
+ window.fbAsyncInit = function() {
+	
+    FB.init({
+      appId      : '<%=(vars&& typeof vars["app_id"] != "undefined") ? vars["app_id"] : "" %>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	if(typeof window.fbAsyncInitCallback == 'object'){
+	
+		for(var f in fbAsyncInitCallback){
+		
+			if(fbAsyncInitCallback.hasOwnProperty(f) && typeof fbAsyncInitCallback[f] == 'function'){
+			
+				fbAsyncInitCallback[f]();
+				
+			}
+			
+		}
+		
+	}
+	
+  };
+  
+ (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>
+
+<div class="wrapper">
+  <div id="content" class="col-sm-12">
+    <div class="container">
+      <div class="row">
+        <div class="text-center"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/marriott-m-logo.png" alt="Marriott" id="marriottLogo"/> </div>
+        <div class="page-header col-sm-12">
+          <div class="row">
+            <div class="col-md-12 text-right shareImg"> <a href="#" onclick="fbShare(520, 350);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/facebook.png" alt="Facebook"></a> <a href="#" onclick="tweet(550, 520);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/twitter.png" alt="Twitter"></a> <a href="#" onclick="pinterest(800, 480);return false;"><img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/pinterest.png" alt="Pinterest"></a> </div>
+          </div>
+          <div data-panel="1">
+            <div class="row">  <div class="col-md-12"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/main.jpg" alt="image" id="427a8e38-11e6-4beb-a5a1-7fac7927032f" style="width: 100%; max-width:100%;"> </div>
+</div><div class="row">
+<div class="col-md-12">
+  <div id="7bc85bfc-3b51-4a12-aae1-898e61d2470b">
+    <h2></h2><h2>You Could Win a Weekend
+Getaway at Gaithersburg Marriott Washingtonian Center!</h2>
+  </div>
+</div>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="2"> 
+              <div class="row">
+<div class="col-md-12">
+  <div id="bb8bd1c3-ef99-49ae-a06c-3636880b622a">
+    Let’s
+help each other remember! We don’t mean to forget special occasions, but dates
+are hard to recall, unless you’re lucky to have your event on a memorable one
+like 12.13.14 — the century’s final sequential date.<br>To
+celebrate this crazy phenomenon, each month through 12.13.14 we’re giving away
+a weekend getaway with breakfast for two at Gaithersburg Marriott Washingtonian
+Center — a prize package that’s sure to make your next special occasion
+memorable. Enjoy the sophisticated charm of our renovated Marriott Greatroom,
+new American restaurant and elegant lakeside wedding and event space near the
+nation’s capital.<br>Submit
+your best tip for remembering an occasion or brief story about something that
+made an event memorable. Enter monthly — there’s a new winner on the 13th of
+each month!
+
+<br>
+  </div>
+</div>
+</div><div class="row">
+<div class="col-md-12">
+  <div class="flexslider" id="61c5e04c-99ed-49fc-9281-502c42d47dee">
+    <ul class="slides" >
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide1.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide1.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide2.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide2.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide3.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide3.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide4.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide4.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide5.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide5.jpg" alt="" /> </li>
+      
+      <li data-thumb="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide6.jpg"> <img src="https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/mhr_gaithersburg/images/slide6.jpg" alt="" /> </li>
+      
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+
+ require.config({
+        paths: {
+            'jquery.flexslider': 'https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/flexslider/flexslider'
+        },
+		shim: {
+       	 'jquery.flexslider': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.flexslider'
+       	 }
+		}
+    });
+	
+require(["jquery", "jquery.flexslider"],
+	function ($,   flexslider) {
+     $('#61c5e04c-99ed-49fc-9281-502c42d47dee').flexslider({
+  		animation: "slide",    controlNav: "thumbnails",    smoothHeight: true
+ 	 })
+	 	 
+});
+
+    var link = document.createElement("link");
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = "https://0da60bded15fd7273900-c3b572a873829e347e4db4dadf512257.ssl.cf1.rackcdn.com/common/flexslider/flexslider.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+	
+
+</script> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="panel panel-default well">
+            <div class="panel-body" data-panel="3"> 
+              <div class="row">
+<div class="col-md-12">
+  <div id="9a674523-d3ca-4d94-80b5-d43b911f6272">
+    You're not eligible to participate.
+  </div>
+</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer class="footer" data-panel="4">
+            <div class="well"> 
+              <div class="row">
+<div class="col-md-12">
+  <div id="95915242-b94d-45d0-85ae-91bd9ab1e2f5">
+    No purchase necessary. Open to legal residents of the 50 U.S. and D.C., 21+.<br>
+<br>
+The Sweepstakes is in no way sponsored, endorsed or administered by, or associated with, Facebook. You understand that you are providing your information to Marriott International, Inc. and not to Facebook. The information you provide will only be used in connection with this Sweepstakes or in connection with promotional or other activities of Marriott International, Inc.<br>
+  </div>
+</div>
+</div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+  <div class="formfield">
+    <label for="<%= (typeof id != 'undefined') ? id : '' %>">
+      <%- (typeof label == 'string') ? label : '' %>
+    </label>
+    <input type="text" placeholder="<%= (typeof placeholder != 'undefined') ? placeholder : '' %>" id="<%= (typeof id != 'undefined') ? id : '' %>" name="<%= (typeof inputName != 'undefined') ? inputName : '' %>" data-match="<%= (typeof dataMatch != 'undefined') ? dataMatch : '' %>" data-validation="<%= (typeof validation != 'undefined') ? validation : '' %>"  data-required="<%= (typeof required != 'undefined') ? required : '' %>"  maxlength="<%= (typeof maxlength != 'undefined') ? maxlength : '' %>">
+  </div>
+</div>

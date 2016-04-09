@@ -1,0 +1,39 @@
+
+<div class="col-md-<%= (typeof gridPanelSize != 'undefined') ? gridPanelSize : '12'%>">
+
+<% if(style != 'custom'){ %>
+<div class="g-plus" data-action="share" data-annotation="<%=style%>" id="<%= (typeof id != 'undefined') ? id : '' %>" data-href="<%= (typeof url != 'undefined') ? (url.split('#')[0]) : '' %><%= ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') %><$$=(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') $$>"></div>
+<% }else{ %>
+<a href="https://plus.google.com/share?url=<%= (typeof url != 'undefined' && url) ? encodeURIComponent(url.split('#')[0]) : '' %><%= (typeof url != 'undefined' && url) ? encodeURIComponent((url.indexOf('?') === -1 ? '?' : '&')+'ref=') : '' %><$$= (typeof url != 'undefined' && url) ? encodeURIComponent(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') : '' $$>"  data-url="<%= (typeof url != 'undefined') ? (url.split('#')[0]) : '' %><%= ((url.indexOf('?') === -1 ? '?' : '&')+'ref=') %><$$=(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') $$>" id="<%= (typeof id != 'undefined') ? id : '' %>" onclick="javascript:window.open('https://plus.google.com/share?url=' + ('<%= (typeof url != 'undefined' && url) ? encodeURIComponent(url.split('#')[0]) : '' %><%= (typeof url != 'undefined' && url) ? encodeURIComponent((url.indexOf('?') === -1 ? '?' : '&')+'ref=') : '' %><$$= (typeof url != 'undefined' && url) ? encodeURIComponent(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') : '' $$>' || encodeURIComponent(window.location.href.split('?')[0].split('#')[0])+'<%= encodeURIComponent((url.indexOf('?') === -1 ? '?' : '&')+'ref=') %><$$= encodeURIComponent(vars&& typeof vars['uid'] != 'undefined' ? vars['uid'] : '') $$>'),
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+  src="<%= (typeof src != 'undefined') ? src : 'https://www.gstatic.com/images/icons/gplus-64.png' %>" alt="Share on Google+"/></a>
+<% } %>
+  
+</div>
+<script>
+
+ (function(){
+	 
+	 var s = document.getElementById("<%= (typeof id != 'undefined') ? id : '' %>");
+
+ if(!s.getAttribute("data-url")){
+	
+	 s.href += encodeURIComponent(window.location.href.split('?')[0].split('#')[0]);
+	 
+  }
+  
+ })();
+
+ require.config({
+        paths: {
+            'google_plus_widget': 'https://apis.google.com/js/platform'
+        }
+    });
+	
+require(["google_plus_widget"],
+	function () {
+    
+});
+</script>
+
+

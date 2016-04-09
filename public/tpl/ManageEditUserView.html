@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="page-header-top">
+    <div class="container">
+      <h2>Manage Roles <small>Edit User</small></h2>
+      <% if(suspended){ %>
+      <button type="button" class="btn btn-info" id="reactivateUser">Reactivate User</button>
+      <button type="button" class="btn btn-danger" id="deleteUser">Delete User</button>
+      <% }else{ %>
+      <button type="button" class="btn btn-danger" id="deleteUser">Disable User</button>
+      <% } %>
+    </div>
+  </div>
+  <div class="">
+    <form id="editUserForm">
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="firstName" name="firstName" placeholder="First Name" value="<%=  (typeof firstName != 'undefined') ? _.escape(firstName) : '' %>">
+      </div>
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="lastName" name="lastName" placeholder="Last Name" value="<%=  (typeof lastName != 'undefined') ? _.escape(lastName) : '' %>">
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group col-sm-5">
+        <input type="text" class="form-control input-lg" id="email" name="email" placeholder="Email" value="<%=  (typeof email != 'undefined') ? _.escape(email) : '' %>" readonly>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group col-sm-5">
+        <input type="password" class="form-control input-lg" id="newPassword" name="newPassword" placeholder="New Password">
+      </div>
+      <div class="form-group col-sm-5">
+        <input type="password" class="form-control input-lg" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
+      </div>
+      <div class="col-sm-8 bottom-buffer">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" id="rolesDropdown" data-toggle="dropdown">Roles <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">View Promo</a></li>
+              <li><a href="#">Edit Promo</a></li>
+              <li><a href="#">Add Promo</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Manage Users</a></li>
+              <li><a href="#">Admin</a></li>
+            </ul>
+          </div>
+          <!-- /btn-group -->
+          <input type="text" class="form-control" id="roles" name="roles" >
+        </div>
+        <% if(typeof groups != 'undefined'){ %>
+        <div class="input-group" style="margin-top: 40px;"> <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> User Group(s) </span>
+          <input type="text" class="form-control" id="groups" name="groups" >
+        </div>
+        <% } %>
+        <!-- /input-group --> 
+      </div>
+      <!-- /.col-sm-3 -->
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-success btn-lg" id="editUser">Edit User</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.row -->
+  <div class="clear-fix" ></div>
+  <div style="padding: 10px 16px; clear: both;"><a href="#manage">Cancel</a></div>
+  <div class="modal fade" id="deleteUserModal" aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Suspend or Delete user</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to suspend or delete this user?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="deleteUserConfirm">Delete Permanently</button>
+          <button type="button" class="btn btn-warning" id="suspendUserConfirm">Suspend</button>
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+</div>

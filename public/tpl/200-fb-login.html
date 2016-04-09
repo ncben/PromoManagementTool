@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+<title>PromoCMS</title>
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script type='text/javascript'>
+
+	
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<%=(typeof app_id != 'undefined') ? app_id : '' %>', // App ID
+	  channelUrl : '//'+document.domain+'/fb-static/channel', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse XFBML
+	  frictionlessRequests: true, 
+	  oauth: true
+    });
+	
+	setTimeout("FB.Canvas.setAutoGrow()",500);
+	FB.Canvas.scrollTo(0,0); 
+	
+	var skipPermissionHandler = function(){
+	
+	  window.location = '/auth/skip?in_iframe=1&signed_request=<%=(typeof signed_request != 'undefined') ? signed_request : '' %>&target=&next='+encodeURIComponent(window.location.href)
+
+	 	
+	}
+	
+	 FB.login(function(response) {
+	   if (response.authResponse) {
+
+		 FB.api('/me/permissions', function(response) {
+		    if(response && typeof response.data =='object' && response.data[0]){ 
+				var scopes = "<%=(typeof scope != 'undefined') ? scope : '' %>".split(',');
+				var hasAllPermissions = true;
+				for(var i=0;i<scopes.length;i++){
+				
+					if(response.data[0][scopes[i]] !== 1){
+						
+						 hasAllPermissions=false; 
+						 skipPermissionHandler();
+						 break;
+
+					}
+					
+				}
+				
+				
+				window.top.location = "<%=(typeof app_url != 'undefined') ? app_url : '' %><%=(typeof next_url != 'undefined') ? next_url : '' %>";
+				
+		     }else{
+			
+				skipPermissionHandler();	 
+			 }
+			   
+			 
+		 });
+		 
+	   }else{
+				skipPermissionHandler();	 
+		   
+	   }
+	   
+	 }, {scope: '<%=(typeof scope != 'undefined') ? scope : '' %>'});
+	
+  };
+
+  // Load the SDK Asynchronously
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+</script>
+<form method="post" id="proxy_form">
+  <input type="hidden" autocomplete="off" id="signed_request" name="signed_request" />
+</form>
+<script>  
+  function submitForm(appTabUrl, signedRequest) {
+    var proxyForm = document.getElementById("proxy_form");
+    proxyForm.setAttribute("action", appTabUrl);
+    var input = document.getElementById("signed_request");
+    input.setAttribute("value", signedRequest);
+    proxyForm.submit();
+  }
+  
+</script>
+<noscript>
+<div class="pam uiBoxGray">You need Javascript enabled in your browser to use Facebook Applications.</div>
+</noscript>
+</body>
+</html>
